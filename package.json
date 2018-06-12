@@ -2,6 +2,11 @@
   "name": "project3",
   "version": "0.1.0",
   "private": true,
+  "main": "server.js",
+  "devDependencies": {
+    "concurrently": "^3.5.0",
+    "nodemon": "^1.11.0"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
@@ -16,10 +21,11 @@
     "react-scripts": "1.1.4"
   },
   "scripts": {
+    "server": "node server.js",
+    "client": "cd client && npm run start",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  },
-  "proxy": "http://localhost:3000/"
+  }
 }

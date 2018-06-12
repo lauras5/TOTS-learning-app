@@ -10,7 +10,7 @@ var ShapesSchema = new Schema ({
         type: String,
         required: true
     },
-    url : {
+    image : {
         type: String,
         required: true
     }

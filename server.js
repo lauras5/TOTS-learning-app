@@ -1,26 +1,22 @@
 // require dependencies
-const path = require('path')
 const express = require('express');
+const path = require('path')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
-const db = require('./server/models');
-
+const PORT = process.env.PORT || 3001;
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+// allows you to use nexted js objects together
+app.use(bodyParser.urlencoded({ extended: true }));
+// allows you to manipulate json
+app.use(bodyParser.json());
+app.use(require('./routes/apiroutes'))
+// Serve up static assets (usually on heroku)
 
-
-
-// parse application/s-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
-
-const dirPath = __dirname + '\\client\\public'
-app.set('public', dirPath);
-// app.set('public', path.join(__dirname, '\client\public'))
-console.log(dirPath)
-app.set('view engine', 'jsx');
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/projectDB';
 
@@ -28,12 +24,11 @@ mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
 
-app.get('/api/hello', function (req, res) {
-  res.send({express:'Hello From Express'})
+app.get('/', (req, res) => {
+  res.sendFile(__dirname, './client/public/index.html')
 });
  
-app.listen(PORT, (err) => {
-  if (err) throw err;
-  console.log('Group Project 3 listening on Port ' + PORT)
+app.listen(PORT, () => {
+  console.log(`🌎 ==> Server now on port ${PORT}!`);
 });
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Main = () => {
     return(
-        <div>I am the main page</div>
+        <div>I am the main page, the login form wil show up here</div>
     )
 }
 
