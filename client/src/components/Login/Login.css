@@ -1,0 +1,32 @@
+.tree {
+    background: url(./images/background4.gif);
+    background-repeat: no-repeat;
+    height: 475px;
+    width: 1275px; 
+   /*  background-size: auto; */
+   
+   
+    
+}
+
+#username {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative; left: 500px;
+    position: relative; top: 145px;
+    
+}
+
+#password {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative; left: 100px;
+    position: relative; top: 245px;
+}
+
+#login {
+    font-size: 24px;
+    font-weight: bold;
+    position: relative; left: 2px;
+    position: relative; top: 345px;
+}

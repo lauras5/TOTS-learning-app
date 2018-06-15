@@ -11,21 +11,25 @@ class Login extends Component {
     // login functions go here
     render() {
         return (
-            <Fragment>
-                <div>I am the Login page</div>
+            <div class="tree">
+            <fragment>
+{/*                 <div>I am the Login page</div> */}
                 <form action="" name='loginForm'>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" name='username' />
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name='username' />
-                    <label htmlFor="username">Password</label>
-                    <input type="text" name='username' />
-                    <button>Let's Go!</button>
+                    <label id="username" htmlFor="username">Username</label>
+                    <input id="username" type="text" name='username' />
+{/*                     <label htmlFor="email">Email</label> */}
+                  {/*   <input type="text" name='username' /> */}
+                    <label id="password" htmlFor="password">Password</label>
+                    <input id="password" type="text" name='password' />
+                    <button id="login">  Let's Go!</button>
                 </form>
-            </Fragment>
+            </fragment>
+            </div>
 
         )
     }
 }
+
+
 
 export default Login;

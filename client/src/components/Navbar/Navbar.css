@@ -13,3 +13,30 @@ Link {
     text-decoration: none;
     color: black;
 }
+/* #nav-main{
+    font-weigth: bold;
+    color: rgb(184, 14, 14);
+    text-align: center;
+    position: relative; left: 800px;
+}
+.dropdown-toggle{
+    position: relative; left: 800px;
+}
+
+.dropdown-menu{
+    position: relative; left: 800px;
+}
+
+.dropdown-item{
+    position: relative; left: 800px;
+} */
+
+.navbar-collapse{
+    position: relative; left: 800px;
+}
+
+
+
+.navbar {
+    background-color: rgb(119, 0, 255);
+}
