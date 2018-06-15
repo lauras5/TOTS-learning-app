@@ -27,5 +27,16 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
-  }
+  },
+  "description": "Group Project #3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauras5/Time-Out-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauras5/Time-Out-App/issues"
+  },
+  "homepage": "https://github.com/lauras5/Time-Out-App#readme"
 }
