@@ -8,11 +8,15 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
+// Routes
+const numberGame = require('./routes/numbergame.routes')
+
 // allows you to use nexted js objects together
 app.use(bodyParser.urlencoded({ extended: true }));
 // allows you to manipulate json
 app.use(bodyParser.json());
-app.use(require('./routes/apiroutes'))
+// use number game routes
+app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
 
 if (process.env.NODE_ENV === "production") {
