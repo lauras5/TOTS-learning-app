@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import About from './components/About'
 import Cards from './components/cardGame';
+import ColorGame from './components/colorGame/colorGame';
 
 const AppRouter = () => {
 // class AppRouter extends Component {
@@ -19,6 +20,7 @@ const AppRouter = () => {
                     <Route path='/Home' component={Home} />
                     <Route path='/About' component={About} />
                     <Route path='/Parents' component={Parents} />
+                    <Route path='/colorGame' component={ColorGame} />
                     <Route path='/cardGame' component={Cards} />
                     {/* <Route path='/numbersGame' component={Numbers} /> */}
                     {/* <Route path='/shapesGame' component={Shapes} /> */}
