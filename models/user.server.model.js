@@ -9,7 +9,19 @@ var usermodel = new Schema ({
     email : {
         type: String, 
         default: 'abc@gmail.com'
-    }
+    },
+    numberGame : {
+        timesPlayed: Number,
+        averageScore: Number,
+    },
+    memoryGame : {
+        timesPlayed: Number,
+        averageScore: Number,
+    },
+    otherGame : {
+        timesPlayed: Number,
+        averageScore: Number,
+    },
 });
 
 var User = mongoose.model('User', usermodel);
