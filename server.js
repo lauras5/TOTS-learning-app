@@ -16,13 +16,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // allows you to manipulate json
 app.use(bodyParser.json());
-<<<<<<< Updated upstream
 // use number game routes
 app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
-=======
 app.use(require('./routes/apiroutes'));
->>>>>>> Stashed changes
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
