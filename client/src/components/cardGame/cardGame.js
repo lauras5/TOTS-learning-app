@@ -2,24 +2,12 @@ import React, { Component, Fragment } from 'react';
 import cardList from '../../cards.json';
 import './cardGame.css';
 
-cardList.map(card => {
-    console.log(card)
-})
+// cardList.map(card => {
+//     console.log(card)
+// })
 
 
 class Cards extends Component {
-    state = {
-        turned : false
-    }
-
-    handleClickEvent(event) {
-        this.turnCard = () => {
-            this.setState({turned : true})
-    
-            cardVal = this.value
-            console.log(cardVal)
-        }
-    }
 
     // if cards dont match, flip = false
     // if they match, flipped = true and highlight
@@ -27,6 +15,16 @@ class Cards extends Component {
     // store times and get avg, low and high
     // add timer to app
     // timer starts when they make the first click, ends when all cards flipped = true
+
+    state = {
+        turned : false
+    }
+
+    turnCard(e) {
+        var i = this.value
+        this.setState({turned: true})
+        console.log(i)
+    }
 
     render() {
         return (
@@ -36,8 +34,8 @@ class Cards extends Component {
                     {cardList.map(card =>
                         <Fragment>
                             <div className='col s3 m2' >
-                                <div onClick={turnCard()} class='card-small waves-effect waves-light blue'>
-                                    <img onClick={turnCard()}id='cardImages' value={card.id} src={card.image} alt={card.name} />
+                                <div onClick={this.turnCard} class='card-small waves-effect waves-light blue'>
+                                    <img onClick={this.turnCard}id='cardImages' value={card.id} src={card.image} alt={card.name} />
                                     <h3>{card.name}</h3>
                                 </div>
                             </div>
