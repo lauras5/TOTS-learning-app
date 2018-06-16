@@ -1,5 +1,5 @@
-var mongoose = require('mongoose')
-var Schema = mongoose.Schema
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var NumberGameSchema = new Schema({
     question: String,
@@ -42,6 +42,10 @@ NumberGameSchema.methods.populateNumberGameQuestionsData = function populateNumb
         }
     ]
     this.model('NumberGame').save(error => {
-        if (error) throw error
-    })
-}
+        if (error) throw error;
+    });
+};
+
+var NumberGame = mongoose.model('NumberGame', NumberGameSchema);
+
+module.exports = NumberGame;
