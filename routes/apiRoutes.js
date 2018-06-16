@@ -47,9 +47,4 @@ Router.get('/api/user', function (req, res) {
     res.send({ express: 'Hello From Express' })
 });
 
-// Router.put('/users/:id')
-
-// Router.delete('/users')
-// Router.delete('/users/:id')
-
 module.exports = Router

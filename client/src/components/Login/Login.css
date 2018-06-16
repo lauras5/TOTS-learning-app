@@ -1,32 +1,34 @@
+.card {
+    width: 60%;
+    display: block;
+    margin: auto;
+    padding: 30px;
+    margin-bottom: 19px;
+}
+
+#userInput {
+    color: #424141;
+    background-color: #aae9f1;
+    text-align: center;
+    font-weight: 500;
+    border: 1px solid #b9b9b9;
+}
+
+#submitBtn {
+    display: block;
+    margin: auto;
+    padding: 7px;
+    margin-top: 10px;
+    width: 30%;
+    background-color: #14dc0f;
+    border: none;
+    box-shadow: 2px 2px 2px darkolivegreen;
+    color: white;
+    font-size: 20px;
+}
+
 .tree {
     background: url(./images/background4.gif);
     background-repeat: no-repeat;
-    height: 475px;
-    width: 1275px; 
-   /*  background-size: auto; */
-   
-   
-    
-}
-
-#username {
-    font-size: 24px;
-    font-weight: bold;
-    position: relative; left: 500px;
-    position: relative; top: 145px;
-    
-}
-
-#password {
-    font-size: 24px;
-    font-weight: bold;
-    position: relative; left: 100px;
-    position: relative; top: 245px;
-}
-
-#login {
-    font-size: 24px;
-    font-weight: bold;
-    position: relative; left: 2px;
-    position: relative; top: 345px;
+    background-size: cover;
 }

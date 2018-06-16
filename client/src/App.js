@@ -8,34 +8,14 @@ import './App.css';
 //import { Button, Card, Row, Col } from 'react-materialize';
 
 class App extends Component {
-    // componentDidMount() {
-    //     axios.post('/users', {
-    //         name: 'Pablo',
-    //         email: 'this@email.com'
-    //     })
-
-    //     .then(r => {
-    //         console.log(r)
-    //         axios.get('/users') 
-    //         .then(r = {
-    //             console.log(r)
-    //         })
-    //         .catch(e => {
-    //             console.log(e)
-    //         })
-    //     })
-    // }
     render() {
         return (
-            
-        
+
+
             <Fragment>
-            
+                <Navbar />
                 <AppRouter />
-                
-           <Login/>
-                 <Footer /> 
-        
+                <Footer />
             </Fragment>
         )
     }

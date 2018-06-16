@@ -1,34 +1,32 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Main from './components/main';
-import About from './components/about'
-import Profile from './components/profile';
-import Shapes from './components/shapes';
-import Alphabet from './components/alphabet';
-import Numbers from './components/numbers';
-import Colors from './components/colors';
+import Parents from './components/Parents';
 import Login from './components/Login';
+import Home from './components/Home';
+import About from './components/About'
+import Cards from './components/cardGame';
 
-class AppRouter extends Component {
-    render() {
+const AppRouter = () => {
+// class AppRouter extends Component {
+//     render() {
         return (
             <Router>
                 <div>
                     {/* edit username */}
-                    <Navbar username='Laura' message='welcome back!'/>
-                    <Route path='/main' component={Main} />
-                    <Route path='/about' component={About} />
-                    <Route path='/profile' component={Profile} />
-                    <Route path='/shapes' component={Shapes} />
-                    <Route path='/alphabet' component={Alphabet} />
-                    <Route path='/numbers' component={Numbers} />
-                    <Route path='/colors' component={Colors} />
+                    <Navbar username='User' message='welcome back!'/>
                     <Route path='/Login' component={Login} />
+                    <Route path='/Home' component={Home} />
+                    <Route path='/About' component={About} />
+                    <Route path='/Parents' component={Parents} />
+                    <Route path='/cardGame' component={Cards} />
+                    {/* <Route path='/numbersGame' component={Numbers} /> */}
+                    {/* <Route path='/shapesGame' component={Shapes} /> */}
+                    {/* <Route path='/alphabetGame' component={Alphabet} /> */}
                 </div>
             </Router>
         )
     }
-}
+// }
 
 export default AppRouter;
