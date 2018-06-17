@@ -5,6 +5,7 @@
 
 #cardImages {
     width: 100%;
+    display: hidden;
 }
 
 #shuffleBtn {

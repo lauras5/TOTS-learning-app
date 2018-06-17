@@ -4,6 +4,7 @@ import { Button, Icon } from 'react-materialize'
 import './Home.css';
 
 const Home = () => {
+
         return (
             <Fragment>
                 <Button waves='light'>
@@ -24,6 +25,8 @@ const Home = () => {
                 </ul>
             </Fragment>
         )
-    }
+    }  
+
+
 
 export default Home;
