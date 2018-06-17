@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Red",
+    "image": "https://previews.123rf.com/images/terbrana/terbrana1307/terbrana130700106/21065549-apple-cartoon.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Blue",
+    "image": "https://i.pinimg.com/originals/3c/5e/07/3c5e077b7bcc90eada5d5d9673082a9c.gif"
+  },
+  {
+    "id": 3,
+    "name": "Green",
+    "image": "https://i.pinimg.com/originals/d6/14/ca/d614ca621b5f27691aa6512642611e10.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Purple",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtORKL4BQaZtFG3GoWU7mmZnkLwdYKNOnUY3d8McgEup_F3qwV"
+  }
+]
