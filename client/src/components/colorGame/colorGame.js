@@ -7,21 +7,24 @@ import ColorCard from "./colorCard";
 class ColorGame extends Component {
 
     state = {
-        score: 0, //current score
-        name:'Empty',
-        color,
-        idPicked: [] //initially, this is an exact copy of sushi from the json object      }
+        correctScore: 0,
+        incorrectScore: 0,
+        colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
+        color //initially an exact copy of color.json
+
     }
 
-    
+
     //************************************************************************************* */
-    //randomRender Function = sets the state variables score and idPicked to 0 and empty array.  
-    //This function also rerenders the sushi in a randomized fashion.
+    //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
     //      Other functions used:  shuffle()
     //*************************************************************************************** */
     randomRender = () => {
-        this.shuffle(this.state.color).map(colorFromArray =>
-            <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
+        // this.setColorToGuess()  --  this messes it up???
+        return (
+            this.shuffle(this.state.color).map(colorFromArray =>
+                <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
+            )
         )
     }
 
@@ -46,59 +49,82 @@ class ColorGame extends Component {
         return array;
     }
 
-      //************************************************************************************* */
-    //reinitialize Function = sets the state variables score and idPicked to 0 and empty array.  
-    //This function also rerenders the sushi in a randomized fashion.
+    //************************************************************************************* */
+    //reinitialize Function = sets the state variables score and incorrectScore to 0 
+    //This function also rerenders the tiles in randomized fashion
     //      Other functions used:  randomRender()
     //*************************************************************************************** */
     reinitialize = () => {
-        this.setState({ score: 0 })
-        this.setState({ idPicked: [] })
+        this.setState({ correctScore: 0 })
+        this.setState({ incorrectScore: 0 })
+
         this.randomRender()
     }
 
-    
+
 
     //*************************************************************************************** */
-    //handleClicked Function = Once a sushi is clicked, values are passed to state variables.  This is also
-    //where it's determined if the game goes on, won, or lost.
-    //      Other functions used: reinitialize(), randomRender()
+    //handleClicked Function = determines if correct card is clicked.  Updates state's correct
+    //and incorrect scores as needed.  Also sets the colorToGuess in the state.  Also rerenders tiles.
+    //      Other functions used:  setColorToGuess(), randomRender()
     //**************************************************************************************** */
     handleClicked = (name) => {
-        this.setState({ name: name })
-        this.setState({ score: this.state.score + 1 })
-        alert("Hello " + name)
+        // console.log(colorNameToGuess)
 
+        if (name === this.state.colorNameToGuess) {
+            alert("Yes! ")
+            this.setState({ correctScore: this.state.correctScore + 1 })
 
+        }
+        else {
+            alert("No! Supposed to be " + this.state.colorNameToGuess + ". You picked " + name)
+            this.setState({ incorrectScore: this.state.incorrectScore + 1 })
 
-        //If picked index was previously picked, game ends. score is reset, highscore is set if it makes sense,
-        //and randomized sushi cards are rerendered via reinitialize
-        // for (var i = 0; i < this.state.idPicked.length; i++) {
-        //     if (id === parseInt(this.state.idPicked[i])) {
-        //         //debug - console.log(id + "in there already")
-        //         if (this.state.score > this.state.highscore) {
-        //             this.setState({ highscore: this.state.score })
-        //         }
-        //         this.reinitialize()
-
-        //     }
-        // }
+        }
+        this.setColorToGuess()
         this.randomRender()
     }
 
+    //*************************************************************************************** */
+    //setColorToGuess function - picks a color to be guessed.  This is passed to the state.
+    //**************************************************************************************** */
+    setColorToGuess = () => {
+        //Set the correct answer 
+        const colorValues = ["Red", "Blue", "Green", "Yellow"]
+        const correctAnswer = colorValues[Math.floor(Math.random() * 4)]
+        this.setState({ colorNameToGuess: correctAnswer })
 
-    
+    }
+
+    //*************************************************************************************** */
+    //renderColortoGuess function - Tells the user what color to pick.  Text in page.
+    //**************************************************************************************** */
+    renderColortoGuess = () => {
+        return this.state.colorNameToGuess
+    }
+
+
+
+
+
 
     render() {
         return (
             <Fragment>
-            <div className = "container">
-                {color.map(colorFromArray =>
-                    <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
-                )}
-                <a id='shuffleBtn' className="waves-effect waves-light btn-large">New Game</a>
-            </div>
-                </Fragment>
+
+                <h1> The Color Game!</h1>
+                <div className="container">
+                    {this.randomRender()}
+
+                    <h1 id="colorToGuessText" className="pulsate">{this.renderColortoGuess()}</h1>
+
+                    <h6>Color to guess: {this.state.colorNameToGuess}</h6>
+                    <h6>Correct: {this.state.correctScore}</h6>
+                    <h6>Incorrect: {this.state.incorrectScore}</h6>
+
+                    <a id='shuffleBtn' className="waves-effect waves-light btn-small">New Game</a>
+                </div>
+            </Fragment>
         )
     }
 }
@@ -106,9 +132,6 @@ class ColorGame extends Component {
 export default ColorGame;
 
 
-    
-
-  
 
 
 
@@ -118,4 +141,7 @@ export default ColorGame;
 
 
 
-  
+
+
+
+
