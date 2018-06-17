@@ -1,21 +1,23 @@
 .card {
-    background: rgb(5, 5, 5);
+    background: rgb(243, 241, 241);
     /* background-size:cover;
     background-position:50%; */
     border-radius: 10px;
     margin: 5px;  
     width: 20%;
+    display:inline-block;
   }
   
   .card > .img-container {
-    margin: 5px;
-    background:rgb(13, 13, 14);
+    margin: 1px;
   }
   .card > .img-container > img {
          width: 100%;
    }
+
+
   
-#shuffleBtn {
+/* #shuffleBtn {
     display: block;
     margin: auto;
-}
+} */

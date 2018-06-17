@@ -8,6 +8,7 @@ class ColorGame extends Component {
 
     state = {
         score: 0, //current score
+        name:'Empty',
         color,
         idPicked: [] //initially, this is an exact copy of sushi from the json object      }
     }
@@ -20,7 +21,7 @@ class ColorGame extends Component {
     //*************************************************************************************** */
     randomRender = () => {
         this.shuffle(this.state.color).map(colorFromArray =>
-            <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} handleClicked={this.handleClicked} />
+            <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
         )
     }
 
@@ -63,22 +64,25 @@ class ColorGame extends Component {
     //where it's determined if the game goes on, won, or lost.
     //      Other functions used: reinitialize(), randomRender()
     //**************************************************************************************** */
-    handleClicked = id => {
+    handleClicked = (name) => {
+        this.setState({ name: name })
         this.setState({ score: this.state.score + 1 })
-        this.setState({ idPicked: [...this.state.idPicked, id] })
+        alert("Hello " + name)
+
+
 
         //If picked index was previously picked, game ends. score is reset, highscore is set if it makes sense,
         //and randomized sushi cards are rerendered via reinitialize
-        for (var i = 0; i < this.state.idPicked.length; i++) {
-            if (id === parseInt(this.state.idPicked[i])) {
-                //debug - console.log(id + "in there already")
-                if (this.state.score > this.state.highscore) {
-                    this.setState({ highscore: this.state.score })
-                }
-                this.reinitialize()
+        // for (var i = 0; i < this.state.idPicked.length; i++) {
+        //     if (id === parseInt(this.state.idPicked[i])) {
+        //         //debug - console.log(id + "in there already")
+        //         if (this.state.score > this.state.highscore) {
+        //             this.setState({ highscore: this.state.score })
+        //         }
+        //         this.reinitialize()
 
-            }
-        }
+        //     }
+        // }
         this.randomRender()
     }
 
@@ -88,11 +92,13 @@ class ColorGame extends Component {
     render() {
         return (
             <Fragment>
+            <div className = "container">
                 {color.map(colorFromArray =>
-                    <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} handleClicked={this.handleClicked} />
+                    <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
                 )}
-                <a id='shuffleBtn' class="waves-effect waves-light btn-large">New Game</a>
-            </Fragment>
+                <a id='shuffleBtn' className="waves-effect waves-light btn-large">New Game</a>
+            </div>
+                </Fragment>
         )
     }
 }
