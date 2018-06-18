@@ -2,46 +2,45 @@ import React, { Component, Fragment } from 'react';
 import cardList from '../../cards.json';
 import './cardGame.css';
 
-// cardList.map(card => {
-//     console.log(card)
-// })
-
 
 class Cards extends Component {
 
     // constructor(props) {
+    //     super(props)
     // }
-    // super(props)
     state = {
-        turned: false,
-        counter: 0
+        counter : 0,
+        tempArr : [],
+        correct : [],
+        time : ''
     }
-    // if cards dont match, flip = false
-    // if they match, flipped = true and highlight
-    // score is timed
-    // store times and get avg, low and high
-    // add timer to app
-    // timer starts when they make the first click, ends when all cards flipped = true
-
-    
 
     turnCard = (event) => {
+        this.state.counter = this.state.counter + 1
+        this.state.tempArr.push(event.target.getAttribute('value'))
+
         console.log(event.target.getAttribute('value'))
-        console.log('hello')
-        this.setState({ turned: true })
-        // add clicks, limit 2
-        
+        console.log(this.state)
+        console.log(this.state.tempArr)
+
+        if (this.state.counter % 2 === 0) {
+            if(this.state.tempArr[0] === this.state.tempArr[1]) {
+                alert(`Great Job!`)
+                this.state.correct.push(this.state.tempArr)
+                this.setState({tempArr: []})
+            } else {
+                alert('not a match')
+                this.setState({tempArr: []})
+            }
+            return
+        }
     }
 
-    cardsClicked = () => {
-        // counter max is 2
-        // if 2 cards are clicked, check to see if they are the same value, if they are keep them turned, if not, turn them back. 
-    }
-    
     newGame = () => {
-        // set state of all cards to false
         // shuffle cards
-        this.setState({ turned: false })
+        this.setState({counter: 0})
+        this.setState({tempArr: []})
+        this.setState({correct: []})
         console.log('reset game')
     }
 

@@ -103,11 +103,6 @@ class ColorGame extends Component {
         return this.state.colorNameToGuess
     }
 
-
-
-
-
-
     render() {
         return (
             <Fragment>
