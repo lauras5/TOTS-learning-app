@@ -1,6 +1,22 @@
+.card-small {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid dimgrey;
+    height:300px;
+}
+
 .card-small h3 {
     text-align: center;
     color: white;
+    
+}
+
+.notFlipped {
+    opacity: 0;
+}
+
+.flipped {
+    opacity: 1;
 }
 
 #cardImages {
@@ -11,4 +27,5 @@
 #shuffleBtn {
     display: block;
     margin: auto;
+    width: 20%;
 }
