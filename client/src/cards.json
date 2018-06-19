@@ -1,37 +1,73 @@
 [
     {
         "id" : 1,
-        "name" : "sushi",
+        "name" : "SUSHI",
         "image" : "https://orig00.deviantart.net/c3c8/f/2012/126/a/d/suchi_kawaii_by_edicioneslulu-d4yrtib.png",
         "sound": ""
     },
     {
         "id" : 2,
-        "name" : "burger", 
+        "name" : "BURGER", 
         "image" : "https://orig00.deviantart.net/830e/f/2012/052/4/5/gatito_hamburguesa_png_by_maniconfitado-d4qjhoh.png",
         "sound" : ""
     },
     {
         "id" : 3,
-        "name" : "ramen",
+        "name" : "RAMEN",
         "image" : "https://3.bp.blogspot.com/-sZDwIbxGlLI/V_ImVJmhN3I/AAAAAAAALxc/dldRNG-0X4cTST4tfDzkpA5W0QUWjND8ACLcB/s1600/food-stickers_0012_Layer27.png",
         "sound" : ""
     },
     {
         "id" : 4,
-        "name" : "sushi",
+        "name" : "SUSHI",
         "image" : "https://orig00.deviantart.net/c3c8/f/2012/126/a/d/suchi_kawaii_by_edicioneslulu-d4yrtib.png",
         "sound": ""
     },
     {
         "id" : 5,
-        "name" : "burger", 
+        "name" : "BURGER", 
         "image" : "https://orig00.deviantart.net/830e/f/2012/052/4/5/gatito_hamburguesa_png_by_maniconfitado-d4qjhoh.png",
         "sound" : ""
     },
     {
         "id" : 6,
-        "name" : "ramen",
+        "name" : "RAMEN",
+        "image" : "https://3.bp.blogspot.com/-sZDwIbxGlLI/V_ImVJmhN3I/AAAAAAAALxc/dldRNG-0X4cTST4tfDzkpA5W0QUWjND8ACLcB/s1600/food-stickers_0012_Layer27.png",
+        "sound" : ""
+    },
+    {
+        "id" : 7,
+        "name" : "SUSHI",
+        "image" : "https://orig00.deviantart.net/c3c8/f/2012/126/a/d/suchi_kawaii_by_edicioneslulu-d4yrtib.png",
+        "sound": ""
+    },
+    {
+        "id" : 8,
+        "name" : "BURGER", 
+        "image" : "https://orig00.deviantart.net/830e/f/2012/052/4/5/gatito_hamburguesa_png_by_maniconfitado-d4qjhoh.png",
+        "sound" : ""
+    },
+    {
+        "id" : 9,
+        "name" : "RAMEN",
+        "image" : "https://3.bp.blogspot.com/-sZDwIbxGlLI/V_ImVJmhN3I/AAAAAAAALxc/dldRNG-0X4cTST4tfDzkpA5W0QUWjND8ACLcB/s1600/food-stickers_0012_Layer27.png",
+        "sound" : ""
+    },
+    {
+        "id" : 10,
+        "name" : "SUSHI",
+        "image" : "https://orig00.deviantart.net/c3c8/f/2012/126/a/d/suchi_kawaii_by_edicioneslulu-d4yrtib.png",
+        "sound": ""
+    },
+    {
+        "id" : 11,
+        "name" : "BURGER", 
+        "image" : "https://orig00.deviantart.net/830e/f/2012/052/4/5/gatito_hamburguesa_png_by_maniconfitado-d4qjhoh.png",
+        "sound" : ""
+    },
+    {
+        "id" : 12,
+        "name" : "RAMEN",
         "image" : "https://3.bp.blogspot.com/-sZDwIbxGlLI/V_ImVJmhN3I/AAAAAAAALxc/dldRNG-0X4cTST4tfDzkpA5W0QUWjND8ACLcB/s1600/food-stickers_0012_Layer27.png",
         "sound" : ""
     }

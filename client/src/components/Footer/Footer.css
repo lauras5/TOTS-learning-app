@@ -2,11 +2,8 @@ footer {
    /*  background-color: rgb(119, 212, 57); */
     color: white;
     text-align: center;
-    position: fixed;
-    left: 0;
-    bottom: 0;
+    margin-top: 3%;
     width: 100%;
-    background-color: rgb(247, 40, 40);
     color: white;
     text-align: center;
    

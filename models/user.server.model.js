@@ -6,23 +6,26 @@ const passportLocalMongoose = require('passport-local-mongoose');
 var User = new Schema ({
     name : {
         type : String,
-        default: 'Quinchilla'
+        default: 'Quinchilla',
+        required : true
     },
     email : {
         type: String, 
-        default: 'abc@gmail.com'
+        default: 'abc@gmail.com',
+        required : true,
+        unique : true
     },
     numberGame : {
         timesPlayed: Number,
-        averageScore: Number,
+        scores: [Number],
     },
     memoryGame : {
         timesPlayed: Number,
-        averageScore: Number,
+        times: [Number],
     },
     otherGame : {
         timesPlayed: Number,
-        averageScore: Number,
+        scores: [Number],
     },
 });
 
