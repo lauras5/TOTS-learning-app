@@ -4,6 +4,10 @@ import './colorGame.css';
 import color from "./color.json";
 import ColorCard from "./colorCard";
 
+import Sound from 'react-sound';
+
+
+
 class ColorGame extends Component {
 
     state = {
@@ -71,13 +75,21 @@ class ColorGame extends Component {
     handleClicked = (name) => {
         // console.log(colorNameToGuess)
 
+let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
+// let wrongSound = new Audio("http://www.pacdv.com/sounds/mechanical_sound_effects/glass_breaking_2.wav")
+let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
+
+
         if (name === this.state.colorNameToGuess) {
-            alert("Yes! ")
+            // alert("Yes! ")
+            correctSound.play()
+
             this.setState({ correctScore: this.state.correctScore + 1 })
 
         }
         else {
-            alert("No! Supposed to be " + this.state.colorNameToGuess + ". You picked " + name)
+            wrongSound.play()
+            // alert("No! Supposed to be " + this.state.colorNameToGuess + ". You picked " + name)
             this.setState({ incorrectScore: this.state.incorrectScore + 1 })
 
         }
@@ -103,40 +115,50 @@ class ColorGame extends Component {
         return this.state.colorNameToGuess
     }
 
+
+
     render() {
+        <audio></audio>
         return (
+
             <Fragment>
 
+
                 <h1> The Color Game!</h1>
-                <div className="container">
-                    {this.randomRender()}
+                
 
-                    <h1 id="colorToGuessText" className="pulsate">{this.renderColortoGuess()}</h1>
+                    <div className="container">
+                        {this.randomRender()}
 
-                    <h6>Color to guess: {this.state.colorNameToGuess}</h6>
-                    <h6>Correct: {this.state.correctScore}</h6>
-                    <h6>Incorrect: {this.state.incorrectScore}</h6>
+<audio autoPlay>
+<source src ="./buddy.mp3" type="audio/mp3" />
+</audio>
+                        <h1 id="colorToGuessText" className="pulsate">{this.renderColortoGuess()}</h1>
 
-                    <a id='shuffleBtn' className="waves-effect waves-light btn-small">New Game</a>
-                </div>
+                        <h6>Color to guess: {this.state.colorNameToGuess}</h6>
+                        <h6>Correct: {this.state.correctScore}</h6>
+                        <h6>Incorrect: {this.state.incorrectScore}</h6>
+
+                        <a id='shuffleBtn' className="waves-effect waves-light btn-small">New Game</a>
+                    </div>
             </Fragment>
-        )
-    }
-}
-
-export default ColorGame;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                )
+            }
+        }
+        
+        export default ColorGame;
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        

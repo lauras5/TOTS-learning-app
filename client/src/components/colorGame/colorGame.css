@@ -22,4 +22,12 @@
 h1{
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
+    color: rgb(100, 98, 98);
 }
+
+body{
+    background-repeat: no-repeat;
+    background:url("https://media.giphy.com/media/3o7bu2ptBhTiYHnG7K/source.gif");
+}   
+
+
