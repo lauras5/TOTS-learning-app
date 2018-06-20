@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// Routes
+// Routes - list of all route files
 const numberGame = require('./routes/numbergame.routes')
 
 // allows you to use nexted js objects together

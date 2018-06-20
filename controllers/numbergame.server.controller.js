@@ -4,7 +4,8 @@ const newNumberGame = new NumberGame()
 module.exports = {
     getNumberGame: function (req, res) {
     // how do you render react elements again?
-    res.send('hi there')
+        res.send('hi there')
+        newNumberGame.find()
     // load numbergame page
     },
 
