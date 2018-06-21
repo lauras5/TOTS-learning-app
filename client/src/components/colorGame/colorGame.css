@@ -22,12 +22,12 @@
 h1{
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
-    color: rgb(100, 98, 98);
+    color: rgb(245, 243, 243);
 }
 
-body{
-    background-repeat: no-repeat;
-    background:url("https://media.giphy.com/media/3o7bu2ptBhTiYHnG7K/source.gif");
+#colorGamePage{
+    background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat;
+background-size:100%;
 }   
 
 
