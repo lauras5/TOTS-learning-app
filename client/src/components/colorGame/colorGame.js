@@ -8,15 +8,21 @@ import Sound from 'react-sound';
 
 
 
-class ColorGame extends Component {
 
+class ColorGame extends Component {
     state = {
         correctScore: 0,
         incorrectScore: 0,
+        questionNum: 0,  //tracks how many questions are asked so far
         colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
+        
         color //initially an exact copy of color.json
-
     }
+
+  
+          
+      
+
 
 
     //************************************************************************************* */
@@ -24,7 +30,8 @@ class ColorGame extends Component {
     //      Other functions used:  shuffle()
     //*************************************************************************************** */
     randomRender = () => {
-        // this.setColorToGuess()  --  this messes it up???
+        //this.setColorToGuess()  --  this messes it up???
+
         return (
             this.shuffle(this.state.color).map(colorFromArray =>
                 <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
@@ -65,6 +72,13 @@ class ColorGame extends Component {
         this.randomRender()
     }
 
+    playAgain = () => {
+        return (
+            `Play again?` 
+        )
+        
+    }
+
 
 
     //*************************************************************************************** */
@@ -73,30 +87,32 @@ class ColorGame extends Component {
     //      Other functions used:  setColorToGuess(), randomRender()
     //**************************************************************************************** */
     handleClicked = (name) => {
-        // console.log(colorNameToGuess)
-
-let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
-// let wrongSound = new Audio("http://www.pacdv.com/sounds/mechanical_sound_effects/glass_breaking_2.wav")
-let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
-
-
-        if (name === this.state.colorNameToGuess) {
-            // alert("Yes! ")
-            correctSound.play()
-
-            this.setState({ correctScore: this.state.correctScore + 1 })
-
+        
+        let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
+        let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
+        this.setState({ questionNum: this.state.questionNum + 1 })
+        if (this.state.questionNum >= 9) {
+            alert("Done")
+            
         }
         else {
-            wrongSound.play()
-            // alert("No! Supposed to be " + this.state.colorNameToGuess + ". You picked " + name)
-            this.setState({ incorrectScore: this.state.incorrectScore + 1 })
+            if (name === this.state.colorNameToGuess) {
+                // alert("Yes! ")
+                correctSound.play()
 
+                this.setState({ correctScore: this.state.correctScore + 1 })
+            }
+            else {
+                wrongSound.play()
+                // alert("No! Supposed to be " + this.state.colorNameToGuess + ". You picked " + name)
+                this.setState({ incorrectScore: this.state.incorrectScore + 1 })
+            }
+            this.setColorToGuess()
+            this.randomRender()
         }
-        this.setColorToGuess()
-        this.randomRender()
     }
 
+    
     //*************************************************************************************** */
     //setColorToGuess function - picks a color to be guessed.  This is passed to the state.
     //**************************************************************************************** */
@@ -112,53 +128,62 @@ let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.w
     //renderColortoGuess function - Tells the user what color to pick.  Text in page.
     //**************************************************************************************** */
     renderColortoGuess = () => {
-        return this.state.colorNameToGuess
+        return(
+            `Please pick :
+                 ${this.state.colorNameToGuess}
+                 ${10 - this.state.questionNum} left`
+        )
     }
 
-
+    
 
     render() {
-        <audio></audio>
+
         return (
 
             <Fragment>
+                <div id="colorGamePage">
+
+                    <h1> The Color Game!</h1>
 
 
-                <h1> The Color Game!</h1>
-                
 
                     <div className="container">
+
                         {this.randomRender()}
 
-<audio autoPlay>
-<source src ="./buddy.mp3" type="audio/mp3" />
-</audio>
+
                         <h1 id="colorToGuessText" className="pulsate">{this.renderColortoGuess()}</h1>
 
                         <h6>Color to guess: {this.state.colorNameToGuess}</h6>
                         <h6>Correct: {this.state.correctScore}</h6>
                         <h6>Incorrect: {this.state.incorrectScore}</h6>
+                        <h6>Count: {this.state.questionNum}</h6>
+
+                        <h1 id = "playAgain" className = "continue"></h1>
+
 
                         <a id='shuffleBtn' className="waves-effect waves-light btn-small">New Game</a>
                     </div>
+                </div>
             </Fragment>
-                )
-            }
-        }
-        
-        export default ColorGame;
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        )
+    }
+}
+
+export default ColorGame;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

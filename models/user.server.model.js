@@ -23,6 +23,11 @@ var User = new Schema ({
         timesPlayed: Number,
         times: [Number],
     },
+    colorGame : {
+        timesPlayed: Number,
+        correct: Number,
+        incorrect: Number
+    },
     otherGame : {
         timesPlayed: Number,
         scores: [Number],
