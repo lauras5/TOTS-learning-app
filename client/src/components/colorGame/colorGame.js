@@ -26,7 +26,7 @@ class ColorGame extends Component {
     //*************************************************************************************** */
     randomRender = () => {
         //this.setColorToGuess()
-
+       
         return (
             this.shuffle(this.state.color).map(colorFromArray =>
                 <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
@@ -110,7 +110,27 @@ class ColorGame extends Component {
 
 
     handleClickedPulsatingText = () => {
-        alert("Yo")
+        let colorSoundFile = ''
+        switch(this.state.colorNameToGuess){
+            case 'Red':
+            colorSoundFile = "./soundFiles/red.wav"
+            break;
+            case 'Blue':
+            colorSoundFile = "./soundFiles/blue.wav"
+            break;
+            case 'Green':
+            colorSoundFile = "./soundFiles/green.wav"
+            break;
+            case 'Yellow':
+            colorSoundFile = "./soundFiles/yellow.wav"
+            break;
+            default:
+            colorSoundFile = ""
+        }
+     
+        let sayColor = new Audio(colorSoundFile)
+        sayColor.play()
+
     }
 
 
@@ -123,19 +143,38 @@ class ColorGame extends Component {
         const correctAnswer = colorValues[Math.floor(Math.random() * 4)]
         this.setState({ colorNameToGuess: correctAnswer })
 
+
     }
 
     //*************************************************************************************** */
     //renderColortoGuess function - Tells the user what color to pick.  Text in page.
     //**************************************************************************************** */
     renderColortoGuess = () => {
+        let colorSoundFile = ''
+        switch(this.state.colorNameToGuess){
+            case 'Red':
+            colorSoundFile = "./soundFiles/red.wav"
+            break;
+            case 'Blue':
+            colorSoundFile = "./soundFiles/blue.wav"
+            break;
+            case 'Green':
+            colorSoundFile = "./soundFiles/green.wav"
+            break;
+            case 'Yellow':
+            colorSoundFile = "./soundFiles/yellow.wav"
+            break;
+            default:
+            colorSoundFile = ""
+        }
+        let sayColor = new Audio(colorSoundFile)
+        setTimeout(function() {sayColor.play()},1000)
         return (
             <div>
-                <div className="pulsate" onclick={this.handleClickedPulsatingText} style={{color: this.state.colorNameToGuess,fontSize:200}}>{this.state.colorNameToGuess}</div>
+                <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{color: this.state.colorNameToGuess,fontSize:200}}>{this.state.colorNameToGuess}</div>
             </div>
         )
     }
-
 
     render() {
         // const backgroundMusic = new Audio("./soundFiles/ukelele_background.mp3")
