@@ -1,73 +1,82 @@
+import React, { Component, Fragment } from 'react';
+import NumberQuestion from "./numberQuestion";
+import NumberAnswer from "./numberAnswer";
+import NumberQuestionList from "./number.json";
+import Axios from 'axios';
+import API from '../utils/API';
+
+
 class NumberGame extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            counter: 0,
-            tempArr: [],
-            correct: [],
-            onChange : this.handleChange,
-            time: ''
+            correctCount: 0,
+            incorrectCount: 0,
+            correctAnswer: 1,
+            questionIndex: 0,
+            NumberQuestionList,
         }
     }
 
-    turnCard = (event) => {
-        const state = this.state
-        state.counter = state.counter + 1
-        state.tempArr.push(event.target.getAttribute('value'))
-        this.setState({ turned: true })
+    componentDidMount() {
+        this.loadNumberGame();
+        this.newGame();
+      }
+    
+      loadNumberGame = () => {
+        API.getNumberGame()
+          .then(res =>
+            this.setState({ NumberQuestionList: res.data})
+          )
+          .catch(err => console.log(err));
+      };
 
-        console.log(event.target.getAttribute('value'))
-        console.log(state)
-        console.log(state.tempArr)
-
-        if (state.counter % 2 === 0) {
-            if (state.tempArr[0] === state.tempArr[1]) {
-                alert(`Great Job!`)
-                state.correct.push(state.tempArr[0], state.tempArr[1])
-                this.
-                this.setState({ tempArr: [] })
-                if (state.correct.length === 12) {
-                    alert('Great job! You got them all right! Play again?')
-                    //stop timer
-                }
-            } else {
-                alert('not a match')
-                this.setState({ tempArr: [] })
-            }
-            return
-        }
-    }
 
     newGame = () => {
         // shuffle cards
-        this.setState({ counter: 0 })
-        this.setState({ tempArr: [] })
-        this.setState({ correct: [] })
-        this.setState({ turned: false })
+        this.setState({ correctCount: 0 })
+        this.setState({ incorrectCount: 0 })
+        this.setState({ correctAnswer: 0 })
         console.log('game has been reset')
+    }
+
+    // randomRender = () => {
+    //     // this.setColorToGuess()  --  this messes it up???
+    //     return (
+    //         this.shuffle(this.state.color).map(colorFromArray =>
+    //             <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
+    //         )
+    //     )
+    // }
+    
+    selectNextQuestionandAnswer = () => {
+        return (
+            this.shuffleArray(this.state.NumberQuestionList).map(questionElement =>
+                <Fragment>
+                    <NumberQuestion key={this.state.questionIndex} image={questionElement.questionImage} />
+                </Fragment>
+            )
+        )
+        this.state.questionIndex++
+    }
+
+    shuffleArray = (array) => {
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        console.log(array);
     }
 
     render() {
 
         return (
             <Fragment>
-                <h1>Card Memory Game!</h1>
-                <div className="row">
-                    {cardList.map(card =>
-                        <Fragment>
-                            <div className='cardBorder col s3 m2' >
-                                <div className='card-small waves-effect waves-light blue' onClick={this.turnCard} value={card.name} key={card.id} onChange='false'>
-                                    <img id='cardImages' src={card.image} alt={card.name} />
-                                    <h3>{card.name}</h3>
-                                </div>
-                            </div>
-                        </Fragment>
-                    )}
-                </div>
-
-                <div><a id='shuffleBtn' className="waves-effect waves-light btn-large pink" onClick={this.newGame}>New Game!</a></div>
-
+                <h1> Number Game </h1>
+                {this.selectNextQuestionandAnswer()}
             </Fragment>
         )
     }

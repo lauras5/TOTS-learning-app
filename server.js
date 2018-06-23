@@ -8,22 +8,27 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// Routes - list of all route files
-const numberGame = require('./routes/numbergame.routes')
+
+
+const routes = require("./routes");
+
+// // Routes - list of all route files
+// const numberGame = require('./routes/numbergame.routes') WE MIGHT NOT NEED THIS ANYMORE
 
 // allows you to use nexted js objects together
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // allows you to manipulate json
 app.use(bodyParser.json());
-// use number game routes
-app.use('/', numberGame);
+// // use number game routes
+// app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
-app.use(require('./routes/apiroutes'));
+// app.use(require('./routes'));
+app.use(routes);
 
 
-// Seeds - comment out if you dont want to spam your db lol
-// const numberGameSeeds = require('./seeds').seedNumberGame()
+// Seeds - comment out if you dont want to spam your db lol - To do: move to scripts folder
+// const numberGameSeeds = require('./scripts/seeds').seedNumberGame()
 
 
 // Serve up static assets (usually on heroku)
