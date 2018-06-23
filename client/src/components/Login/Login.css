@@ -1,3 +1,9 @@
+body {
+    background: url(./images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 
 .card {
     width: auto;
@@ -7,16 +13,18 @@
     margin-bottom: 19px;
 }
 
+/* .userForm {
+    width: auto;
+    display: block;
+    margin: auto;
+    padding: 30px;
+    margin-bottom: 19px;
+} */
+
 #userInput {
     color: #424141;
     background-color: #aae9f1;
     background-color: white;
-
-body {
-    background: url(./images/background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 #monkey{
@@ -31,7 +39,6 @@ body {
 .card-title {
     text-align: center;
     font-family: 'Luckiest Guy',cursive;
-
     text-align: center;
 }
 
@@ -50,11 +57,11 @@ body {
     text-align: center;
 }
 
-.tree {
+/* .tree {
     background: url(./images/sky_grass_background.png);
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 
 
