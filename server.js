@@ -21,15 +21,16 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // allows you to manipulate json
 app.use(bodyParser.json());
-// use number game routes
+// // use number game routes
 // app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
-app.use(require('./routes/master.routes'));
+// app.use(require('./routes'));
+app.use(routes);
 
 
-// Seeds - comment out if you dont want to spam your db lol
-// const numberGameSeeds = require('./seeds').seedNumberGame()
-// const cardGameSeeds = require('./seeds.cardgame)
+// Seeds - comment out if you dont want to spam your db lol - To do: move to scripts folder
+// const numberGameSeeds = require('./scripts/seeds').seedNumberGame()
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
