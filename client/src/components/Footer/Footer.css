@@ -1,13 +1,26 @@
 footer {
    /*  background-color: rgb(119, 212, 57); */
-    color: white;
+    color: #252221;
     text-align: center;
     margin-top: 3%;
     width: 100%;
+    height: 30px;
+    background-color: #e5592e;
+/*     color: rgb(25, 187, 52); */
     color: white;
     text-align: center;
+    /* padding: 5px;
+    height: 100px; */
+    /* padding-bottom: 50px; */
+    font-size: 12px; 
    
 }
 p {
     padding-top: 15px;
+    
 }
+
+.container {
+    padding-top: 12px;
+}
+

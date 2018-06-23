@@ -1,3 +1,17 @@
+
+.card {
+    width: auto;
+    display: block;
+    margin: auto;
+    padding: 30px;
+    margin-bottom: 19px;
+}
+
+#userInput {
+    color: #424141;
+    background-color: #aae9f1;
+    background-color: white;
+
 body {
     background: url(./images/background.png);
     background-repeat: no-repeat;
@@ -17,6 +31,7 @@ body {
 .card-title {
     text-align: center;
     font-family: 'Luckiest Guy',cursive;
+
     text-align: center;
 }
 
@@ -34,5 +49,12 @@ body {
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
 }
+
+.tree {
+    background: url(./images/sky_grass_background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 
 

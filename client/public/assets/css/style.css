@@ -1,0 +1,195 @@
+/* .submitBTN {
+    margin-top: 20px;
+    opacity: 0;
+} */
+
+body {
+   /*  background-image: url("../images/city_lights.jpg"); */
+ /*    background-repeat: no-repeat; */
+   /*  background-attachment: fixed; */
+   /*  margin: auto; */
+}
+/* .carousel .carousel-item {
+    width: 400px;
+    margin-top: 0px;
+    border-style: solid;
+    border-width: 5px; 
+    margin-bottom: 20px;
+} */
+
+/* #carousel-div {
+    margin-bottom: 50px;  
+    padding-bottom: 50px; 
+
+} */
+
+
+
+ 
+.text {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+}
+
+.material-icons {
+    padding-top: 30px;
+}
+.middle-indicator {
+    position: absolute;
+    top: 50%;
+}
+
+.middle-indicator-text {
+    font-size: 4.2rem;
+}
+
+a.middle-indicator-text {
+    color: white !important;
+}
+
+.content-indicator {
+    width: 64px;
+    height: 64px;
+    background: none;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+
+.indicators {
+    visibility: hidden;
+}
+
+
+/* .boxchar {
+    height: 350px;
+    width: 500px;
+    float: left;
+    overflow: auto;
+    border-radius: 8px;
+    line-height: 1.5;
+    margin: 40px;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 0px;
+}
+ */
+/* .container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 1100px;
+    width: 100%;
+    position: relative;
+    left: 100px;
+}
+ */
+
+
+
+/* .brand-logo {
+    margin-left: 20px;
+} */
+
+/* .teamImg {
+    position: relative;
+    width:80%;
+    border: 1px solid rgb(175, 171, 171);
+    margin-left:10%;
+    margin-top: 30px;
+    color: white;
+    height: 750px;
+    padding: 20px;
+} */
+
+/* #teamText{
+ font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+ line-height: 1.5;
+ font-size: 20px;
+} */
+
+/* .pic {
+    padding-right: 30px;
+    width: 250px;
+    height: 250px;
+   
+}
+
+.pic1 {
+    margin-left: 3px;
+}
+
+.pic4 {
+    margin-right: 5px;
+} */
+
+
+/* #locationSearch, #eventSearch {
+    color: white;
+} */
+
+/* .Allan, .Aries, .Shaz, .Shayan {
+    float: left;
+    font-size: 30px;
+    font-style: italic;
+    font-weight: 300;
+    color: rgb(248, 240, 225);
+    padding-top: 10px;
+}
+ */
+/* .Allan {
+    padding-left: 40px;
+}
+ */
+/* .Aries {
+    padding-left: 150px;
+}
+
+.Shaz {
+    padding-left: 120px;
+}
+
+.Shayan {
+    padding-left: 70px;
+} */
+
+/* .eventImg {
+    width: 100%;
+} */
+
+/* .progress {
+    margin-top: 200px;
+    right:100px;
+    margin-bottom: 400px;
+} */
+
+/* 
+#map {
+    height: 500px;
+    width: 80%;
+    left:150px;
+} */
+
+/* .gContainer {
+    margin-top:100px;
+    background-color: black;
+    
+} */
+
+/* .page-footer {
+    position: static;
+    bottom:0;
+    padding: 0px;
+} */
+/* 
+#footer-text {
+    text-align:center;
+   
+} */
+/* .null-results{
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    padding-top: 5px;
+  
+} */
