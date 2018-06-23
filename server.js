@@ -3,7 +3,7 @@ const express = require('express');
 const path = require('path')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-
+const routes = require('./routes')
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -12,6 +12,7 @@ const app = express();
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
+
 // Routes - list of all route files
 // const numberGame = require('./routes/numbergame.routes');
 // const cardGame = require('./routes/cardgame.routes');
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 // use number game routes
 // app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
+app.use(require('./routes'))
 app.use(require('./routes/master.routes'));
 
 

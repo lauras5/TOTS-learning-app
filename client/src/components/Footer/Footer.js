@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
             <footer>
-             {/* <footer className="page-footer"> */} 
+                {/* <footer className="page-footer"> */}
                 {/* <div className="container">
                     <div className="row">
                             <p className="grey-text text-lighten-4">Some Text to explain what the app does blah blah blah</p>
@@ -13,12 +13,11 @@ class Footer extends Component {
                        
                     </div>
                 </div>  */}
-              <div className="footer-copyright">
+                <div className="footer-copyright">
                     <div className="container">
                         © 2018 Team Final Project
-
                     </div>
-                </div> */}
+                </div>
             </footer>
         )
     }

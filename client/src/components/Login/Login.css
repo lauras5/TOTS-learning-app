@@ -11,9 +11,10 @@
     color: #424141;
     background-color: #aae9f1;
     background-color: white;
+}
 
 body {
-    background: url(./images/background.png);
+    background-image: url('./images/background.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;

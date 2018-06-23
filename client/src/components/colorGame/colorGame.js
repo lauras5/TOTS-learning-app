@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import './colorGame.css';
-
 import color from "./color.json";
 import ColorCard from "./colorCard";
-
-import Sound from 'react-sound';
+// import Sound from 'react-sound';
 
 
 
