@@ -5296,6 +5296,10 @@ pinkie@^2.0.0:
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
 
+pizzicato@^0.6.3:
+  version "0.6.3"
+  resolved "https://registry.yarnpkg.com/pizzicato/-/pizzicato-0.6.3.tgz#b6b0a0a03d40b43c2ec25982597df5b313d2dc9e"
+
 pkg-dir@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/pkg-dir/-/pkg-dir-1.0.0.tgz#7a4b508a8d5bb2d629d447056ff4e9c9314cf3d4"
