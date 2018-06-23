@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Parents from './components/Parents';
@@ -7,6 +7,8 @@ import Home from './components/Home';
 import About from './components/About'
 import Cards from './components/cardGame';
 import Carousel from './components/Carousel';
+import ColorGame from './components/colorGame/colorGame';
+
 
 const AppRouter = () => {
 // class AppRouter extends Component {
@@ -16,12 +18,14 @@ const AppRouter = () => {
                 <div>
                     {/* edit username */}
                     <Navbar username='User' message='welcome back!'/>
-                    <Route exact path='/Login' component={Login} />
-                    <Route exact path='/Home' component={Home} />
-                    <Route exact path='/About' component={About} />
-                    <Route exact path='/Parents' component={Parents} />
-                    <Route exact path='/cardGame' component={Cards} />
-                    <Route path='/Carousel' component={Carousel} />
+
+                    <Route path='/Login' component={Login} />
+                    <Route path='/Home' component={Home} />
+                    <Route path='/About' component={About} />
+                    <Route path='/Parents' component={Parents} />
+                    <Route path='/colorGame' component={ColorGame} />
+                    <Route path='/cardGame' component={Cards} />
+
                     {/* <Route path='/numbersGame' component={Numbers} /> */}
                     {/* <Route path='/shapesGame' component={Shapes} /> */}
                     {/* <Route path='/alphabetGame' component={Alphabet} /> */}

@@ -1,29 +1,39 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema
 
-var Schema = mongoose.Schema
-var usermodel = new Schema ({
+const passportLocalMongoose = require('passport-local-mongoose');
+
+var User = new Schema ({
     name : {
         type : String,
-        default: 'Quinchilla'
+        default: 'Quinchilla',
+        required : true
     },
     email : {
         type: String, 
-        default: 'abc@gmail.com'
+        default: 'abc@gmail.com',
+        required : true,
+        unique : true
     },
     numberGame : {
         timesPlayed: Number,
-        averageScore: Number,
+        scores: [Number],
     },
     memoryGame : {
         timesPlayed: Number,
-        averageScore: Number,
+        times: [Number],
+    },
+    colorGame : {
+        timesPlayed: Number,
+        correct: Number,
+        incorrect: Number
     },
     otherGame : {
         timesPlayed: Number,
-        averageScore: Number,
+        scores: [Number],
     },
 });
 
-const User = mongoose.model('User', usermodel);
-
-module.exports = User;
+const User = mongoose.model('User', User);
+ 
+User.plugin(passportLocalMongoose);

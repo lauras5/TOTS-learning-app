@@ -1,13 +1,35 @@
+.card-small {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid dimgrey;
+    height:300px;
+}
+
 .card-small h3 {
     text-align: center;
     color: white;
+    
+}
+
+.notFlipped {
+    opacity: 0;
+}
+
+.flipped {
+    opacity: 1;
 }
 
 #cardImages {
     width: 100%;
+    display: hidden;
 }
 
 #shuffleBtn {
     display: block;
     margin: auto;
+    width: 20%;
+}
+
+.asdf {
+    background-color:black;
 }

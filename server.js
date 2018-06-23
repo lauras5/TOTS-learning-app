@@ -8,7 +8,7 @@ const mongoose = require('mongoose');
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-// Routes
+// Routes - list of all route files
 const numberGame = require('./routes/numbergame.routes')
 
 // allows you to use nexted js objects together
@@ -21,6 +21,11 @@ app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
 app.use(require('./routes/apiroutes'));
 
+
+// Seeds - comment out if you dont want to spam your db lol
+// const numberGameSeeds = require('./seeds').seedNumberGame()
+
+
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
@@ -31,6 +36,8 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
 mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
+
+
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname, './client/public/index.html')

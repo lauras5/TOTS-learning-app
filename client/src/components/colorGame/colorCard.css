@@ -1,0 +1,23 @@
+.card {
+    background: rgb(243, 241, 241);
+    /* background-size:cover;
+    background-position:50%; */
+    border-radius: 10px;
+    margin: 5px;  
+    width: 20%;
+    display:inline-block;
+  }
+  
+  .card > .img-container {
+    margin: 1px;
+  }
+  .card > .img-container > img {
+         width: 100%;
+   }
+
+
+  
+/* #shuffleBtn {
+    display: block;
+    margin: auto;
+} */

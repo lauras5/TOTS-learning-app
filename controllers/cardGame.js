@@ -4,3 +4,11 @@
 
 // switch statement for button click
 // react app
+
+const router = require('express').Router()
+const cardGame = require('../models/cardGame.server.model.js')
+const newCardGame = new cardGame()
+
+module.exports = function getNumberGame(req, res) {
+    // render elements
+}
