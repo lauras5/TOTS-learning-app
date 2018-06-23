@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 // Routes - list of all route files
-const numberGame = require('./routes/numbergame.routes')
+const numberGame = require('./routes/numbergame.routes');
+const cardGame = require('./routes/cardgame.routes');
 
 // allows you to use nexted js objects together
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,12 +20,12 @@ app.use(bodyParser.json());
 // use number game routes
 app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
-app.use(require('./routes/apiroutes'));
+app.use(require('./routes/master.routes'));
 
 
 // Seeds - comment out if you dont want to spam your db lol
 // const numberGameSeeds = require('./seeds').seedNumberGame()
-
+// const cardGameSeeds = require('./seeds.cardgame)
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
@@ -36,8 +37,6 @@ const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
 mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
-
-
 
 app.get('/', (req, res) => {
   res.sendFile(__dirname, './client/public/index.html')
