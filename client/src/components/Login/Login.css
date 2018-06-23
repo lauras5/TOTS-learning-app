@@ -1,17 +1,23 @@
-.card {
-    width: 60%;
-    display: block;
-    margin: auto;
-    padding: 30px;
-    margin-bottom: 19px;
+body {
+    background: url(./images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
-#userInput {
-    color: #424141;
-    background-color: #aae9f1;
+#monkey{
+    padding-right: 25px;
+    padding-bottom: 75px;
+}
+
+#loginBox {
+    width: 100%;
+}
+
+.card-title {
     text-align: center;
-    font-weight: 500;
-    border: 1px solid #b9b9b9;
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
 }
 
 #submitBtn {
@@ -25,10 +31,8 @@
     box-shadow: 2px 2px 2px darkolivegreen;
     color: white;
     font-size: 20px;
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
 }
 
-.tree {
-    background: url(./images/background4.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
-}
+
