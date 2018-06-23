@@ -3,7 +3,7 @@ import NumberQuestion from "./numberQuestion";
 import NumberAnswer from "./numberAnswer";
 import NumberQuestionList from "./number.json";
 import Axios from 'axios';
-import API from '../utils/API';
+// import API from '../utils/API';
 
 
 class NumberGame extends Component {
@@ -24,13 +24,13 @@ class NumberGame extends Component {
         this.newGame();
       }
     
-      loadNumberGame = () => {
-        API.getNumberGame()
-          .then(res =>
-            this.setState({ NumberQuestionList: res.data})
-          )
-          .catch(err => console.log(err));
-      };
+    //   loadNumberGame = () => {
+    //     API.getNumberGame()
+    //       .then(res =>
+    //         this.setState({ NumberQuestionList: res.data})
+    //       )
+    //       .catch(err => console.log(err));
+    //   };
 
 
     newGame = () => {

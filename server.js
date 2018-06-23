@@ -9,11 +9,12 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 
 
-
-const routes = require("./routes");
-
-// // Routes - list of all route files
-// const numberGame = require('./routes/numbergame.routes') WE MIGHT NOT NEED THIS ANYMORE
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
+// Routes - list of all route files
+// const numberGame = require('./routes/numbergame.routes');
+// const cardGame = require('./routes/cardgame.routes');
 
 // allows you to use nexted js objects together
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -35,13 +36,6 @@ app.use(routes);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
-
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
-
-mongoose.Promise = Promise;
-
-mongoose.connect(MONGODB_URI);
-
 
 
 app.get('/', (req, res) => {

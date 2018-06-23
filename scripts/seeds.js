@@ -125,9 +125,4 @@ module.exports = {
         // seeded!
         console.log('Card Game Database seeded!');
     },
-
-    // Feel free to remove this when adding future seeds, this is just a test I had in there to make sure as well as 
-    // just serves as an example on how to add it as well
-    hello: function () { console.log('hi') }
-   
 }

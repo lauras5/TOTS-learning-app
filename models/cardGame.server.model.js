@@ -1,6 +1,12 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
-const cardsSchema = new Schema({
-    
+const CardGameSchema = new Schema ({
+    name : String,
+    image : String,
+    sound : String
 })
+
+const CardGame = mongoose.model('NumberGame', CardGameSchema);
+
+module.exports = CardGame;

@@ -38,11 +38,21 @@ class Login extends Component {
 
                         </div>
 
-
+                    </div>
+                    <div>I am the Login page</div>
+                    <div className='card tree'>
+                        <form action="/user" name='loginForm'>
+                            <label htmlFor="username">Username</label>
+                            <input id='userInput' type="text" name='username' />
+                            <label htmlFor="email">Email</label>
+                            <input id='userInput' type="text" name='username' />
+                            <label htmlFor="username">Password</label>
+                            <input id='userInput' type="text" name='username' />
+                            <button id='submitBtn'>Let's Go!</button>
+                        </form>
                     </div>
                 </div>
             </Fragment>
-
         )
     }
 }
