@@ -38,7 +38,6 @@ class Login extends Component {
 
                         </div>
 
-
                     </div>
                     <div>I am the Login page</div>
                     <div className='card tree'>
