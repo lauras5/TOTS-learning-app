@@ -8,6 +8,7 @@ import About from './components/About'
 import Cards from './components/cardGame';
 import Carousel from './components/Carousel';
 import ColorGame from './components/colorGame/colorGame';
+import NumberGame from './components/NumberGame/numberGame';
 
 
 const AppRouter = () => {
@@ -25,10 +26,7 @@ const AppRouter = () => {
                     <Route path='/Parents' component={Parents} />
                     <Route path='/colorGame' component={ColorGame} />
                     <Route path='/cardGame' component={Cards} />
-
-                    {/* <Route path='/numbersGame' component={Numbers} /> */}
-                    {/* <Route path='/shapesGame' component={Shapes} /> */}
-                    {/* <Route path='/alphabetGame' component={Alphabet} /> */}
+                    <Route path='/numberGame' component={NumberGame} />
                 </div>
             </Router>
         )

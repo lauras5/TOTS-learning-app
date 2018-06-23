@@ -1,10 +1,8 @@
 // Import your models
 const NumberGame = require('./models/numbergame.server.model')
 
-
 // If anyone has any data that they need to populate for their game, please create a new function
 // Naming convention: seed[ModelName]
-
 
 module.exports = {
     seedNumberGame : function() {
