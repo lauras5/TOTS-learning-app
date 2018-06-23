@@ -2,44 +2,73 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#000000">
-  <!--
-      manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
-    -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- CSS Reset Sheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <!-- Materialize -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <!-- CSS Sheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
   <title>React App</title>
 </head>
 
 <body>
-  <noscript>
+  <!-- <noscript>
     You need to enable JavaScript to run this app.
-  </noscript>
+  </noscript> -->
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+   
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+ <!--firebase-->
+ <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+ <!--jquery-->
+ <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+ <!--momentjs-->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+ <!--backendjs -->
+ <script type="text/javascript" src="assets/js/main.js"></script>
+ <!-- Compiled and minified JavaScript -->
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+ <!-- Google Maps API -->
+ <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBGKzK10pnII1YoVFkujW3oEbCJaiCLwrs&callback=initMap'></script>
+
+ <!--Carousel jQuery and call locationDefault on document ready function-->
+ <script>
+     $(document).ready(function () {
+         $('.carousel').carousel()
+         locationDefault()
+     })
+     $(".button-collapse").sideNav()
+
+     // start carrousel
+     $('.carousel.carousel-slider').carousel({
+         fullWidth: true,
+         indicators: false
+     });
+     // move next carousel
+     $('.moveNextCarousel').click(function (e) {
+         e.preventDefault();
+         e.stopPropagation();
+         $('.carousel').carousel('next');
+     });
+     // move prev carousel
+     $('.movePrevCarousel').click(function (e) {
+         e.preventDefault();
+         e.stopPropagation();
+         $('.carousel').carousel('prev');
+     });
+ </script>
 
 </body>
 

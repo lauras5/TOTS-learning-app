@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Home from './components/Home';
 import About from './components/About'
 import Cards from './components/cardGame';
+import Carousel from './components/Carousel';
 
 const AppRouter = () => {
 // class AppRouter extends Component {
@@ -15,11 +16,12 @@ const AppRouter = () => {
                 <div>
                     {/* edit username */}
                     <Navbar username='User' message='welcome back!'/>
-                    <Route path='/Login' component={Login} />
-                    <Route path='/Home' component={Home} />
-                    <Route path='/About' component={About} />
-                    <Route path='/Parents' component={Parents} />
-                    <Route path='/cardGame' component={Cards} />
+                    <Route exact path='/Login' component={Login} />
+                    <Route exact path='/Home' component={Home} />
+                    <Route exact path='/About' component={About} />
+                    <Route exact path='/Parents' component={Parents} />
+                    <Route exact path='/cardGame' component={Cards} />
+                    <Route path='/Carousel' component={Carousel} />
                     {/* <Route path='/numbersGame' component={Numbers} /> */}
                     {/* <Route path='/shapesGame' component={Shapes} /> */}
                     {/* <Route path='/alphabetGame' component={Alphabet} /> */}

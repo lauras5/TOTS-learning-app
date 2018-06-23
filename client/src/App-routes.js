@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import Login from './components/Login';
 import Footer from './components/Footer';
+import Home from './components/Home';
+/* import Carousel from './components/Carousel'; */
 import './App.css';
 
 //variables

@@ -1,24 +1,50 @@
 import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 import { Button, Icon } from 'react-materialize'
 import './Home.css';
+import ReactDOM from 'react-dom';
+import Carousel from '../Carousel';
+ 
 
-const Home = () => {
+class Home extends Component {
+    render() {
         return (
-            <Fragment>
-                <Button waves='light'>
-                    <Icon>thumb_up</Icon>
-                </Button>
-                <ul>
-                    <li><Link className='nav-item nav-link' to='/cardGame'>
-                    <img src="https://www.google.com/search?rlz=1C1CHBF_enUS737US742&tbm=isch&q=memory+card+game&chips=q:memory+card+game,g_4:match&sa=X&ved=0ahUKEwi95az1ndTbAhVJnlkKHXdTD5kQ4lYIMCgA&biw=681&bih=642&dpr=1#imgrc=zaE9U-jmkX-IaM:" alt=""/>
-                    <p>Memory Game</p></Link></li>
-                    {/* <li><Link className='nav-item nav-link' to='/numbersGame'>Numbers Game</Link></li> */}
-                    {/* <li><Link className='nav-item nav-link' to='/shapesGame'>Shapes Game</Link></li> */}
-                    {/* <li><Link className='nav-item nav-link' to='/alphabetGame'>Alphabet Game</Link></li> */}
-                </ul>
+
+           <Fragment>
+                <Carousel />
             </Fragment>
         )
     }
+}
 
 export default Home;
+/* class Home extends Component {
+    state = {
+        login: 'false'
+    };
+
+// login functions go here
+render() {
+    return (
+        <Fragment>
+             <div className='home'>
+     <img className='homeimage1' src="http://www.greatwolfkids.com/img/river-canyon-run-featured-game.png" alt=""/>       
+     <img className='homeimage2' src="http://www.thekidzpage.com/freekidsgames/games/whack_a_grinch/whack-a-grinch-kids-online-game.png" alt=""/>   
+     <img className='homeimage3' src="http://images.jedessine.com/_uploads/_tiny_galerie/20170414/jeu-happy-kitten-puzzle_qxt.png" alt=""/> 
+     <img className='homeimage4' src="http://www.kidonlinegame.com/wp-content/uploads/thumbs/custom/D/dora-memory-game-for-kids-games-dora-free.png" alt=""/> 
+  
+   </div>
+        </Fragment>
+
+    )
+ } 
+} */
+
+
+ 
+
+/* ReactDOM.render(
+  <Home />,
+  document.getElementById('container')
+); */
+/* export default Home; */
