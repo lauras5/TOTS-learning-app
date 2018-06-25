@@ -4,7 +4,7 @@ import './colorGame.css';
 import color from "./color.json";
 import ColorCard from "./colorCard";
 
-import Sound from 'react-sound';
+import Modal from 'react-responsive-modal';
 
 
 
@@ -15,10 +15,11 @@ class ColorGame extends Component {
         incorrectScore: 0,
         questionNum: 0,  //tracks how many questions are asked so far
         colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
-        color //initially an exact copy of color.json
+        color, //initially an exact copy of color.json
+        open: false //for Modal
     }
 
-  
+
 
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
@@ -26,7 +27,7 @@ class ColorGame extends Component {
     //*************************************************************************************** */
     randomRender = () => {
         //this.setColorToGuess()
-       
+
         return (
             this.shuffle(this.state.color).map(colorFromArray =>
                 <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
@@ -66,11 +67,6 @@ class ColorGame extends Component {
         this.randomRender()
     }
 
-    playAgain = () => {
-        return (
-            `Play again?`
-        )
-    }
 
 
 
@@ -87,6 +83,8 @@ class ColorGame extends Component {
         this.setState({ questionNum: this.state.questionNum + 1 })
         if (this.state.questionNum >= 9) {
             alert("Done")
+            {this.onOpenModal()}
+            {this.modalPlayAgain()}
         }
         else {
             if (name === this.state.colorNameToGuess) {
@@ -111,23 +109,23 @@ class ColorGame extends Component {
 
     handleClickedPulsatingText = () => {
         let colorSoundFile = ''
-        switch(this.state.colorNameToGuess){
+        switch (this.state.colorNameToGuess) {
             case 'Red':
-            colorSoundFile = "./soundFiles/red.wav"
-            break;
+                colorSoundFile = "./soundFiles/red.wav"
+                break;
             case 'Blue':
-            colorSoundFile = "./soundFiles/blue.wav"
-            break;
+                colorSoundFile = "./soundFiles/blue.wav"
+                break;
             case 'Green':
-            colorSoundFile = "./soundFiles/green.wav"
-            break;
+                colorSoundFile = "./soundFiles/green.wav"
+                break;
             case 'Yellow':
-            colorSoundFile = "./soundFiles/yellow.wav"
-            break;
+                colorSoundFile = "./soundFiles/yellow.wav"
+                break;
             default:
-            colorSoundFile = ""
+                colorSoundFile = ""
         }
-     
+
         let sayColor = new Audio(colorSoundFile)
         sayColor.play()
 
@@ -151,34 +149,71 @@ class ColorGame extends Component {
     //**************************************************************************************** */
     renderColortoGuess = () => {
         let colorSoundFile = ''
-        switch(this.state.colorNameToGuess){
+        switch (this.state.colorNameToGuess) {
             case 'Red':
-            colorSoundFile = "./soundFiles/red.wav"
-            break;
+                colorSoundFile = "./soundFiles/red.wav"
+                break;
             case 'Blue':
-            colorSoundFile = "./soundFiles/blue.wav"
-            break;
+                colorSoundFile = "./soundFiles/blue.wav"
+                break;
             case 'Green':
-            colorSoundFile = "./soundFiles/green.wav"
-            break;
+                colorSoundFile = "./soundFiles/green.wav"
+                break;
             case 'Yellow':
-            colorSoundFile = "./soundFiles/yellow.wav"
-            break;
+                colorSoundFile = "./soundFiles/yellow.wav"
+                break;
             default:
-            colorSoundFile = ""
+                colorSoundFile = ""
         }
         let sayColor = new Audio(colorSoundFile)
-        setTimeout(function() {sayColor.play()},1000)
+        setTimeout(function () { sayColor.play() }, 1000)
         return (
             <div>
-                <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{color: this.state.colorNameToGuess,fontSize:200}}>{this.state.colorNameToGuess}</div>
+                <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{ color: this.state.colorNameToGuess, fontSize: 200 }}>{this.state.colorNameToGuess}</div>
             </div>
         )
     }
 
+
+    //*************************************************************************************** */
+    //Modal open and close functions
+    //**************************************************************************************** */
+    onOpenModal = () => {
+        this.setState({ open: true });
+    };
+
+    onCloseModal = () => {
+        this.setState({ open: false });
+    };
+    //*************************************************************************************** */
+
+
+
+    //********************************************* *****************************************/
+    //Modal render
+    //*************************************************************************************
+    modalPlayAgain = () => {
+        // {this.onOpenModal()}
+        return (
+            // <button onClick={this.onOpenModal}>Open modal</button>
+            <div>
+                
+                <Modal open = {this.state.open} onClose={this.onCloseModal} center>
+                    <h1 id="playAgainModalText">Play again?</h1>
+                    <img src="https://i.pinimg.com/originals/f0/8b/99/f08b998f7548448a73134f4d21c4b5f3.gif" />
+                    <img src="https://www.smileysapp.com/gif-emoji/thumbs-down.gif" />
+                </Modal>
+            </div>
+        )
+    }
+
+
+
+
+
+
     render() {
-        // const backgroundMusic = new Audio("./soundFiles/ukelele_background.mp3")
-        // backgroundMusic.play()
+        const { open } = this.state;
         return (
 
             <Fragment>
@@ -186,14 +221,15 @@ class ColorGame extends Component {
                 <div id="colorGamePage">
                     <h1> The Color Game!</h1>
                     <div className="container">
-                    {this.randomRender()}
-                    
-                    <h1> Which face is.....</h1>
+                        {this.randomRender()}
+
+                        <h1> Which face is.....</h1>
                         <h1>{this.renderColortoGuess()}</h1>
-                    <h1>{10 - this.state.questionNum} to go!</h1>   
+                        <h1>{10 - this.state.questionNum} to go!</h1>
 
                     </div>
                 </div>
+                {this.modalPlayAgain()}
             </Fragment>
         )
     }
