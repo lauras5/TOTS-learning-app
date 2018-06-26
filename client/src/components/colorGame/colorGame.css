@@ -52,8 +52,15 @@ h1{
     color: rgb(245, 243, 243);
 }
 
+h3{
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
+    color: rgb(51, 49, 49);
+}
+
 #colorGamePage{
-    background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat;
+    /* background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat; */
+    background:url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/animated-cartoon-of-a-starry-night-with-a-moon_ejmx5lyyx__F0000.png") no-repeat;
 background-size:100%;
 }   
 
@@ -61,4 +68,24 @@ background-size:100%;
     color: blue;
 }
 
+.modalStatsCorrect{
+    color: green;
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
+}
+
+.modalStatsIncorrect{
+    color: red;
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
+}
+
+
+#colorPlayAgain{
+    
+}
+
+#colorNotPlayAgain{
+    
+}
 
