@@ -13,7 +13,7 @@ module.exports = function(Router){
     Router.route('games/hello').get()
     
     // Route to number game
-    Router.route('/games/numbergame').get(NumberGameController.getNumberGame)
+    Router.route('/api/numbergame').get(NumberGameController.getNumberGame)
     
     // Route to Card Game 
     // Router.route('/games/cardgame').get(CardGameController)

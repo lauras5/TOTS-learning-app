@@ -26,7 +26,7 @@ const AppRouter = () => {
                     <Route path='/Parents' component={Parents} />
                     <Route path='/colorGame' component={ColorGame} />
                     <Route path='/cardGame' component={Cards} />
-                    <Route path='/numberGame' component={NumberGame} />
+                    <Route path='/games/numberGame' component={NumberGame} />
                 </div>
             </Router>
         )
