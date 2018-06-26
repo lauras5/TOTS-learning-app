@@ -4,4 +4,4 @@ export default {
     getNumberGame: function() {
         return axios.get("/api/numbergame");
     }
-;
+};
