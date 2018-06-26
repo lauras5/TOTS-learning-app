@@ -19,14 +19,13 @@ const AppRouter = () => {
                 <div>
                     {/* edit username */}
                     <Navbar username='User' message='welcome back!'/>
-
-                    <Route path='/Login' component={Login} />
-                    <Route path='/Home' component={Home} />
-                    <Route path='/About' component={About} />
-                    <Route path='/Parents' component={Parents} />
-                    <Route path='/colorGame' component={ColorGame} />
-                    <Route path='/cardGame' component={Cards} />
-                    <Route path='/games/numberGame' component={NumberGame} />
+                    <Route path='/login' component={Login} />
+                    <Route path='/home' component={Home} />
+                    <Route path='/about' component={About} />
+                    <Route path='/parents' component={Parents} />
+                    <Route path='/games/colorgame' component={ColorGame} />
+                    <Route path='/games/cardgame' component={Cards} />
+                    <Route path='/games/numbergame' component={NumberGame} />
                 </div>
             </Router>
         )
