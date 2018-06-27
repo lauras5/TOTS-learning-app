@@ -1,17 +1,17 @@
-.card {
-    background: rgb(243, 241, 241);
-    /* background-size:cover;
-    background-position:50%; */
+.colorCardIndividual{
+    background: rgb(202, 191, 191);
     border-radius: 10px;
-    margin: 5px;  
+    margin: 1%;  
     width: 20%;
-    display:inline-block;
+    
+    /* display:inline-block; */
   }
   
-  .card > .img-container {
-    margin: 1px;
+  .colorCardIndividual > .img-container {
+    margin: 10%;
   }
-  .card > .img-container > img {
+
+  .colorCardIndividual > .img-container > img {
          width: 100%;
    }
 

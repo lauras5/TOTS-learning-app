@@ -89,3 +89,10 @@ background-size:100%;
     
 }
 
+.rowColors{
+    display:inline-flex;
+    justify-content: center;
+    
+    
+}
+
