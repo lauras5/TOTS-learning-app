@@ -75,30 +75,33 @@ class ColorGame extends Component {
         let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
         let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
         this.setState({ questionNum: this.state.questionNum + 1 })
-        if (this.state.questionNum >= 10) {
-
-            //WRITE RESULTS TO DB HERE
-
-            let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-            thud.play()
-            { this.onOpenModal() }
-            { this.modalPlayAgain() }
-        }
-        else {
+       
+        
             if (name === this.state.colorNameToGuess) {
-
                 correctSound.play()
-
                 this.setState({ correctScore: this.state.correctScore + 1 })
+                this.setColorToGuess()
+            this.randomRender()
             }
             else {
                 wrongSound.play()
-
                 this.setState({ incorrectScore: this.state.incorrectScore + 1 })
-            }
-            this.setColorToGuess()
+                this.setColorToGuess()
             this.randomRender()
-        }
+            }
+
+            //exit condition in bottom
+            if (this.state.questionNum > 8) {
+
+                //WRITE RESULTS TO DB HERE
+    
+                let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+                thud.play()
+                { this.onOpenModal() }
+                { this.modalPlayAgain() }
+            }
+            
+        
     }
 
 
