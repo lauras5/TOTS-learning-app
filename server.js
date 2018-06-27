@@ -16,6 +16,10 @@ mongoose.connect(MONGODB_URI);
 // const numberGame = require('./routes/numbergame.routes');
 // const cardGame = require('./routes/cardgame.routes');
 
+//public is starting point for static files
+app.use(express.static(path.join(__dirname, 'public')))
+
+
 // allows you to use nexted js objects together
 app.use(bodyParser.urlencoded({ extended: true }));
 
