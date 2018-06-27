@@ -25,7 +25,7 @@ class Login extends Component {
                                 <li className="tab col s6"><a href="#newUser">New User</a></li>
                             </ul>
 
-                            <div id='loginBox' className="card blue darken-4">
+                            <div id='loginBox' className="card blue darken-4 card-login">
                                 <div className="card-content white-text">
                                     <span className="card-title">Existing Members Login Here</span>
                                     <form action="" name='loginForm'>
@@ -37,7 +37,7 @@ class Login extends Component {
                                 </div>
                             </div>
 
-                            <div id='newUser' className="card blue darken-4 userForm">
+                            <div id='newUser' className="card blue darken-4 userForm card-login">
                                 <div className="card-content white-text">
                                     <span className="card-title">Fill Out Form for New Users</span>
                                     <form action="" name='loginForm'>
@@ -57,7 +57,7 @@ class Login extends Component {
 
                     </div>
                     <div>I am the Login page</div>
-                    <div className='card tree'>
+                    <div className='card tree card-tree'>
                         <form action="/user" name='loginForm'>
                             <label htmlFor="username">Username</label>
                             <input id='userInput' type="text" name='username' />
