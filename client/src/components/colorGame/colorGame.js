@@ -12,7 +12,8 @@ class ColorGame extends Component {
         questionNum: 0,  //tracks how many questions are asked so far
         colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
         color, //initially an exact copy of color.json
-        open: false //for Modal
+        open: false, //for Modal
+        musicPlaying: false
     }
 
 
@@ -79,7 +80,7 @@ class ColorGame extends Component {
 
             //WRITE RESULTS TO DB HERE
 
-            let thud = new Audio("./soundFiles/thud.wav")
+            let thud = new Audio("http://www.pacdv.com/sounds/miscellaneous_sounds/bottle_pop_2.wav")
             thud.play()
             { this.onOpenModal() }
             { this.modalPlayAgain() }
@@ -135,7 +136,7 @@ class ColorGame extends Component {
     //                                - resets game values to 0 and restarts game
     //**************************************************************************************** */
     handleClickPlayAgain = () => {
-        let againSound = new Audio("./soundFiles/playagain.wav")
+        let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
         againSound.play()
         this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, colorNameToGuess: 'Blue' })
         this.onCloseModal()
@@ -147,9 +148,10 @@ class ColorGame extends Component {
     //                                   - exits colorGame and goes back to home
     //**************************************************************************************** */
     handleClickNotPlayAgain = () => {
-        let click = new Audio("./soundFiles/click.wav")
+        let click = new Audio("http://www.pacdv.com/sounds/transportation_sounds/car-door-close-2.wav")
         click.play()
         alert("GOES BACK TO HOME PAGE")
+        this.setState({musicPlaying:false})
         this.onCloseModal()
     }
 
@@ -243,6 +245,11 @@ class ColorGame extends Component {
 
     render() {
         const { open } = this.state;
+        let backgroundMusic = new Audio("./soundFiles/ukelele_background.mp3")
+        if (!this.state.musicPlaying){
+            backgroundMusic.play()
+            this.setState({musicPlaying:true})
+        }
         return (
 
             <Fragment>
