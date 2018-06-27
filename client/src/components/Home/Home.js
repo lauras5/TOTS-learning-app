@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 import { Button, Icon } from 'react-materialize'
 import './Home.css';
 import ReactDOM from 'react-dom';
-import Carousel from '../Carousel';
- 
+// import Carousel from '../Carousel';
+import GameRouter from '../../gamerouter'
+
 class Home extends Component {
     render() {
         return (
-
-           <Fragment>
-                <Carousel />
-            </Fragment>
+            <Fragment>
+                <GameRouter />
+            </Fragment >
         )
     }
 }

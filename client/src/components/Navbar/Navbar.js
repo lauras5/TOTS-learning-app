@@ -7,28 +7,28 @@ import './Navbar.css'
 const Navbar = props => {
   return (
 
-     <Fragment>
+    <Fragment>
       <nav className="navigation_container">
+        {/* <div className="l-triangle-top"></div>
+        <div className="l-triangle-bottom"></div> */}
 
-      <div className="l-triangle-top"></div>
-   <div className="l-triangle-bottom"></div>
-
-   <div className="rectangle">
-        <div className="navigation">
-          <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
-          <ul className="right hide-on-med-and-down">
-            <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
-            <li><Link className='nav-item nav-link' to='/Login'>Logout</Link></li>
-            <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
-          </ul>
+        <div className="rectangle">
+          <div className="navigation">
+            <Link className='nav-item nav-link' to='/parents'>Parents Place</Link>
+            <ul className="right hide-on-med-and-down">
+              <li><Link className='nav-item nav-link' to='/home'>Home</Link></li>
+              <li><Link className='nav-item nav-link' to='/login'>Logout</Link></li>
+              <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
+            </ul>
+          </div>
         </div>
-         </div>
-         <div className="r-triangle-top"></div>
-         <div className="r-triangle-bottom"></div>
+
+        {/* <div className="r-triangle-top"></div>
+        <div className="r-triangle-bottom"></div> */}
       </nav>
     </Fragment>
   )
-} 
+}
 {/* <div className="navigation_container">
  
  <!-- the left side of the fork effect -->

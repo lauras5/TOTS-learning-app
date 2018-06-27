@@ -23,10 +23,10 @@ class Cards extends Component {
         state.counter = state.counter + 1
         state.tempArr.push(event.target.getAttribute('value'))
         this.setState({ flipped: true })
-        
+
         // takes in time in seconds
         state.times.push(new Date().getTime())
-        
+
         console.log(state)
         console.log(event.target.getAttribute('value'))
         console.log(this.state.
@@ -54,7 +54,7 @@ class Cards extends Component {
                     })
 
                     // axios request to post
-                    axios.post('/games/cardGame/time', {
+                    axios.post('/api/cardgame', {
                         times: userTime
                     })
                         .then(function (response) {
@@ -98,10 +98,8 @@ class Cards extends Component {
                         <Fragment>
                             <div className='cardBorder col s3 m2' >
                                 <div className='card-small waves-effect waves-light blue' onClick={this.turnCard} value={card.name} key={card.id} flipped={false.toString()}>
-
                                     <img id='cardImages' src={card.image} alt={card.name} />
                                     <h3>{card.name}</h3>
-
                                 </div>
                             </div>
                         </Fragment>
