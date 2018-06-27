@@ -79,7 +79,7 @@ class ColorGame extends Component {
 
             //WRITE RESULTS TO DB HERE
 
-            let thud = new Audio("./soundFiles/thud.wav")
+            let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
             thud.play()
             { this.onOpenModal() }
             { this.modalPlayAgain() }
@@ -135,7 +135,7 @@ class ColorGame extends Component {
     //                                - resets game values to 0 and restarts game
     //**************************************************************************************** */
     handleClickPlayAgain = () => {
-        let againSound = new Audio("./soundFiles/playagain.wav")
+        let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
         againSound.play()
         this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, colorNameToGuess: 'Blue' })
         this.onCloseModal()
@@ -147,7 +147,7 @@ class ColorGame extends Component {
     //                                   - exits colorGame and goes back to home
     //**************************************************************************************** */
     handleClickNotPlayAgain = () => {
-        let click = new Audio("./soundFiles/click.wav")
+        let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
         click.play()
         alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
