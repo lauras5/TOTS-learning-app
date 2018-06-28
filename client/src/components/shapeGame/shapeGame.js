@@ -3,6 +3,7 @@ import './shapeGame.css';
 import shape from "./shape.json";
 import shapeToDrag from "./shapeToDrag.json";
 import ShapeCard from "./shapeCard";
+import ShapeToDragCard from "./shapeToDragCard";
 import Modal from 'react-responsive-modal';
 
 
@@ -179,7 +180,7 @@ class ShapeGame extends Component {
                           
         return (
             <div>
-                <div className="pulsate">{<ShapeCard key={this.state.shapeNameToGuess.id} id={this.state.shapeNameToGuess.id} image={this.state.shapeNameToGuess.image} name='' />}</div>
+                <div className="pulsate">{<ShapeToDragCard key={this.state.shapeNameToGuess.id} id={this.state.shapeNameToGuess.id} image={this.state.shapeNameToGuess.image}/>}</div>
               
             </div>
         )

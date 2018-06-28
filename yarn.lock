@@ -5919,6 +5919,10 @@ react-modal@^3.4.5:
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
 
+react-response@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/react-response/-/react-response-0.1.0.tgz#0c208b0bde0e409fc25d7a11fdebf9a07f63de96"
+
 react-responsive-modal@^3.0.3:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/react-responsive-modal/-/react-responsive-modal-3.0.3.tgz#ebef15b4ac40fd76c2b0c2e539b60e0d28c083fe"
