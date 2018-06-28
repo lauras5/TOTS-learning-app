@@ -1,0 +1,98 @@
+.pulsate-shape {
+    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation-iteration-count: infinite; 
+    opacity: 0.5;
+}
+
+.pulsate-shape:hover {
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+@keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
+
+
+@-webkit-keyframes pulsate {
+    0% { 
+        opacity: 0.5;
+    }
+    50% { 
+        opacity: 2.0;
+    }
+    100% { 
+        opacity: 0.5;
+    }
+}
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
+
+h1{
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
+    color: rgb(245, 243, 243);
+}
+
+h3{
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
+    color: rgb(51, 49, 49);
+}
+
+#shapeGamePage{
+    /* background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat; */
+    background:url("https://365psd.com/images/previews/fea/sunrise-cartoon-background-14735.jpg") no-repeat;
+background-size:100%;
+}   
+
+#playAgainModalText{
+    color: blue;
+}
+
+.modalStatsCorrect{
+    color: green;
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
+}
+
+.modalStatsIncorrect{
+    color: red;
+    font-family: 'Luckiest Guy',cursive;
+    text-align: center;
+}
+
+
+#shapePlayAgain{
+    
+}
+
+#shapeNotPlayAgain{
+    
+}
+
+.rowShapes{
+    display:inline-flex;
+    justify-content: center;
+    
+    
+}
+
