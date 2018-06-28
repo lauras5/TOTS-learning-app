@@ -11,9 +11,17 @@ const LocalStrategy = require('passport-local');
 const session = require('express-session');
 const passport = require('passport');
 
-
-// instance of express
 const app = express();
+//public is starting point for static files
+app.use(express.static(path.join(__dirname, 'public')))
+
+
+// allows you to use nexted js objects together
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// allows you to manipulate json
+app.use(bodyParser.json());
+// instance of express
 
 // set up mongoose connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
@@ -26,21 +34,13 @@ mongoose.connect(MONGODB_URI);
 // const numberGame = require('./routes/numbergame.routes');
 // const cardGame = require('./routes/cardgame.routes');
 
-//public is starting point for static files
-app.use(express.static(path.join(__dirname, 'public')))
 
-
-// allows you to use nexted js objects together
-app.use(bodyParser.urlencoded({ extended: true }));
-
-// allows you to manipulate json
-app.use(bodyParser.json());
 
 // // use number game routes
 // app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
 // app.use(require('./routes'));
-app.use('api/users', routes);
+app.use(routes);
 
 // Passport Config
 const User = require('./models/UserModel');
@@ -73,6 +73,10 @@ app.use(passport.session());
 app.get('/api/users', (req, res) => {
   res.sendFile(__dirname, './client/public/index.html')
 });
+
+app.get('http://localhost:3001/api/users', (req, res) => {
+  res.send('hello')
+})
  
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

@@ -29,8 +29,7 @@ class Cards extends Component {
 
         console.log(state)
         console.log(event.target.getAttribute('value'))
-        console.log(this.state.
-            flipped)
+        console.log(this.state.flipped)
 
         // console.log(state.tempArr)
 

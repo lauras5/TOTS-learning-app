@@ -1,4 +1,11 @@
 
+#loginModal {
+    display: block;
+    margin: auto;
+    margin-top: 7%;
+    width: 75%;
+    height: 360px;
+}
 
 .card-login {
     width: auto;
@@ -6,21 +13,6 @@
     margin: auto;
     padding: 30px;
     margin-bottom: 19px;
-}
-
-
-/* .userForm {
-    width: auto;
-    display: block;
-    margin: auto;
-    padding: 30px;
-    margin-bottom: 19px;
-} */
-
-#userInput {
-    color: #424141;
-    background-color: #aae9f1;
-    background-color: white;
 }
 
 body {

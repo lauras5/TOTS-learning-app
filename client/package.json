@@ -29,9 +29,9 @@
     "eject": "react-scripts eject"
   },
   "proxy": {
-    "/api/games" : {
+    "/api/*": {
       "target": "http://localhost:3001",
-      "secure" : false
+      "secure": false
     }
   }
 }

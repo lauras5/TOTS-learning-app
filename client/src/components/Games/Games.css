@@ -1,4 +1,15 @@
 #carouselDiv {
-    margin-top: 15%;
+    margin-top: 5%;
+    text-align: center;
+    height: 100%;
+}
+
+.carousel {
+    height: 300px;
+    margin-top: 5%;
+}
+
+#gameName {
+    color: black;
     text-align: center;
 }

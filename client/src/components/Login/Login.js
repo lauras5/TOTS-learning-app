@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
-import API from '../../utils/API'
-// import ReactDOM from 'react-dom';
+import API from '../../utils/API';
+import {Link} from 'react-router-dom';
+import { Row, Input, Card, Tabs, Tab, Modal, Button } from 'react-materialize';
 import './Login.css';
 
 class Login extends Component {
@@ -15,6 +16,10 @@ class Login extends Component {
             }
         };
     }
+
+    // componentDidMount() {
+    //     // open modal
+    // }
 
     handleEmail = event => {
         this.setState({
@@ -46,7 +51,7 @@ class Login extends Component {
         })
     }
 
-    handleSubmit = event => {
+    handleSignUp = event => {
         event.preventDefault()
         console.log(this.state)
 
@@ -57,11 +62,62 @@ class Login extends Component {
         // post to route
         API.postUsers(user)
 
+        // if login is successful reroute to home page
+        // set state as logged in
+    }
+
+    handleLogin = event => {
+        event.preventDefault()
+        console.log(this.state)
+
+        const user = {
+            user: this.state.user
+        }
+
+        API.getUsers(user)
     }
 
     render() {
         return (
             <Fragment>
+                <Modal
+                    trigger={<Button id='loginModal'>MODAL</Button>}>
+                    <Tabs className='tab'>
+                        <Tab title="Login" active>
+
+                            <Card id='loginForm'>
+                                <Row>
+                                    <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} />
+
+                                    <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} />
+
+                                    <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} />
+                                </Row>
+                                <Button onClick={this.handleLogin}>Login</Button>
+                            </Card>
+                        </Tab>
+                        <Tab title="signupForm">
+                            <Card>
+                                <Row>
+                                    <form id='loginForm'>
+                                        <Input id='userInput' type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email" />
+                                        <Input id='userInput' type="text" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password" />
+                                        <Input id='userInput' type="text" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Re-Type Password" />
+                                        <Input id='userInput' type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name" />
+                                    </form>
+                                </Row>
+                                <Link to="/home">
+                                <Button onClick={this.handleSignUp}>
+                                    Sign Up
+                                </Button>
+                                </Link>
+
+                            </Card>
+                        </Tab>
+
+                    </Tabs>
+                </Modal>
+
                 <form name='loginForm'>
                     <label htmlFor="email">Email</label>
                     <input id='userInput' type="text" name='email' value={this.state.user.email} onChange={this.handleEmail} />
@@ -71,9 +127,9 @@ class Login extends Component {
                     <br />
                     <label htmlFor="childname">Child Name</label>
                     <input id='userInput' type="text" name='child' value={this.state.user.child} onChange={this.handleChild} />
-
-                    <button id='submitBtn' onClick={this.handleSubmit}>create user</button>
                 </form>
+
+
             </Fragment>
         )
     }
@@ -81,78 +137,3 @@ class Login extends Component {
 
 export default Login;
 
-
-// class Login extends Component {
-//     state = {
-//         login: 'false'
-//     };
-
-//     // login functions go here
-//     render() {
-//         return (
-
-            // <Fragment>
-            //     <div className='container'>
-            //         {/* <h2 id='loginTitle'>Login Page</h2> */}
-            //         <div className='row'>
-            //             <div className='col s3'>
-            //                 <img id='monkey' src='./images/monkey.png' alt="lemur" width="250" height="350" />
-            //             </div>
-
-            //             <div className='col s6'>
-            //                 <ul id="tabs-swipe-demo" className="tabs">
-            //                     <li className="tab col s6"><a className='active' href="#loginBox">Existing User</a></li>
-            //                     <li className="tab col s6"><a href="#newUser">New User</a></li>
-            //                 </ul>
-
-            //                 <div id='loginBox' className="card blue darken-4">
-            //                     <div className="card-content white-text">
-            //                         <span className="card-title">Existing Members Login Here</span>
-            //                         <form action="" name='loginForm'>
-            //                             <input placeholder='Username' id='userInput' type="text" name='username' />
-            //                             <input placeholder='Password' id='userInput' type="text" name='password' />
-            //                             <button id='submitBtn'>Let's Go!</button>
-            //                             <br></br>
-            //                         </form>
-            //                     </div>
-            //                 </div>
-
-            //                 <div id='newUser' className="card blue darken-4 userForm">
-            //                     <div className="card-content white-text">
-            //                         <span className="card-title">Fill Out Form for New Users</span>
-            //                         <form action="" name='loginForm'>
-            //                             <input placeholder='Email Address' id='userInput' type="text" name='email address' />
-            //                             <input placeholder='Username' id='userInput' type="text" name='username' />
-            //                             <input placeholder='Password' id='userInput' type="text" name='password' />
-            //                             <button id='submitBtn'>Let's Go!</button>
-            //                             <br></br>
-            //                         </form>
-            //                     </div>
-            //                 </div>
-
-            //             </div>
-
-            //             <div className='col s3'>
-            //             </div>
-
-            //         </div>
-            //         <div>I am the Login page</div>
-            //         <div className='card tree'>
-            //             <form action="/user" name='loginForm'>
-            //                 <label htmlFor="username">Username</label>
-            //                 <input id='userInput' type="text" name='username' />
-            //                 <label htmlFor="email">Email</label>
-            //                 <input id='userInput' type="text" name='username' />
-            //                 <label htmlFor="username">Password</label>
-            //                 <input id='userInput' type="text" name='username' />
-            //                 <button id='submitBtn'>Let's Go!</button>
-            //             </form>
-            //         </div>
-            //     </div>
-            // </Fragment>
-//         )
-//     }
-// }
-
-
-// export default Login;

@@ -9,7 +9,7 @@ export default {
     postUsers : function(userData) {
         return axios.post("/api/users", userData)
     },
-    getUsers : function() {
-        return axios.get("/api/users")
+    getUsers : function(userData) {
+        return axios.get("/api/users", userData)
     }
 };

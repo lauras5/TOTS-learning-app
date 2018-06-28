@@ -33,8 +33,15 @@ module.exports = function (Router) {
     Router.route('/api/users')
         .post(UserController.addUser)
 
-    Router.route('/api/users')
-        .get(UserController.findUsers)
+    // Router.route('/api/users')
+    //     .get(UserController.findUsers)
+
+    Router.get('/api/users', (req, res) => {
+        User.create(req.body)
+        console.log(req)
+        console.log(res)
+    })
+
 
     Router.post('/api/users', (req, res) => {
         User.register(new User({ name: req.body.username }), req.body.password, function (err, account) {
