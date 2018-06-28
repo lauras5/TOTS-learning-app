@@ -1,19 +1,17 @@
-const express = require('express')
-const router = express.Router();
 const User = require('../models/UserModel');
 
 module.exports = {
-    findUsers : function (req, res) {
-        User.findAll()
-            .then(res.send('/api/users'))
+    addUser: function (req, res) {
+        User
+            .create(req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+
+        console.log(res.data)
     },
-    findPlayer : function (req, res) {
-        User.findById(id)
-            .then(res.send('/api/users/' + id))
-    },
-    addUser : function (req, res) {
-        User.create()
+    findUsers: function (req, res) {
+        User
+            .findAll()
             .then(res.send('/api/users'))
-            .catch()
     }
 }

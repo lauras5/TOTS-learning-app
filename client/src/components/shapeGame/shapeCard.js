@@ -1,15 +1,16 @@
 import React from 'react'
-import "./colorCard.css";
+import "./shapeCard.css";
 
-const ColorCard = props => (
-  <div className="card col-s3 colorCardIndividual">
+const ShapeCard = props => (
+  <div className="card col-s2 shapeCardIndividual">
+  <div className="card-title">{props.name}</div>
     <div className="img-container" name={props.name} onClick={() => props.handleClicked(props.name)}>
       <img
         alt={props.name}
         src={props.image}
       />
-    </div>
+      </div>
   </div>
 );
 
-export default ColorCard;
+export default ShapeCard;

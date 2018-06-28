@@ -1,10 +1,10 @@
-.pulsate {
+.pulsate-shape {
     -webkit-animation: pulsate 1s ease-out;
     -webkit-animation-iteration-count: infinite; 
     opacity: 0.5;
 }
 
-.pulsate:hover {
+.pulsate-shape:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
@@ -58,9 +58,9 @@ h3{
     color: rgb(51, 49, 49);
 }
 
-#colorGamePage{
+#shapeGamePage{
     /* background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat; */
-    background:url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/animated-cartoon-of-a-starry-night-with-a-moon_ejmx5lyyx__F0000.png") no-repeat;
+    background:url("https://365psd.com/images/previews/fea/sunrise-cartoon-background-14735.jpg") no-repeat;
 background-size:100%;
 }   
 
@@ -81,15 +81,15 @@ background-size:100%;
 }
 
 
-#colorPlayAgain{
+#shapePlayAgain{
     
 }
 
-#colorNotPlayAgain{
+#shapeNotPlayAgain{
     
 }
 
-.rowColors{
+.rowShapes{
     display:inline-flex;
     justify-content: center;
     

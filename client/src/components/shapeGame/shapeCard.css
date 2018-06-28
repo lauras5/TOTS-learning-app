@@ -1,5 +1,5 @@
-.colorCardIndividual{
-    background: rgb(202, 191, 191);
+.shapeCardIndividual{
+    background: rgb(158, 221, 142);
     border-radius: 10px;
     margin: 1%;  
     width: 20%;
@@ -7,11 +7,11 @@
     /* display:inline-block; */
   }
   
-  .colorCardIndividual > .img-container {
+  .shapeCardIndividual > .img-container {
     margin: 10%;
   }
 
-  .colorCardIndividual > .img-container > img {
+  .shapeCardIndividual > .img-container > img {
          width: 100%;
    }
 

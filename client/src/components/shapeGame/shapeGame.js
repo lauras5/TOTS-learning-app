@@ -1,17 +1,19 @@
 import React, { Component, Fragment } from 'react';
-import './colorGame.css';
-import color from "./color.json";
-import ColorCard from "./colorCard";
+import './shapeGame.css';
+import shape from "./shape.json";
+import shapeToDrag from "./shapeToDrag.json";
+import ShapeCard from "./shapeCard";
 import Modal from 'react-responsive-modal';
 
 
-class ColorGame extends Component {
+class ShapeGame extends Component {
     state = {
         correctScore: 0,
         incorrectScore: 0,
         questionNum: 0,  //tracks how many questions are asked so far
-        colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
-        color, //initially an exact copy of color.json
+        shapeNameToGuess: {id:1,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEGYOD5kQcdYHI6n0KpCiZ_-UmVHsIhOK0OTCc3-pTUQhNIT52",name:"Circle"},  //set to 'Red' initially.....i can't get a randomized initial value here!!!
+        shape, //hold shapes to drag to - an exact copy of shape.json
+        shapeToDrag, //hold shapes to drag - an exact copy of shapeToDrag.json
         open: false //for Modal
     }
 
@@ -22,11 +24,11 @@ class ColorGame extends Component {
     //      Other functions used:  shuffle()
     //*************************************************************************************** */
     randomRender = () => {
-        //this.setColorToGuess()
+        //this.setShapeToGuess()
 
         return (
-            this.shuffle(this.state.color).map(colorFromArray =>
-                <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
+            this.shuffle(this.state.shape).map(shapeFromShapeArray =>
+                <ShapeCard key={shapeFromShapeArray.id} id={shapeFromShapeArray.id} image={shapeFromShapeArray.image} name={shapeFromShapeArray.name} handleClicked={this.handleClicked} />
             )
         )
     }
@@ -66,8 +68,8 @@ class ColorGame extends Component {
 
     //*************************************************************************************** */
     //handleClicked Function = determines if correct card is clicked.  Updates state's correct
-    //and incorrect scores as needed.  Also sets the colorToGuess in the state.  Also rerenders tiles.
-    //      Other functions used:  setColorToGuess(), randomRender()
+    //and incorrect scores as needed.  Also sets the shapeToGuess in the state.  Also rerenders tiles.
+    //      Other functions used:  setShapeToGuess(), randomRender()
     //**************************************************************************************** */
     handleClicked = (name) => {
 
@@ -77,17 +79,17 @@ class ColorGame extends Component {
         this.setState({ questionNum: this.state.questionNum + 1 })
        
         
-            if (name === this.state.colorNameToGuess) {
+            if (name === this.state.shapeNameToGuess) {
                 correctSound.play()
                 this.setState({ correctScore: this.state.correctScore + 1 })
-                this.setColorToGuess()
-            this.randomRender()
+                this.pickRandomShapeToDrag()
+            this.renderShapeToDrag()
             }
             else {
                 wrongSound.play()
                 this.setState({ incorrectScore: this.state.incorrectScore + 1 })
-                this.setColorToGuess()
-            this.randomRender()
+                this.pickRandomShapeToDrag()
+            this.renderShapeToDrag()
             }
 
             //exit condition in bottom
@@ -112,25 +114,25 @@ class ColorGame extends Component {
     //                                
     //**************************************************************************************** */
     handleClickedPulsatingText = () => {
-        let colorSoundFile = ''
-        switch (this.state.colorNameToGuess) {
+        let shapeSoundFile = ''
+        switch (this.state.shapeNameToGuess) {
             case 'Red':
-                colorSoundFile = "./soundFiles/red.wav"
+                shapeSoundFile = "./soundFiles/red.wav"
                 break;
             case 'Blue':
-                colorSoundFile = "./soundFiles/blue.wav"
+                shapeSoundFile = "./soundFiles/blue.wav"
                 break;
             case 'Green':
-                colorSoundFile = "./soundFiles/green.wav"
+                shapeSoundFile = "./soundFiles/green.wav"
                 break;
             case 'Yellow':
-                colorSoundFile = "./soundFiles/yellow.wav"
+                shapeSoundFile = "./soundFiles/yellow.wav"
                 break;
             default:
-                colorSoundFile = ""
+                shapeSoundFile = ""
         }
-        let sayColor = new Audio(colorSoundFile)
-        sayColor.play()
+        let sayShape = new Audio(shapeSoundFile)
+        sayShape.play()
     }
 
     //*************************************************************************************** */
@@ -140,14 +142,16 @@ class ColorGame extends Component {
     handleClickPlayAgain = () => {
         let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
         againSound.play()
-        this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, colorNameToGuess: 'Blue' })
+        this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, shapeNameToGuess: 'Blue' })
+        this.pickRandomShapeToDrag()
+        this.renderShapeToDrag()
         this.onCloseModal()
     }
 
 
     //*************************************************************************************** */
     //handleClickedNotPlayAgain function - handles click event to NOT play again from Modal. 
-    //                                   - exits colorGame and goes back to home
+    //                                   - exits shapeGame and goes back to home
     //**************************************************************************************** */
     handleClickNotPlayAgain = () => {
         let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
@@ -156,45 +160,27 @@ class ColorGame extends Component {
         this.onCloseModal()
     }
 
-
-    //*************************************************************************************** */
-    //setColorToGuess function - picks a color to be guessed.  This is passed to the state.
+//*************************************************************************************** */
+    //pickRandomShapeToDrag function - Gets random shape to drag.  Assigns this so state property shapeNameToGuess
     //**************************************************************************************** */
-    setColorToGuess = () => {
-        //Set the correct answer 
-        const colorValues = ["Red", "Blue", "Green", "Yellow"]
-        const correctAnswer = colorValues[Math.floor(Math.random() * 4)]
-        this.setState({ colorNameToGuess: correctAnswer })
+    pickRandomShapeToDrag = () => {
 
-
-    }
-
+        let dragShapeToRender = this.state.shapeToDrag[Math.floor(Math.random() * 5)]
+        this.setState({ shapeNameToGuess: {id:dragShapeToRender.id,image:dragShapeToRender.image,name:dragShapeToRender.name}})
+    }    
+     
+    
+    
+    
     //*************************************************************************************** */
-    //renderColortoGuess function - Tells the user what color to pick.  Text in page.
+    //renderShapetoGuess function - Tells the user what shape to pick.  Text in page.
     //**************************************************************************************** */
-    renderColortoGuess = () => {
-        // let colorSoundFile = ''
-        // switch (this.state.colorNameToGuess) {
-        //     case 'Red':
-        //         colorSoundFile = "./soundFiles/red.wav"
-        //         break;
-        //     case 'Blue':
-        //         colorSoundFile = "./soundFiles/blue.wav"
-        //         break;
-        //     case 'Green':
-        //         colorSoundFile = "./soundFiles/green.wav"
-        //         break;
-        //     case 'Yellow':
-        //         colorSoundFile = "./soundFiles/yellow.wav"
-        //         break;
-        //     default:
-        //         colorSoundFile = ""
-        // }
-        // let sayColor = new Audio(colorSoundFile)
-        // setTimeout(function () { sayColor.play() }, 1000)
+    renderShapeToDrag = () => {
+                          
         return (
             <div>
-                <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{ color: this.state.colorNameToGuess, fontSize: 200 }}>{this.state.colorNameToGuess}</div>
+                <div className="pulsate">{<ShapeCard key={this.state.shapeNameToGuess.id} id={this.state.shapeNameToGuess.id} image={this.state.shapeNameToGuess.image} name='' />}</div>
+              
             </div>
         )
     }
@@ -219,21 +205,21 @@ class ColorGame extends Component {
     //*************************************************************************************
     modalPlayAgain = () => {
         // {this.onOpenModal()}
-        let colorGameCorrect = `Correct: ${this.state.correctScore}`
-        let colorGameWrong = `Incorrect: ${this.state.incorrectScore}`
+        let shapeGameCorrect = `Correct: ${this.state.correctScore}`
+        let shapeGameWrong = `Incorrect: ${this.state.incorrectScore}`
 
 
         return (
 
             <div>
                 <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                    <h3>Color Game Score</h3>
-                    <h4 className="modalStatsCorrect">{colorGameCorrect}</h4>
-                    <h4 className="modalStatsIncorrect">{colorGameWrong}</h4>
+                    <h3>Shape Game Score</h3>
+                    <h4 className="modalStatsCorrect">{shapeGameCorrect}</h4>
+                    <h4 className="modalStatsIncorrect">{shapeGameWrong}</h4>
 
                     <h3 id="playAgainModalText">Play again?</h3>
-                    <card col-6 id="colorPlayAgain" onClick={this.handleClickPlayAgain}><img src="https://i.pinimg.com/originals/f0/8b/99/f08b998f7548448a73134f4d21c4b5f3.gif" /></card>
-                    <card col-6 id="colorNotPlayAgain" onClick={this.handleClickNotPlayAgain}><img src="https://www.smileysapp.com/gif-emoji/thumbs-down.gif" /></card>
+                    <card col-6 id="shapePlayAgain" onClick={this.handleClickPlayAgain}><img src="https://i.pinimg.com/originals/f0/8b/99/f08b998f7548448a73134f4d21c4b5f3.gif" /></card>
+                    <card col-6 id="shapeNotPlayAgain" onClick={this.handleClickNotPlayAgain}><img src="https://www.smileysapp.com/gif-emoji/thumbs-down.gif" /></card>
                 </Modal>
             </div>
         )
@@ -250,16 +236,15 @@ class ColorGame extends Component {
 
             <Fragment>
 
-                <div id="colorGamePage">
-                    <h1> The Color Game!</h1>
+                <div id="shapeGamePage">
+                    <h1> The Shape Game!</h1>
                     <div className="container">
-                        <div className="rowColors">
+                        <div className="rowShapes">
                             {this.randomRender()}
                         </div>
                     </div>
-
-                    <h1> Which face is.....</h1>
-                    <h1>{this.renderColortoGuess()}</h1>
+                    <h1>{this.renderShapeToDrag()}</h1>
+                    <h1>Drag to the correct shape</h1>
                     <h1>{10 - this.state.questionNum} to go!</h1>
 
                 </div>
@@ -268,7 +253,7 @@ class ColorGame extends Component {
         )
     }
 }
-export default ColorGame;
+export default ShapeGame;
 
 
 

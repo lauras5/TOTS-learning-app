@@ -4,30 +4,27 @@ footer {
     text-align: center;
     margin-top: 3%;
     width: 100%;
-    height: 30px;
+    /* height: 30px; */
     background-color: #e5592e;
-/*     color: rgb(25, 187, 52); */
+    /* color: rgb(25, 187, 52); */
     color: white;
     text-align: center;
-    /* padding: 5px;
-    height: 100px; */
+    padding: 5px;
     /* padding-bottom: 50px; */
-    font-size: 12px; 
-    position:fixed;
-   left:0px;
-   bottom:0px;
+
    height:30px;
    width:100%;
-   
+    font-size: 18px; 
+    line-height: 25px;
 }
-p {
+/* p {
     padding-top: 15px;
     
-}
+} */
 
-.container {
+/* .container {
     padding-top: 12px;
-}
+} */
 
 .footer-copyright {
     padding-bottom: 2px;

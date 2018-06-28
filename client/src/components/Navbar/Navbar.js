@@ -29,27 +29,31 @@ const Navbar = props => {
         {/* <img className="car" src="https://publicdomainvectors.org/tn_img/vochito.png" /> */}
         <img className="bear" src="https://publicdomainvectors.org/photos/1464255207.png" />
        <img className="blue-butterfly" src="https://publicdomainvectors.org/photos/cartoon-butterfly-cv4.png" />
+
       <nav className="navigation_container">
 
-      <div className="l-triangle-top"></div>
-   <div className="l-triangle-bottom"></div>
 
-   <div className="rectangle">
-        <div className="navigation">
-          <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
-          <ul className="right hide-on-med-and-down">
-            <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
-            <li><Link className='nav-item nav-link' to='/Login'>Logout</Link></li>
-            <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
-          </ul>
+        <div className="rectangle">
+          <div className="navigation">
+            <Link className='nav-item nav-link' to='/parents'>Parents Place</Link>
+            <ul className="right hide-on-med-and-down">
+              <li><Link className='nav-item nav-link' to='/home'>Home</Link></li>
+              <li><Link className='nav-item nav-link' to='/login'>Logout</Link></li>
+              <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
+              <li><Link className='nav-item nav-link' to='/games/cardgame'>cardgame</Link></li>
+              <li><Link className='nav-item nav-link' to='/games/numbergame'>numbergame</Link></li>
+              <li><Link className='nav-item nav-link' to='/games/colorgame'>colorgame</Link></li>
+              <li><Link className='nav-item nav-link' to='/games/shapegame'>shapegame</Link></li>
+            </ul>
+          </div>
         </div>
          </div>
-         <div className="r-triangle-top"></div>
-         <div className="r-triangle-bottom"></div> 
+
       </nav>
     </Fragment>
   )
 } 
+
 
 
 export default Navbar;
