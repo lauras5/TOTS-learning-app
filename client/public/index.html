@@ -43,31 +43,6 @@
  <!-- Google Maps API -->
  <script async defer src='https://maps.googleapis.com/maps/api/js?key=AIzaSyBGKzK10pnII1YoVFkujW3oEbCJaiCLwrs&callback=initMap'></script>
 
- <!--Carousel jQuery and call locationDefault on document ready function-->
- <script>
-     $(document).ready(function () {
-         $('.carousel').carousel()
-         locationDefault()
-     })
-     $(".button-collapse").sideNav()
-
-     // start carrousel
-     $('.carousel.carousel-slider').carousel({
-         fullWidth: true,
-         indicators: false
-     });
-     // move next carousel
-     $('.moveNextCarousel').click(function (e) {
-         e.preventDefault();
-         e.stopPropagation();
-         $('.carousel').carousel('next');
-     });
-     // move prev carousel
-     $('.movePrevCarousel').click(function (e) {
-         e.preventDefault();
-         e.stopPropagation();
-         $('.carousel').carousel('prev');
-     });
  </script>
 
 </body>

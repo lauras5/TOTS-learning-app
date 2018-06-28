@@ -28,5 +28,10 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": {
+    "/api/games" : {
+      "target": "http://localhost:3001",
+      "secure" : false
+    }
+  }
 }

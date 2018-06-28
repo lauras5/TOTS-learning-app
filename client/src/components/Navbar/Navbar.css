@@ -4,30 +4,27 @@
     text-align: center;
 }
 
-/* .navigation_container {
-    margin-bottom: 0px;
-    padding-bottom: 0px;
-} */
-
-/* .nav {
-    text-decoration : none;
-    color: black;
-} */
-
 Link {
     text-decoration: none;
     color: black;
 }
 
-/* .nav-extended {
-    background: url(http://garyahlskog.com/wp-content/uploads/2014/04/newhd.jpg) repeat top left;
-} */
+#parentLink {
+    background-color: grey;
+    color:black;
+    font-size: 18px;
+}
 
 .navigation li {
     list-style: none;
     display: block;
     float: left;
     margin: 1em;
+}
+
+#navbarContainer {
+    width: 100%;
+    margin-top: 0;
 }
 
 .navigation li  {
@@ -91,162 +88,3 @@ Link {
     left: -150px;
  }
 
- /* .r-triangle-top {
-    border-color: #d9542b transparent transparent;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: right;
-    right: -45px;
-    top: -107px;
- }
-  
- .r-triangle-bottom {
-    border-color: transparent transparent #d9542b;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: right;
-    top: -100px;
-    right: -150px;
-    
- } */
-
- .r-triangle-top {
-    border-color: #d9542b transparent transparent;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: right;
-    right: -45px;
-    top: -107px;
- }
-  
- .r-triangle-bottom {
-    border-color: transparent transparent #d9542b;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: right;
-    top: -149px;
-    right: -145px;
- }
-
-
-
-/* .nav-wrapper {
-    background: #e5592e;
-    height: 62px;
-    position: relative;
-    -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-    box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-    z-index: 500; /* the stack order: foreground */
-   /*  margin: 3em 0;
- } */
- 
- /* .l-triangle-top {
-    border-color: #d9542b transparent transparent;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: left;
-    top: 1px;
-    left: -50px;
- }
-  
- .l-triangle-bottom {
-    border-color: transparent transparent #d9542b;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: left;
-    top: -40px;
-    left: -150px;
- }
-
- .r-triangle-top {
-    border-color: #d9542b transparent transparent;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: right;
-    right: -45px;
-    top: -107px;
- }
-  
- .r-triangle-bottom {
-    border-color: transparent transparent #d9542b;
-    border-style:solid;
-    border-width:50px;
-    height:0px;
-    width:0px;
-    position: relative;
-    float: right;
-    top: -149px;
-    right: -145px;
- }
-
- .l-triangle-top {
-    left: 150px;
-    top: 50px;
-}
-.l-triangle-bottom {
-    left: 50px;
-    top: -12px;
-}
-.r-triangle-top {}
-
-.r-triangle-bottom {
-    top: -169px;
-} */
-
-/* ******************************************************************************************** */
-/* .nav-extended hover {
-    margin-top: 2px;
-
-} */
-
-/* #nav-main{
-    font-weigth: bold;
-    color: rgb(184, 14, 14);
-    text-align: center;
-    position: relative; left: 800px;
-}
-.dropdown-toggle{
-    position: relative; left: 800px;
-}
-
-.dropdown-menu{
-    position: relative; left: 800px;
-}
-
-.dropdown-item{
-    position: relative; left: 800px;
-} */
-
-/* .navbar-collapse{
-    position: relative; left: 800px;
-} */
-
-
-
-.navbar {
-    background-color: rgb(119, 0, 255);
-}
