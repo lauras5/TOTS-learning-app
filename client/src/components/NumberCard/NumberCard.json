@@ -1,0 +1,27 @@
+[
+    {
+      "id": 1,
+      "name": "Mickey Mouse",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/d/d4/Mickey_Mouse.png/220px-Mickey_Mouse.png",
+      "count": 0
+    },
+    {
+      "id": 2,
+      "name": "Donald Duck",
+      "image": "https://vignette.wikia.nocookie.net/disneyjuniorpedia/images/4/45/220px-Donald_Duck1.gif/revision/latest?cb=20110926184002",
+      "count": 0
+    },
+    {
+      "id": 3,
+      "name": "Minnie Mouse",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/6/67/Minnie_Mouse.png/220px-Minnie_Mouse.png",
+      "count": 0
+    },
+    {
+      "id": 4,
+      "name": "Daisy Duck",
+      "image": "https://images.homedepot-static.com/productImages/480700b0-6c91-4106-b34e-d31c76c6fe2e/svn/whites-roommates-wall-decals-rmk1513gm-64_300.jpg",
+      "count": 0
+    }
+
+]

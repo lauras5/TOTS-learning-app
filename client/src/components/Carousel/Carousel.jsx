@@ -1,10 +1,8 @@
-import React, { Component, Fragment } from 'react';
-import { Link } from 'react-router-dom'
-import { Button, Icon } from 'react-materialize'
-import ReactDOM from 'react-dom'
-import './Carousel.css';
-
-
+    import React, { Component, Fragment } from 'react';
+    import { Link } from 'react-router-dom'
+    import { Button, Icon } from 'react-materialize'
+    import ReactDOM from 'react-dom'
+    import './Carousel.css';
 
 class Carousel extends Component {
     render() {
@@ -44,24 +42,24 @@ class Carousel extends Component {
                                 <div className="right">
                                     <a href="Siguiente" className="moveNextCarousel middle-indicator-text waves-effect waves-light">
                                         <i className="material-icons right middle-indicator-text">chevron_right</i>
-                                    </a>
+                                        </a>
+                                    </div>
                                 </div>
+                            
                             </div>
-
                         </div>
                     </div>
-                </div>
 
-                );
+                    ); 
 
-        </Fragment>
+            </Fragment>
 
-        )
+            )
+        }
     }
-}
 
 
-export default Carousel;
+    export default Carousel;
 
 
 
