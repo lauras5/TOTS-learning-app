@@ -15,5 +15,5 @@ class Home extends Component {
             </Fragment >
         )
     }
-
+}
     export default Home;
