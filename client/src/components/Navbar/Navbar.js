@@ -22,6 +22,7 @@ const Navbar = props => {
               <li><Link className='nav-item nav-link' to='/games/cardgame'>cardgame</Link></li>
               <li><Link className='nav-item nav-link' to='/games/numbergame'>numbergame</Link></li>
               <li><Link className='nav-item nav-link' to='/games/colorgame'>colorgame</Link></li>
+              <li><Link className='nav-item nav-link' to='/games/shapegame'>shapegame</Link></li>
             </ul>
           </div>
         </div>
