@@ -13,6 +13,11 @@ footer {
     height: 100px; */
     /* padding-bottom: 50px; */
     font-size: 12px; 
+    position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
    
 }
 p {
@@ -22,5 +27,10 @@ p {
 
 .container {
     padding-top: 12px;
+}
+
+.footer-copyright {
+    padding-bottom: 2px;
+    margin-bottom: 2px;
 }
 

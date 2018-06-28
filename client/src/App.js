@@ -3,6 +3,8 @@ import Footer from './components/Footer';
 /* import Carousel from './components/Carousel'; */
 import AppRouter from './approuter'
 import './App.css';
+import NumberCard from "./components/NumberCard";
+
 //import { Button, Card, Row, Col } from 'react-materialize';
 
 class App extends Component {

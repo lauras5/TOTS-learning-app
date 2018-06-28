@@ -40,9 +40,11 @@ Link {
 }
 
 .nav-item {
-    color: rgb(65, 57, 57);
+   /*  color: rgb(65, 57, 57); */
+    color: white;
     font-family: cursive;
     font-size: 25px;
+    text-shadow: 3px 2px black;
 }
 
 .navigation li :hover {
@@ -52,6 +54,8 @@ Link {
 .navigation_container {
     margin: 0 auto;
     width: 960px;
+    margin-bottom: 200px;
+    
  }
 
  .rectangle {
@@ -64,7 +68,7 @@ Link {
     -moz-border-radius: 3px;
     border-radius: 3px;
     z-index: 500; /* the stack order: foreground */
-    margin: 3em 0;
+    /* margin: 9em 0; */
  }
 
  .l-triangle-top {
@@ -124,8 +128,8 @@ Link {
     width:0px;
     position: relative;
     float: right;
-    right: -45px;
-    top: -107px;
+    right: -425px; /* 420 */
+    top: -60px;  /*  60 */
  }
   
  .r-triangle-bottom {
@@ -136,9 +140,158 @@ Link {
     width:0px;
     position: relative;
     float: right;
-    top: -149px;
-    right: -145px;
+    top: -100px;  /* 100 */
+    right: -525px; /* 460 */
  }
+
+    .appLogo {
+        color: rgb(248, 144, 9);
+        text-shadow: 3px 2px red;
+        padding-top: 0px;
+        letter-spacing: 5px;
+    }
+
+    .slogan {
+        color: white;
+        font-size: 30px;
+        font-family: cursive;
+        letter-spacing: 2px;
+        text-shadow: 3px 2px black;
+
+    }
+
+    .crayons {
+        width: 200px;
+        height: 140px;
+        position: relative;
+        /* bottom: 390px; */
+        left: 270px;
+        bottom: -20px;
+        
+        
+    }
+    .grass {
+        width: 400px;
+        height: 140px;
+        /* padding-bottom: 2px;
+        margin-bottom: 2px; */
+        padding-left: 0px;
+        margin-left: 0px;
+        position: relative;
+        right: 40px;
+        bottom: -4px;
+    }
+
+    .sun {
+        width: 150px;
+        height: 150px;
+        padding-bottom: 40px;
+        margin-left: 250px;
+    }
+
+    .car {
+        width: 200px;
+        height: 100px;
+    }
+
+    .bear {
+        width: 55px;
+        height: 70px;
+        position: absolute;
+        top: 260px;
+        right: 500px;
+
+    }
+    
+    .duck {
+        width: 80px;
+        height: 60px;
+        /* position: absolute;
+        left: 400px;
+        */
+        position: absolute;
+        left: 910px;
+        top: 270px;
+    }
+
+    .pink-butterfly {
+        width: 60px;
+        height: 120px;
+        padding-bottom: 60px;
+        padding-left: 20px;
+        padding-right: 0px;
+        margin-right: 0px;
+        position: absolute;
+        right: 1000px;
+    }
+
+    .blue-butterfly {
+        width: 60px;
+        height: 120px;
+        padding-bottom: 60px;
+        position: absolute;
+        right: 245px;
+        top: 150px;
+    }
+
+    .books {
+        width: 80px;
+        height: 60px;
+        position: absolute;
+        /* left: 700px; */
+        /* bottom: 400px;
+        left: 350px; */
+        /* top: 285px;
+        right: 300px; */
+    }
+
+    .baseball {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 290px;
+        right: 550px;
+       
+
+
+    
+    }
+
+    .flower1 {
+        width: 30px;
+        height: 60px;
+        position: absolute;
+        left: 380px;
+        top: 270px;
+
+         
+    }
+
+    .flower2 {
+        width: 20px;
+        height: 40px;
+        position: absolute;
+        top: 280px;
+        left: 600px;
+    }
+
+    .flower3 {
+        width: 15px;
+        height: 60px;
+        position: absolute;
+        top: 260px;
+        left: 500px;
+     
+    }
+
+    .train {
+        width: 190px;
+        height: 90px;
+        position: absolute;
+        top: 240px;
+        left: 710px;
+    }
+
 
 
 
