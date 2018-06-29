@@ -23,9 +23,20 @@ export default {
 
     // user axios requests
     postUsers : function(userData) {
-        return axios.post("/api/users", {userData})
+        return axios.post("/api/users", userData)
+        .then(function(response) {
+            console.log('response is working')
+        })
+        .catch(function(err) {
+            console.log(err)
+        })
     },
+
     getUsers : function(userData) {
-        return axios.get("/api/users", userData)
+        return axios.get("/api/users")
+    },
+
+    authenticate : function(username) {
+        return axios.get("/api/users/" + username)
     }
 };

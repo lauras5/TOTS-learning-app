@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import API from '../../utils/API';
-import { Link } from 'react-router-dom';
-import { Row, Input, Card, Tabs, Tab, Modal, Button } from 'react-materialize';
+// import { Link } from 'react-router-dom';
+import { Row, Input, Card, Modal, Button } from 'react-materialize';
 import './Login.css';
-import axios from 'axios'
-import proxy from 'http-proxy-middleware'
+// import axios from 'axios'
+// import proxy from 'http-proxy-middleware'
 
 class Login extends Component {
     constructor(props) {
@@ -18,10 +18,6 @@ class Login extends Component {
                 child: ''
             }
         };
-    }
-
-    componentDidMount() {
-
     }
 
     handleUser = event => {
@@ -72,11 +68,12 @@ class Login extends Component {
         event.preventDefault()
         console.log(this.state)
 
-        const user = {
-            user: this.state.user
-        };
+        // const user = {
+        //     user: this.state.user
+        // };
 
-        API.postUsers({user})
+        API.postUsers(this.state.user)
+            .then(console.log(this.state.user))
     }
     
     handleLogin = event => {

@@ -11,16 +11,15 @@ const LocalStrategy = require('passport-local');
 const session = require('express-session');
 const passport = require('passport');
 
+// instance of express
 const app = express();
+
 //public is starting point for static files
 app.use(express.static(path.join(__dirname, 'public')))
 
 // allows you to use nexted js objects together
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// allows you to manipulate json
 app.use(bodyParser.json());
-// instance of express
 
 // set up mongoose connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
@@ -29,22 +28,14 @@ mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
 
-// Routes - list of all route files
-// const numberGame = require('./routes/numbergame.routes');
-// const cardGame = require('./routes/cardgame.routes');
-
-
-
-// // use number game routes
-// app.use('/', numberGame);
-// Serve up static assets (usually on heroku)
-// app.use(require('./routes'));
 app.use('/', routes);
 
 // Passport Config
 const User = require('./models/UserModel');
+
 // use static authenticate method of model in LocalStrategy
 passport.use(new LocalStrategy(User.authenticate()));
+
 // use static serialize and deserialize of model for passport session support
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -72,10 +63,6 @@ app.use(passport.session());
 app.get('/', (req, res) => {
   res.sendFile(__dirname, './client/public/index.html')
 });
-
-// app.get('http://localhost:3001/api/users', (req, res) => {
-//   res.send('hello')
-// })
  
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

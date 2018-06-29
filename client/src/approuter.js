@@ -9,7 +9,7 @@ import ColorGame from './components/colorGame';
 import NumberGame from './components/NumberGame';
 import Games from './components/Games'
 import ShapeGame from './components/shapeGame/shapeGame';
-import Home from './components/Home';
+// import Home from './components/Home';
 
 
 const AppRouter = () => {

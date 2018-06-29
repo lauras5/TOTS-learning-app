@@ -1,9 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
+
+// require passport auth
 const passportLocalMongoose = require('passport-local-mongoose');
 
 var UserSchema = new Schema ({
-    name : {
+    username : {
         type : String,
         default: 'Quinchilla',
         required : true
@@ -13,6 +15,14 @@ var UserSchema = new Schema ({
         default: 'abc@gmail.com',
         required : true,
         unique : true
+    },
+    password : {
+        type : String,
+        required : true
+    },
+    child : {
+        type : String,
+        required : true
     },
     numberGame : {
         timesPlayed: Number,

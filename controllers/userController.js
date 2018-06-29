@@ -2,12 +2,31 @@ const User = require('../models/UserModel');
 
 module.exports = {
     addUser: function (req, res) {
+
+        // const {username, email, password, child} = req.body.user
+
+        console.log(req.body)
+        // const body = req.body.userdata.user
+
+        // console.log(body.email)
+
+        const user = {
+            username : req.body.username,
+            email : req.body.email,
+            password : req.body.password,
+            child : req.body.child
+        }
+
+        // console.log('user :  ' + {user})
+
         User
-            .create(req.body)
-            .then(dbModel => res.json(dbModel))
+            .create(user)
+            .then(dbModel => {
+                res.json(dbModel)
+                console.log(dbModel)   
+            })
             .catch(err => res.status(422).json(err))
-            
-        console.log(res.data)
+       
     },
     findUsers: function (req, res) {
         User
@@ -15,6 +34,7 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     },
+
     authenticate: function(req, res) {
         User
             .register(new User({ user: req.body.user }), req.body.user.password, function (err, account) {
