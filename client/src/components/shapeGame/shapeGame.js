@@ -29,7 +29,7 @@ class ShapeGame extends Component {
 
         return (
             this.shuffle(this.state.shape).map(shapeFromShapeArray =>
-                <ShapeCard key={shapeFromShapeArray.id} id={shapeFromShapeArray.id} image={shapeFromShapeArray.image} name={shapeFromShapeArray.name} handleClicked={this.handleClicked} />
+                <ShapeCard key={shapeFromShapeArray.id} id={shapeFromShapeArray.id} image={shapeFromShapeArray.image} name={shapeFromShapeArray.name}/>
             )
         )
     }
@@ -72,40 +72,40 @@ class ShapeGame extends Component {
     //and incorrect scores as needed.  Also sets the shapeToGuess in the state.  Also rerenders tiles.
     //      Other functions used:  setShapeToGuess(), randomRender()
     //**************************************************************************************** */
-    handleClicked = (name) => {
+    // handleClicked = (name) => {
 
-        // let correctSound = new Audio("./soundFiles/success.wav")
-        let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
-        let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
-        this.setState({ questionNum: this.state.questionNum + 1 })
+    //     // let correctSound = new Audio("./soundFiles/success.wav")
+    //     let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
+    //     let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
+    //     this.setState({ questionNum: this.state.questionNum + 1 })
        
         
-            if (name === this.state.shapeNameToGuess) {
-                correctSound.play()
-                this.setState({ correctScore: this.state.correctScore + 1 })
-                this.pickRandomShapeToDrag()
-            this.renderShapeToDrag()
-            }
-            else {
-                wrongSound.play()
-                this.setState({ incorrectScore: this.state.incorrectScore + 1 })
-                this.pickRandomShapeToDrag()
-            this.renderShapeToDrag()
-            }
+    //         if (name === this.state.shapeNameToGuess) {
+    //             correctSound.play()
+    //             this.setState({ correctScore: this.state.correctScore + 1 })
+    //             this.pickRandomShapeToDrag()
+    //         this.renderShapeToDrag()
+    //         }
+    //         else {
+    //             wrongSound.play()
+    //             this.setState({ incorrectScore: this.state.incorrectScore + 1 })
+    //             this.pickRandomShapeToDrag()
+    //         this.renderShapeToDrag()
+    //         }
 
-            //exit condition in bottom
-            if (this.state.questionNum > 8) {
+    //         //exit condition in bottom
+    //         if (this.state.questionNum > 8) {
 
-                //WRITE RESULTS TO DB HERE
+    //             //WRITE RESULTS TO DB HERE
     
-                let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-                thud.play()
-                { this.onOpenModal() }
-                { this.modalPlayAgain() }
-            }
+    //             let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+    //             thud.play()
+    //             { this.onOpenModal() }
+    //             { this.modalPlayAgain() }
+    //         }
             
         
-    }
+    // }
 
 
 
@@ -114,27 +114,27 @@ class ShapeGame extends Component {
     //handleClickedPulsatingText function - audio file played when pulsating text is clicked
     //                                
     //**************************************************************************************** */
-    handleClickedPulsatingText = () => {
-        let shapeSoundFile = ''
-        switch (this.state.shapeNameToGuess) {
-            case 'Red':
-                shapeSoundFile = "./soundFiles/red.wav"
-                break;
-            case 'Blue':
-                shapeSoundFile = "./soundFiles/blue.wav"
-                break;
-            case 'Green':
-                shapeSoundFile = "./soundFiles/green.wav"
-                break;
-            case 'Yellow':
-                shapeSoundFile = "./soundFiles/yellow.wav"
-                break;
-            default:
-                shapeSoundFile = ""
-        }
-        let sayShape = new Audio(shapeSoundFile)
-        sayShape.play()
-    }
+    // handleClickedPulsatingText = () => {
+    //     let shapeSoundFile = ''
+    //     switch (this.state.shapeNameToGuess) {
+    //         case 'Red':
+    //             shapeSoundFile = "./soundFiles/red.wav"
+    //             break;
+    //         case 'Blue':
+    //             shapeSoundFile = "./soundFiles/blue.wav"
+    //             break;
+    //         case 'Green':
+    //             shapeSoundFile = "./soundFiles/green.wav"
+    //             break;
+    //         case 'Yellow':
+    //             shapeSoundFile = "./soundFiles/yellow.wav"
+    //             break;
+    //         default:
+    //             shapeSoundFile = ""
+    //     }
+    //     let sayShape = new Audio(shapeSoundFile)
+    //     sayShape.play()
+    // }
 
     //*************************************************************************************** */
     //handleClickedPlayAgain function - handles click event to play again from Modal. 
