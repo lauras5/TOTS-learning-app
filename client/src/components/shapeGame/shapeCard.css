@@ -1,0 +1,19 @@
+.shapeCardIndividual{
+    background: rgb(158, 221, 142);
+    border-radius: 10px;
+    margin: 1%;  
+    width: 20%;
+    
+    /* display:inline-block; */
+  }
+  
+  .shapeCardIndividual > .img-container {
+    margin: 10%;
+  }
+
+  .shapeCardIndividual > .img-container > img {
+         width: 100%;
+   }
+
+
+  

@@ -8,6 +8,9 @@ import Cards from './components/cardGame';
 import ColorGame from './components/colorGame';
 import NumberGame from './components/NumberGame';
 import Games from './components/Games'
+import ShapeGame from './components/shapeGame/shapeGame';
+import Home from './components/Home';
+
 
 const AppRouter = () => {
 // class AppRouter extends Component {
@@ -21,13 +24,15 @@ const AppRouter = () => {
                     <Route path='/home' component={Games} />
                     <Route path='/about' component={About} />
                     <Route path='/parents' component={Parents} />
-                    <Route path='/games/cardgame' component={Cards}/>
-                    <Route path='/games/colorGame' component={ColorGame}/>
-                    <Route path='/games/NumberGame' component={NumberGame}/>
+                    <Route path='/games/colorgame' component={ColorGame} />
+                    <Route path='/games/cardgame' component={Cards} />
+                    <Route path='/games/numbergame' component={NumberGame} />
+                    <Route path='/games/shapegame' component={ShapeGame} />
                 </div>
             </Router>
         )
     }
 // }
 
-export default AppRouter;
+
+    export default AppRouter;

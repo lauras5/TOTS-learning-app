@@ -13,7 +13,9 @@ class Footer extends Component {
                        
                     </div>
                 </div>  */}
-                <div className="footer-copyright">
+                
+              <div className="footer-copyright">
+
                     <div className="container">
                         © 2018 Team Final Project
                     </div>

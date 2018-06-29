@@ -1,3 +1,4 @@
+
 import React, { Component, Fragment } from 'react';
 // import { Link } from 'react-router-dom';
 // import { Button, Icon } from 'react-materialize'
@@ -16,5 +17,4 @@ class Home extends Component {
         )
     }
 }
-
-export default Home;
+    export default Home;

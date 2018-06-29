@@ -11,11 +11,11 @@ footer {
     text-align: center;
     padding: 5px;
     /* padding-bottom: 50px; */
+
+   height:30px;
+   width:100%;
     font-size: 18px; 
     line-height: 25px;
-    position: fixed;
-    left: 0;
-    bottom: 0;
 }
 /* p {
     padding-top: 15px;
@@ -25,4 +25,9 @@ footer {
 /* .container {
     padding-top: 12px;
 } */
+
+.footer-copyright {
+    padding-bottom: 2px;
+    margin-bottom: 2px;
+}
 
