@@ -12,7 +12,6 @@ const Navbar = props => {
               <li><Link className='nav-item nav-link' to='/home'>Home</Link></li>
               <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
               <li><Link className='nav-item nav-link' to='/login'>Logout</Link></li>
-              {/* <li><Link to="/api">test routes</Link></li> */}
             </ul>
           </div>
       </nav>

@@ -76,14 +76,7 @@ class Login extends Component {
             user: this.state.user
         };
 
-        // axios.get("http://localhost:3001/api", {headers: {"Access-Control-Allow-Origin": "*"}})
-        // .then(console.log('hello'))
-        // post to route
-        API.testpost()
-        // API.testget()
-        
-        // if login is successful reroute to home page
-        // set state as logged in
+        API.postUsers({user})
     }
     
     handleLogin = event => {
@@ -93,9 +86,7 @@ class Login extends Component {
         const username = {
             username: this.state.user.username
         }
-        
-        API.testpost()
-        API.testget()
+
     }
 
     render() {
