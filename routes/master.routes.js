@@ -15,8 +15,7 @@ const numberGameController = require("../controllers/numbergame.server.controlle
 router.get('/api', UserController.login)
 
 // number game route
-router.route("/numbergame")
-    .get(numberGameController.getNumberGame)
+router.get('/api/numbergame', numberGameController.getNumberGame)
 
 // User Routes
 router.post('/api/users', UserController.addUser)
