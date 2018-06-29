@@ -3,16 +3,34 @@
     display: block;
     margin: auto;
     margin-top: 7%;
-    width: 75%;
-    height: 360px;
+    width: 50%;
+    height: 120px;
+    background-color: #80d236;
+    font-size: 22px;
+    font-weight: bold;
+    border: 5px solid white;
+    box-shadow: 2px 2px 2px dimgrey;
 }
 
-.card-login {
-    width: auto;
+#signupModal {
     display: block;
     margin: auto;
-    padding: 30px;
-    margin-bottom: 19px;
+    margin-top: 1%;
+    width: 50%;
+    height: 120px;
+    background-color: #398fe8;
+    font-size: 22px;
+    font-weight: bold;
+    border: 5px solid white;
+    box-shadow: 2px 2px 2px dimgrey;
+}
+
+#loginBack {
+    background-color: #80d236
+}
+
+#signupBack {
+    background-color: #398fe8
 }
 
 body {
@@ -51,6 +69,8 @@ body {
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
 }
+
+
 
 /* .tree {
     background: url(./images/sky_grass_background.png);

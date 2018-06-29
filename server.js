@@ -15,7 +15,6 @@ const app = express();
 //public is starting point for static files
 app.use(express.static(path.join(__dirname, 'public')))
 
-
 // allows you to use nexted js objects together
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -40,7 +39,7 @@ mongoose.connect(MONGODB_URI);
 // app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
 // app.use(require('./routes'));
-app.use(routes);
+app.use('/', routes);
 
 // Passport Config
 const User = require('./models/UserModel');
@@ -70,13 +69,13 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.get('/api/users', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(__dirname, './client/public/index.html')
 });
 
-app.get('http://localhost:3001/api/users', (req, res) => {
-  res.send('hello')
-})
+// app.get('http://localhost:3001/api/users', (req, res) => {
+//   res.send('hello')
+// })
  
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);

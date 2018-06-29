@@ -1,19 +1,24 @@
 var Router = require('express').Router();
-var db = require('../models')
+var User = require('../models/UserModel')
 
 //testing routes
 module.exports = {
     getCardGame: function (req, res) {
-        db.User.find()
-            .then(res.send('/games/cardgame'))
+        User
+            .find()
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
     },
-    updateTime: function (req, res) {
-        db.User.findById({ _id: id })
+    addScore: function (req, res) {
+        User
+            .findOneAndUpdate({_id: req.params.id}, req.body)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
     },
-    getTime: function(req, res) {
-        db.User.find(function(err) {
-            if (err) throw err;
-            res.send('/games/cardgame/time')
-        })
+    getScores: function (req, res) {
+        User
+            .find({})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
     }
 }

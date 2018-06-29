@@ -1,8 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import API from '../../utils/API';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Row, Input, Card, Tabs, Tab, Modal, Button } from 'react-materialize';
 import './Login.css';
+import axios from 'axios'
+import proxy from 'http-proxy-middleware'
 
 class Login extends Component {
     constructor(props) {
@@ -10,6 +12,7 @@ class Login extends Component {
         this.state = {
             // login: 'false',
             user: {
+                username: '',
                 email: '',
                 password: '',
                 child: ''
@@ -17,33 +20,47 @@ class Login extends Component {
         };
     }
 
-    // componentDidMount() {
-    //     // open modal
-    // }
+    componentDidMount() {
 
-    handleEmail = event => {
+    }
+
+    handleUser = event => {
         this.setState({
             user: {
-                email: event.target.value,
+                username: event.target.value,
+                email: this.state.user.email,
                 password: this.state.user.password,
                 child: this.state.user.child
             }
         })
     }
 
+    handleEmail = event => {
+        this.setState({
+            user: {
+                username : this.state.user.username,
+                email: event.target.value,
+                password: this.state.user.password,
+                child: this.state.user.child
+            }
+        })
+    }
+    
     handlePword = event => {
         this.setState({
             user: {
+                username : this.state.user.username,
                 email: this.state.user.email,
                 password: event.target.value,
                 child: this.state.user.child
             }
         })
     }
-
+    
     handleChild = event => {
         this.setState({
             user: {
+                username : this.state.user.username,
                 email: this.state.user.email,
                 password: this.state.user.password,
                 child: event.target.value
@@ -59,77 +76,51 @@ class Login extends Component {
             user: this.state.user
         };
 
+        // axios.get("http://localhost:3001/api", {headers: {"Access-Control-Allow-Origin": "*"}})
+        // .then(console.log('hello'))
         // post to route
-        API.postUsers(user)
-
+        API.testpost()
+        // API.testget()
+        
         // if login is successful reroute to home page
         // set state as logged in
     }
-
+    
     handleLogin = event => {
         event.preventDefault()
         console.log(this.state)
-
-        const user = {
-            user: this.state.user
+        
+        const username = {
+            username: this.state.user.username
         }
-
-        API.getUsers(user)
+        
+        API.testpost()
+        API.testget()
     }
 
     render() {
         return (
             <Fragment>
-                <Modal
-                    trigger={<Button id='loginModal'>MODAL</Button>}>
-                    <Tabs className='tab'>
-                        <Tab title="Login" active>
-
-                            <Card id='loginForm'>
-                                <Row>
-                                    <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} />
-
-                                    <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} />
-
-                                    <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} />
-                                </Row>
-                                <Button onClick={this.handleLogin}>Login</Button>
-                            </Card>
-                        </Tab>
-                        <Tab title="signupForm">
-                            <Card>
-                                <Row>
-                                    <form id='loginForm'>
-                                        <Input id='userInput' type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email" />
-                                        <Input id='userInput' type="text" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password" />
-                                        <Input id='userInput' type="text" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Re-Type Password" />
-                                        <Input id='userInput' type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name" />
-                                    </form>
-                                </Row>
-                                <Link to="/home">
-                                <Button onClick={this.handleSignUp}>
-                                    Sign Up
-                                </Button>
-                                </Link>
-
-                            </Card>
-                        </Tab>
-
-                    </Tabs>
+                <Modal id='modalBack' trigger={<Button id='loginModal'>LOGIN</Button>}>
+                    <Card id='loginForm'>
+                        <Row>
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label="Username"/>
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
+                        </Row>
+                        <Button onClick={this.handleLogin}>Login</Button>
+                    </Card>
                 </Modal>
-
-                <form name='loginForm'>
-                    <label htmlFor="email">Email</label>
-                    <input id='userInput' type="text" name='email' value={this.state.user.email} onChange={this.handleEmail} />
-                    <br />
-                    <label htmlFor="password">Password</label>
-                    <input id='userInput' type="text" name='password' value={this.state.user.password} onChange={this.handlePword} />
-                    <br />
-                    <label htmlFor="childname">Child Name</label>
-                    <input id='userInput' type="text" name='child' value={this.state.user.child} onChange={this.handleChild} />
-                </form>
-
-
+                <Modal trigger={<Button id='signupModal'>NEW USER</Button>}>
+                    <Card id='loginForm'>
+                        <Row>
+                            <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email"/>
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label='Username'/>
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
+                            <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name"/>
+                        </Row>
+                        <Button onClick={this.handleSignUp}>Sign Up</Button>
+                    </Card>
+                </Modal>
             </Fragment>
         )
     }

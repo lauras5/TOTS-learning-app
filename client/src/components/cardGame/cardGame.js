@@ -13,6 +13,7 @@ class Cards extends Component {
             tempArr: [],
             correct: [],
             flipped: Boolean,
+            
             times: [],
             finalTime: 0
         }
