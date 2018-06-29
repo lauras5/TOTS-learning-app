@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+<<<<<<< HEAD
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import { Row, Input, Card, Tabs, Tab, Modal, Button } from 'react-materialize';
@@ -97,10 +98,22 @@ class Login extends Component {
         API.testpost()
         API.testget()
     }
+=======
+import './Login.css';
+import ReactDOM from 'react-dom';
 
+
+class Login extends Component {
+    state = {
+        login: 'false'
+    };
+>>>>>>> parent of fc914b6... Merge branch 'master' into Parent-Page2
+
+    // login functions go here
     render() {
         return (
             <Fragment>
+<<<<<<< HEAD
                 <Modal id='modalBack' trigger={<Button id='loginModal'>LOGIN</Button>}>
                     <Card id='loginForm'>
                         <Row>
@@ -121,10 +134,74 @@ class Login extends Component {
                         <Button onClick={this.handleSignUp}>Sign Up</Button>
                     </Card>
                 </Modal>
+=======
+                <div className='container'>
+                    {/* <h2 id='loginTitle'>Login Page</h2> */}
+                    <div className='row'>
+                        <div className='col s3'>
+                            <img id='monkey' src='./images/monkey.png' alt="lemur" width="250" height="350" />
+                        </div>
+
+                        <div className='col s6'>
+                            <ul id="tabs-swipe-demo" className="tabs">
+                                <li className="tab col s6"><a className='active' href="#loginBox">Existing User</a></li>
+                                <li className="tab col s6"><a href="#newUser">New User</a></li>
+                            </ul>
+
+                            <div id='loginBox' className="card blue darken-4">
+                                <div className="card-content white-text">
+                                    <span className="card-title">Existing Members Login Here</span>
+                                    <form action="" name='loginForm'>
+                                        <input placeholder='Username' id='userInput' type="text" name='username' />
+                                        <input placeholder='Password' id='userInput' type="text" name='password' />
+                                        <button id='submitBtn'>Let's Go!</button>
+                                        <br></br>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div id='newUser' className="card blue darken-4 userForm">
+                                <div className="card-content white-text">
+                                    <span className="card-title">Fill Out Form for New Users</span>
+                                    <form action="" name='loginForm'>
+                                        <input placeholder='Email Address' id='userInput' type="text" name='email address' />
+                                        <input placeholder='Username' id='userInput' type="text" name='username' />
+                                        <input placeholder='Password' id='userInput' type="text" name='password' />
+                                        <button id='submitBtn'>Let's Go!</button>
+                                        <br></br>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div className='col s3'>
+                        </div>
+
+                    </div>
+                    <div>I am the Login page</div>
+                    <div className='card tree'>
+                        <form action="/user" name='loginForm'>
+                            <label htmlFor="username">Username</label>
+                            <input id='userInput' type="text" name='username' />
+                            <label htmlFor="email">Email</label>
+                            <input id='userInput' type="text" name='username' />
+                            <label htmlFor="username">Password</label>
+                            <input id='userInput' type="text" name='username' />
+                            <button id='submitBtn'>Let's Go!</button>
+                        </form>
+                    </div>
+                </div>
+>>>>>>> parent of fc914b6... Merge branch 'master' into Parent-Page2
             </Fragment>
         )
     }
 }
 
+<<<<<<< HEAD
 export default Login;
 
+=======
+
+export default Login;
+>>>>>>> parent of fc914b6... Merge branch 'master' into Parent-Page2

@@ -1,8 +1,12 @@
 import React, { Component, Fragment } from 'react';
 import './colorGame.css';
+
 import color from "./color.json";
 import ColorCard from "./colorCard";
+
 import Modal from 'react-responsive-modal';
+
+
 
 
 class ColorGame extends Component {
@@ -70,47 +74,41 @@ class ColorGame extends Component {
     //      Other functions used:  setColorToGuess(), randomRender()
     //**************************************************************************************** */
     handleClicked = (name) => {
-
+        
         // let correctSound = new Audio("./soundFiles/success.wav")
         let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
         let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
         this.setState({ questionNum: this.state.questionNum + 1 })
-       
-        
+        if (this.state.questionNum >= 10) {
+
+            //WRITE RESULTS TO DB HERE
+
+            let thud = new Audio("./soundFiles/thud.wav")
+            thud.play()
+            {this.onOpenModal()}
+            {this.modalPlayAgain()}
+        }
+        else {
             if (name === this.state.colorNameToGuess) {
+                
                 correctSound.play()
+
                 this.setState({ correctScore: this.state.correctScore + 1 })
-                this.setColorToGuess()
-            this.randomRender()
             }
             else {
                 wrongSound.play()
+               
                 this.setState({ incorrectScore: this.state.incorrectScore + 1 })
-                this.setColorToGuess()
+            }
+            this.setColorToGuess()
             this.randomRender()
-            }
-
-            //exit condition in bottom
-            if (this.state.questionNum > 8) {
-
-                //WRITE RESULTS TO DB HERE
-    
-                let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-                thud.play()
-                { this.onOpenModal() }
-                { this.modalPlayAgain() }
-            }
-            
-        
+        }
     }
 
 
 
 
-    //*************************************************************************************** */
-    //handleClickedPulsatingText function - audio file played when pulsating text is clicked
-    //                                
-    //**************************************************************************************** */
+
     handleClickedPulsatingText = () => {
         let colorSoundFile = ''
         switch (this.state.colorNameToGuess) {
@@ -137,10 +135,11 @@ class ColorGame extends Component {
     //handleClickedPlayAgain function - handles click event to play again from Modal. 
     //                                - resets game values to 0 and restarts game
     //**************************************************************************************** */
-    handleClickPlayAgain = () => {
-        let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
+    handleClickPlayAgain = () =>
+    {
+        let againSound = new Audio("./soundFiles/playagain.wav")
         againSound.play()
-        this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, colorNameToGuess: 'Blue' })
+        this.setState({correctScore:0,incorrectScore:0,questionNum:0,colorNameToGuess:'Blue'})
         this.onCloseModal()
     }
 
@@ -149,10 +148,12 @@ class ColorGame extends Component {
     //handleClickedNotPlayAgain function - handles click event to NOT play again from Modal. 
     //                                   - exits colorGame and goes back to home
     //**************************************************************************************** */
-    handleClickNotPlayAgain = () => {
-        let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+    handleClickNotPlayAgain = () =>
+    
+        {
+            let click = new Audio("./soundFiles/click.wav")
         click.play()
-        alert("GOES BACK TO HOME PAGE")
+            alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
     }
 
@@ -214,24 +215,25 @@ class ColorGame extends Component {
 
 
 
-    //***************************************************************************************/
-    //Modal render - render the modal
+    //********************************************* *****************************************/
+    //Modal render
     //*************************************************************************************
     modalPlayAgain = () => {
         // {this.onOpenModal()}
-        let colorGameCorrect = `Correct: ${this.state.correctScore}`
-        let colorGameWrong = `Incorrect: ${this.state.incorrectScore}`
-
-
+        let colorGameCorrect = `Correct: ${this.state.correctScore}` 
+        let colorGameWrong = `Incorrect: ${this.state.incorrectScore}` 
+               
+                
+        
         return (
-
+            
             <div>
-                <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                    <h3>Color Game Score</h3>
-                    <h4 className="modalStatsCorrect">{colorGameCorrect}</h4>
-                    <h4 className="modalStatsIncorrect">{colorGameWrong}</h4>
-
-                    <h3 id="playAgainModalText">Play again?</h3>
+                <Modal open = {this.state.open} onClose={this.onCloseModal} center>
+                <h3>Color Game Score</h3>
+                <h4 className= "modalStatsCorrect">{colorGameCorrect}</h4>  
+                <h4 className = "modalStatsIncorrect">{colorGameWrong}</h4> 
+                 
+                <h3 id="playAgainModalText">Play again?</h3>
                     <card col-6 id="colorPlayAgain" onClick={this.handleClickPlayAgain}><img src="https://i.pinimg.com/originals/f0/8b/99/f08b998f7548448a73134f4d21c4b5f3.gif" /></card>
                     <card col-6 id="colorNotPlayAgain" onClick={this.handleClickNotPlayAgain}><img src="https://www.smileysapp.com/gif-emoji/thumbs-down.gif" /></card>
                 </Modal>
@@ -253,15 +255,13 @@ class ColorGame extends Component {
                 <div id="colorGamePage">
                     <h1> The Color Game!</h1>
                     <div className="container">
-                        <div className="rowColors">
-                            {this.randomRender()}
-                        </div>
+                        {this.randomRender()}
+
+                        <h1> Which face is.....</h1>
+                        <h1>{this.renderColortoGuess()}</h1>
+                        <h1>{10 - this.state.questionNum} to go!</h1>
+
                     </div>
-
-                    <h1> Which face is.....</h1>
-                    <h1>{this.renderColortoGuess()}</h1>
-                    <h1>{10 - this.state.questionNum} to go!</h1>
-
                 </div>
                 {this.modalPlayAgain()}
             </Fragment>

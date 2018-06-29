@@ -1,5 +1,16 @@
+body {
+    background-image: url(./images/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
 
+<<<<<<< HEAD
 #loginModal {
+=======
+.card {
+    width: auto;
+>>>>>>> parent of fc914b6... Merge branch 'master' into Parent-Page2
     display: block;
     margin: auto;
     margin-top: 7%;
@@ -12,7 +23,12 @@
     box-shadow: 2px 2px 2px dimgrey;
 }
 
+<<<<<<< HEAD
 #signupModal {
+=======
+/* .userForm {
+    width: auto;
+>>>>>>> parent of fc914b6... Merge branch 'master' into Parent-Page2
     display: block;
     margin: auto;
     margin-top: 1%;
@@ -31,13 +47,6 @@
 
 #signupBack {
     background-color: #398fe8
-}
-
-body {
-    background-image: url('./images/background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
 }
 
 #monkey{

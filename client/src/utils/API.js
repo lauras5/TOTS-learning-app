@@ -19,6 +19,7 @@ export default {
     // number game axios requests
     getNumberGame: function() {
         return axios.get("/api/numbergame");
+<<<<<<< HEAD
     },
 
     // user axios requests
@@ -27,5 +28,7 @@ export default {
     },
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
+=======
+>>>>>>> parent of fc914b6... Merge branch 'master' into Parent-Page2
     }
-};
+;
