@@ -4,23 +4,6 @@ import './Navbar.css'
 
 const Navbar = props => {
   return (
-<<<<<<< HEAD
-    <Fragment>
-      <nav className="navigation_container" id='navbarContainer'>
-          <div className="navigation">
-            <Link id='parentLink' className='nav-item nav-link' to='/parents'>Parents Place</Link>
-            <ul className="right hide-on-med-and-down">
-              <li><Link className='nav-item nav-link' to='/home'>Home</Link></li>
-              <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
-              <li><Link className='nav-item nav-link' to='/login'>Logout</Link></li>
-              {/* <li><Link to="/api">test routes</Link></li> */}
-            </ul>
-          </div>
-      </nav>
-    </Fragment>
-  )
-}
-=======
 
      <Fragment>
        <div className='logo'>
@@ -66,6 +49,5 @@ const Navbar = props => {
   )
 } 
 
->>>>>>> parent of fc914b6... Merge branch 'master' into Parent-Page2
 
 export default Navbar;
