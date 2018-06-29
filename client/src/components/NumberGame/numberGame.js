@@ -14,13 +14,15 @@ class NumberGame extends Component {
             numberQuestionList: [],
             topQuestion: "",
             topQuestionChoices: [],
-            openModal: false
+            openModal: false,
+            currentUser: {}
         }
     };
 
     // If component successfully mounts, start new game
     componentDidMount() {
         this.loadNumberGame()
+        this.loadCurrentUser()
     };
     
     // GET number game questions from database and SET all initial values 
@@ -33,6 +35,14 @@ class NumberGame extends Component {
             this.getSetChoicesFromTopQuestion()
           })
           .catch(err => console.log(err));
+    };
+
+    loadCurrentUser = () => {
+        API.getUsers()
+          .then ( res => {
+              this.setState({ currentUser: res.data[0]})
+              console.log(this.state.currentUser)
+          })
     };
 
     //  Select the top Question from NumberQuestionList
