@@ -13,6 +13,7 @@ class Cards extends Component {
             tempArr: [],
             correct: [],
             flipped: Boolean,
+            
             times: [],
             finalTime: 0
         }
@@ -29,8 +30,7 @@ class Cards extends Component {
 
         console.log(state)
         console.log(event.target.getAttribute('value'))
-        console.log(this.state.
-            flipped)
+        console.log(this.state.flipped)
 
         // console.log(state.tempArr)
 

@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import Footer from './components/Footer';
-/* import Carousel from './components/Carousel'; */
 import AppRouter from './approuter'
+// import GameRouter from './gamerouter'
 import './App.css';
 import NumberCard from "./components/NumberCard";
 
@@ -13,7 +13,7 @@ class App extends Component {
 
             <Fragment>
                 <AppRouter />
-                {/* <Carousel /> */}
+                {/* <GameRouter/> */}
                 <Footer />
             </Fragment>
         )
