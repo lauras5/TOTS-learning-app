@@ -22,5 +22,8 @@ router.route("/numbergame")
 router.post('/api/users', UserController.addUser)
 router.get('/api/users', UserController.findUsers)
 
+// user Authentication
+router.get('/api/users', UserController.authenticate)
+
 
 module.exports = router

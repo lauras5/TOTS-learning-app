@@ -66,11 +66,7 @@ class Login extends Component {
 
     handleSignUp = event => {
         event.preventDefault()
-        console.log(this.state)
-
-        // const user = {
-        //     user: this.state.user
-        // };
+        // console.log(this.state)
 
         API.postUsers(this.state.user)
             .then(console.log(this.state.user))
@@ -78,11 +74,10 @@ class Login extends Component {
     
     handleLogin = event => {
         event.preventDefault()
-        console.log(this.state)
         
-        const username = {
-            username: this.state.user.username
-        }
+        API.authenticate(this.state.user.username)
+        console.log(this.state.user.username)
+        
 
     }
 

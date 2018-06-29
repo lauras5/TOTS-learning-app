@@ -1,14 +1,8 @@
 const User = require('../models/UserModel');
 
 module.exports = {
+    // adds users to db // working as of 6/28 DONT TOUCH
     addUser: function (req, res) {
-
-        // const {username, email, password, child} = req.body.user
-
-        console.log(req.body)
-        // const body = req.body.userdata.user
-
-        // console.log(body.email)
 
         const user = {
             username : req.body.username,
@@ -16,8 +10,6 @@ module.exports = {
             password : req.body.password,
             child : req.body.child
         }
-
-        // console.log('user :  ' + {user})
 
         User
             .create(user)
@@ -28,14 +20,11 @@ module.exports = {
             .catch(err => res.status(422).json(err))
        
     },
-    findUsers: function (req, res) {
-        User
-            .find(req.query)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err))
-    },
 
-    authenticate: function(req, res) {
+     // authentication for login
+     authenticate: function(req, res) {
+        console.log('req.body : ' + req.body)
+        
         User
             .register(new User({ user: req.body.user }), req.body.user.password, function (err, account) {
             if (err) {
@@ -47,8 +36,18 @@ module.exports = {
         })
     },
 
+
+    findUsers: function (req, res) {
+        User
+            .find(req.query)
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
+   
     login : function (req, res) {
         res.json({username : 'Laura', email: 'laura@gmail.com', password: 'pword123', child : 'Aubrey'})
         console.log('works')  
+        res.redirect('/home')
     }
 }
