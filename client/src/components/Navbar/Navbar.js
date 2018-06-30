@@ -14,7 +14,8 @@ const Navbar = props => {
         <h3 className="slogan">Learning Made Fun.</h3>
 
       </div>
-
+      
+<div id="nav-images">
       <img className="sun" src="../images/sun.png" />
       <img className="pink-butterfly" src="../images/pink-butterfly.png" />
       <img className="grass" src="../images/grass.png" />
@@ -27,6 +28,8 @@ const Navbar = props => {
       <img className="crayons" src="../images/crayons.png" />
       <img className="bear" src="../images/bear.png" />
       <img className="blue-butterfly" src="../images/blue-butterfly.png" />
+
+      </div>
       
      
       <nav className="navigation_container">
@@ -35,14 +38,14 @@ const Navbar = props => {
         <div className="l-triangle-bottom"></div>
 
         <div className="rectangle">
-          <div className="navigation">
+          {/* <div className="navigation"> */}
             <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
-            <ul className="right hide-on-med-and-down">
+            <ul className="right">
               <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
               <li><Link className='nav-item nav-link' to='/Login'>Logout</Link></li>
               <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
             </ul>
-          </div>
+          {/* </div> */}
         </div>
         <div className="r-triangle-top"></div>
         <div className="r-triangle-bottom"></div>
