@@ -12,7 +12,8 @@ class ColorGame extends Component {
         questionNum: 0,  //tracks how many questions are asked so far
         colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
         color, //initially an exact copy of color.json
-        open: false //for Modal
+        open: false,
+        backgroundMusicPlaying: false //for Modal
     }
 
 
@@ -75,33 +76,33 @@ class ColorGame extends Component {
         let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
         let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
         this.setState({ questionNum: this.state.questionNum + 1 })
-       
-        
-            if (name === this.state.colorNameToGuess) {
-                correctSound.play()
-                this.setState({ correctScore: this.state.correctScore + 1 })
-                this.setColorToGuess()
-            this.randomRender()
-            }
-            else {
-                wrongSound.play()
-                this.setState({ incorrectScore: this.state.incorrectScore + 1 })
-                this.setColorToGuess()
-            this.randomRender()
-            }
 
-            //exit condition in bottom
-            if (this.state.questionNum > 8) {
 
-                //WRITE RESULTS TO DB HERE
-    
-                let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-                thud.play()
-                { this.onOpenModal() }
-                { this.modalPlayAgain() }
-            }
-            
-        
+        if (name === this.state.colorNameToGuess) {
+            correctSound.play()
+            this.setState({ correctScore: this.state.correctScore + 1 })
+            this.setColorToGuess()
+            this.randomRender()
+        }
+        else {
+            wrongSound.play()
+            this.setState({ incorrectScore: this.state.incorrectScore + 1 })
+            this.setColorToGuess()
+            this.randomRender()
+        }
+
+        //exit condition in bottom
+        if (this.state.questionNum > 8) {
+
+            //WRITE RESULTS TO DB HERE
+
+            let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+            thud.play()
+            { this.onOpenModal() }
+            { this.modalPlayAgain() }
+        }
+
+
     }
 
 
@@ -115,16 +116,16 @@ class ColorGame extends Component {
         let colorSoundFile = ''
         switch (this.state.colorNameToGuess) {
             case 'Red':
-                colorSoundFile = "./soundFiles/red.wav"
+                colorSoundFile = "../soundFiles/red.wav"
                 break;
             case 'Blue':
-                colorSoundFile = "./soundFiles/blue.wav"
+                colorSoundFile = "../soundFiles/blue.wav"
                 break;
             case 'Green':
-                colorSoundFile = "./soundFiles/green.wav"
+                colorSoundFile = "../soundFiles/green.wav"
                 break;
             case 'Yellow':
-                colorSoundFile = "./soundFiles/yellow.wav"
+                colorSoundFile = "../soundFiles/yellow.wav"
                 break;
             default:
                 colorSoundFile = ""
@@ -154,6 +155,8 @@ class ColorGame extends Component {
         click.play()
         alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
+        this.setState({backgroundMusicPlaying:false})
+        
     }
 
 
@@ -173,25 +176,25 @@ class ColorGame extends Component {
     //renderColortoGuess function - Tells the user what color to pick.  Text in page.
     //**************************************************************************************** */
     renderColortoGuess = () => {
-        // let colorSoundFile = ''
-        // switch (this.state.colorNameToGuess) {
-        //     case 'Red':
-        //         colorSoundFile = "./soundFiles/red.wav"
-        //         break;
-        //     case 'Blue':
-        //         colorSoundFile = "./soundFiles/blue.wav"
-        //         break;
-        //     case 'Green':
-        //         colorSoundFile = "./soundFiles/green.wav"
-        //         break;
-        //     case 'Yellow':
-        //         colorSoundFile = "./soundFiles/yellow.wav"
-        //         break;
-        //     default:
-        //         colorSoundFile = ""
-        // }
-        // let sayColor = new Audio(colorSoundFile)
-        // setTimeout(function () { sayColor.play() }, 1000)
+        let colorSoundFile = ''
+        switch (this.state.colorNameToGuess) {
+            case 'Red':
+                colorSoundFile = "../soundFiles/red.wav"
+                break;
+            case 'Blue':
+                colorSoundFile = "../soundFiles/blue.wav"
+                break;
+            case 'Green':
+                colorSoundFile = "../soundFiles/green.wav"
+                break;
+            case 'Yellow':
+                colorSoundFile = "../soundFiles/yellow.wav"
+                break;
+            default:
+                colorSoundFile = ""
+        }
+        let sayColor = new Audio(colorSoundFile)
+        setTimeout(function () { sayColor.play() }, 1000)
         return (
             <div>
                 <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{ color: this.state.colorNameToGuess, fontSize: 200 }}>{this.state.colorNameToGuess}</div>
@@ -246,6 +249,15 @@ class ColorGame extends Component {
 
     render() {
         const { open } = this.state;
+        let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3")
+
+        if (!this.state.backgroundMusicPlaying){
+            backgroundMusic.volume=.1
+            backgroundMusic.controls = true
+            backgroundMusic.play()
+            this.setState({backgroundMusicPlaying:true})
+        }
+
         return (
 
             <Fragment>
