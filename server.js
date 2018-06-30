@@ -51,6 +51,7 @@ passport.deserializeUser(User.deserializeUser());
 
 // Seeds - comment out if you dont want to spam your db lol - To do: move to scripts folder
 // const numberGameSeeds = require('./scripts/seeds').seedNumberGame()
+// const numberGameSeeds = require('./scripts/seeds').seedColorGame()
 
 
 // Serve up static assets (usually on heroku)
