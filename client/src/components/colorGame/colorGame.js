@@ -3,7 +3,7 @@ import './colorGame.css';
 import color from "./color.json";
 import ColorCard from "./colorCard";
 import Modal from 'react-responsive-modal';
-
+import API from '../../utils/API';
 
 class ColorGame extends Component {
     state = {
@@ -14,8 +14,6 @@ class ColorGame extends Component {
         color, //initially an exact copy of color.json
         open: false //for Modal
     }
-
-
 
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
@@ -93,7 +91,9 @@ class ColorGame extends Component {
             //exit condition in bottom
             if (this.state.questionNum > 8) {
 
+                console.log(this.state.correctScore)
                 //WRITE RESULTS TO DB HERE
+                API.sendResults(this.state.correctScore)
     
                 let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
                 thud.play()

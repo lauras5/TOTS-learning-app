@@ -3,6 +3,7 @@ import API from '../../utils/API';
 // import { Link } from 'react-router-dom';
 import { Row, Input, Card, Modal, Button } from 'react-materialize';
 import './Login.css';
+import {Redirect} from 'react-router-dom'
 // import axios from 'axios'
 // import proxy from 'http-proxy-middleware'
 
@@ -74,10 +75,10 @@ class Login extends Component {
     
     handleLogin = event => {
         event.preventDefault()
-        
-        API.authenticate(this.state.user.username)
-        console.log(this.state.user.username)
-        
+
+        // console.log(this.state.user.username)
+        // API.authenticate(this.state.user.username)  
+        API.login(this.state.user.username)      
 
     }
 

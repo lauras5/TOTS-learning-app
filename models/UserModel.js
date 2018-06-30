@@ -8,7 +8,8 @@ var UserSchema = new Schema ({
     username : {
         type : String,
         default: 'Quinchilla',
-        required : true
+        required : true,
+        unique : true
     },
     email : {
         type: String, 
@@ -46,4 +47,3 @@ var UserSchema = new Schema ({
 UserSchema.plugin(passportLocalMongoose);
  
 module.exports = mongoose.model('User', UserSchema);
-

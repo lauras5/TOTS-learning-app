@@ -3,51 +3,73 @@ const User = require('../models/UserModel');
 module.exports = {
     // adds users to db // working as of 6/28 DONT TOUCH
     addUser: function (req, res) {
+        console.log(req.body)
+
+        // User
+        //     .register(new User({ 'username': req.body.username }), req.body.password, function (err, user) {
+        //         if (err) {
+        //             return res.render('register', { user: user });
+        //         }
+
+        //         passport.authenticate('local')(req, res, function () {
+        //             res.redirect('/');
+        //         });
+        //     });
 
         const user = {
-            username : req.body.username,
-            email : req.body.email,
-            password : req.body.password,
-            child : req.body.child
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            child: req.body.child
         }
-
+       
+        // console.log(req.session.username)
+        
         User
             .create(user)
             .then(dbModel => {
                 res.json(dbModel)
-                console.log(dbModel)   
+                console.log(dbModel)
             })
             .catch(err => res.status(422).json(err))
-       
-    },
 
-     // authentication for login
-     authenticate: function(req, res) {
-        console.log('req.body : ' + req.body)
+            console.log(req.session.username)
         
-        User
-            .register(new User({ user: req.body.user }), req.body.user.password, function (err, account) {
-            if (err) {
-                return res.send('error')
-            }
-            passport.authenticate('local')(req, res, function () {
-                res.redirect('/home')
-            })
-        })
+            sessionStorage.setItem("USER", req.body.username)
     },
 
+    // authentication for login
+    authenticate: function (req, res, next) {
+        console.log(req.body)
 
-    findUsers: function (req, res) {
+        const username = req.body.username
+
         User
-            .find(req.query)
-            .then(dbModel => res.json(dbModel))
-            .catch(err => res.status(422).json(err))
+            .findOne({ 'username': username })
+        if (!username) {
+            console.log('no user')
+            req.session.success = 'You are successfully logged in ' + req.body + '!'
+        } else (
+            console.log('horray it works: ' + username)
+        )
     },
 
-   
-    login : function (req, res) {
-        res.json({username : 'Laura', email: 'laura@gmail.com', password: 'pword123', child : 'Aubrey'})
-        console.log('works')  
-        res.redirect('/home')
+    login: function (req, res) {
+        console.log('user signup')
+        req.session.username = req.body.username
+        res.send()
+
+        // find users
+        // findUsers: function (req, res) {
+        //     User
+        //         .findOne({ 'username': req.body.data.username })
+        //         .then(dbModel => res.json(dbModel))
+        //         .catch(err => res.status(422).json(err))
+        // }
+
+        // updateCardGame : function (req, res) {
+        //     User
+        //         .findOne({username : req.session.username})
+        }
+
     }
-}

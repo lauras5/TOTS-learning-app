@@ -4,26 +4,33 @@ const UserController = require('../controllers/userController');
 const NumberGameController = require('../controllers/numbergame.server.controller');
 // requiring card game controller
 const CardGameController = require('../controllers/cardGameController')
-// requiring express router
 const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel')
-const numberGameController = require("../controllers/numbergame.server.controller");
-
-
-// testing routes
-router.get('/api', UserController.login)
 
 // number game route
-router.route("/numbergame")
-    .get(numberGameController.getNumberGame)
+router.route("/numbergame").get(NumberGameController.getNumberGame)
+
+// cardgame
+router.post('/api/games/cardgame', CardGameController.addScore)
 
 // User Routes
-router.post('/api/users', UserController.addUser)
-router.get('/api/users', UserController.findUsers)
+router.post('/register', UserController.addUser)
 
 // user Authentication
-router.get('/api/users', UserController.authenticate)
+router.post('/login', UserController.login)
+router.get('/login', UserController.authenticate)
 
+
+
+
+
+// router.get('/logout', function(req, res) {
+//     console.log('you are logged out')
+//     req.logout();
+//     res.redirect('/');
+// });
+
+// router.post('/api/users', function(req, res) {})
 
 module.exports = router
