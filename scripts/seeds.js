@@ -144,7 +144,7 @@ module.exports = {
             },
             {
             index: 4,
-            name": "Yellow",
+            name: "Yellow",
             image: "http://smiliesftw.com/huge/huge_eek3.gif"
             }
         ]

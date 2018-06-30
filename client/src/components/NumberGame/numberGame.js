@@ -31,7 +31,7 @@ class NumberGame extends Component {
           .then ( res => {
             this.shuffleArray(res.data)
             this.setState({ correctCount: 0, incorrectCount: 0, correctAnswer: 0})
-            this.selectTopQuestionFromNumberQuestionList(
+            this.selectTopQuestionFromNumberQuestionList()
             this.getSetChoicesFromTopQuestion()
           })
           .catch(err => console.log(err));
