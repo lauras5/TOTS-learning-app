@@ -6,6 +6,10 @@ export default {
         return axios.get("/api/numbergame");
     },
 
+    getColorGame: function() {
+        return axios.get("/api/colorgame");
+    },
+
     // user axios requests
     postUsers: function (userData) {
         return axios.post("/register", userData)

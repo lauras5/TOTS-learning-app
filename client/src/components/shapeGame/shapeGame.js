@@ -12,7 +12,7 @@ class ShapeGame extends Component {
         correctScore: 0,
         incorrectScore: 0,
         questionNum: 0,  //tracks how many questions are asked so far
-        shapeNameToGuess: {id:1,image:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEGYOD5kQcdYHI6n0KpCiZ_-UmVHsIhOK0OTCc3-pTUQhNIT52",name:"Circle"},  //set to 'Red' initially.....i can't get a randomized initial value here!!!
+        shapeNameToGuess: { id: 1, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEGYOD5kQcdYHI6n0KpCiZ_-UmVHsIhOK0OTCc3-pTUQhNIT52", name: "Circle" },  //set to 'Red' initially.....i can't get a randomized initial value here!!!
         shape, //hold shapes to drag to - an exact copy of shape.json
         shapeToDrag, //hold shapes to drag - an exact copy of shapeToDrag.json
         open: false //for Modal
@@ -29,9 +29,26 @@ class ShapeGame extends Component {
 
         return (
             this.shuffle(this.state.shape).map(shapeFromShapeArray =>
-                <ShapeCard key={shapeFromShapeArray.id} id={shapeFromShapeArray.id} image={shapeFromShapeArray.image} name={shapeFromShapeArray.name} handleClicked={this.handleClicked} />
-            )
+                <div className="card col-s2 shapeCardIndividual" onDragOver={(e) => this.onDragOver(e)} onDrop={(e) => this.onDrop(e)}>
+                    <div className="card-title">{shapeFromShapeArray.name}</div>
+                    <div className="img-container">
+                        <img
+                            alt={shapeFromShapeArray.name}
+                            src={shapeFromShapeArray.image}
+                        />
+                    </div>
+                </div>)
+
+
+
+
+
+
+            // <ShapeCard key={shapeFromShapeArray.id} id={shapeFromShapeArray.id} image={shapeFromShapeArray.image} name={shapeFromShapeArray.name}
+            //     onDragOver={(e) => this.onDragOver(e)}
+            //     onDrop={(e) => this.onDrop(e)} />
         )
+
     }
 
     //************************************************************************************ */
@@ -72,69 +89,45 @@ class ShapeGame extends Component {
     //and incorrect scores as needed.  Also sets the shapeToGuess in the state.  Also rerenders tiles.
     //      Other functions used:  setShapeToGuess(), randomRender()
     //**************************************************************************************** */
-    handleClicked = (name) => {
+    // handleClicked = (name) => {
 
-        // let correctSound = new Audio("./soundFiles/success.wav")
-        let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
-        let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
-        this.setState({ questionNum: this.state.questionNum + 1 })
-       
-        
-            if (name === this.state.shapeNameToGuess) {
-                correctSound.play()
-                this.setState({ correctScore: this.state.correctScore + 1 })
-                this.pickRandomShapeToDrag()
-            this.renderShapeToDrag()
-            }
-            else {
-                wrongSound.play()
-                this.setState({ incorrectScore: this.state.incorrectScore + 1 })
-                this.pickRandomShapeToDrag()
-            this.renderShapeToDrag()
-            }
-
-            //exit condition in bottom
-            if (this.state.questionNum > 8) {
-
-                //WRITE RESULTS TO DB HERE
-    
-                let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-                thud.play()
-                { this.onOpenModal() }
-                { this.modalPlayAgain() }
-            }
-            
-        
-    }
+    //     // let correctSound = new Audio("./soundFiles/success.wav")
+    //     let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
+    //     let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
+    //     this.setState({ questionNum: this.state.questionNum + 1 })
 
 
+    //         if (name === this.state.shapeNameToGuess) {
+    //             correctSound.play()
+    //             this.setState({ correctScore: this.state.correctScore + 1 })
+    //             this.pickRandomShapeToDrag()
+    //         this.renderShapeToDrag()
+    //         }
+    //         else {
+    //             wrongSound.play()
+    //             this.setState({ incorrectScore: this.state.incorrectScore + 1 })
+    //             this.pickRandomShapeToDrag()
+    //         this.renderShapeToDrag()
+    //         }
+
+    //         //exit condition in bottom
+    //         if (this.state.questionNum > 8) {
+
+    //             //WRITE RESULTS TO DB HERE
+
+    //             let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+    //             thud.play()
+    //             { this.onOpenModal() }
+    //             { this.modalPlayAgain() }
+    //         }
 
 
-    //*************************************************************************************** */
-    //handleClickedPulsatingText function - audio file played when pulsating text is clicked
-    //                                
-    //**************************************************************************************** */
-    handleClickedPulsatingText = () => {
-        let shapeSoundFile = ''
-        switch (this.state.shapeNameToGuess) {
-            case 'Red':
-                shapeSoundFile = "./soundFiles/red.wav"
-                break;
-            case 'Blue':
-                shapeSoundFile = "./soundFiles/blue.wav"
-                break;
-            case 'Green':
-                shapeSoundFile = "./soundFiles/green.wav"
-                break;
-            case 'Yellow':
-                shapeSoundFile = "./soundFiles/yellow.wav"
-                break;
-            default:
-                shapeSoundFile = ""
-        }
-        let sayShape = new Audio(shapeSoundFile)
-        sayShape.play()
-    }
+    // }
+
+
+
+
+
 
     //*************************************************************************************** */
     //handleClickedPlayAgain function - handles click event to play again from Modal. 
@@ -161,30 +154,78 @@ class ShapeGame extends Component {
         this.onCloseModal()
     }
 
-//*************************************************************************************** */
+    //*************************************************************************************** */
     //pickRandomShapeToDrag function - Gets random shape to drag.  Assigns this so state property shapeNameToGuess
     //**************************************************************************************** */
     pickRandomShapeToDrag = () => {
 
         let dragShapeToRender = this.state.shapeToDrag[Math.floor(Math.random() * 5)]
-        this.setState({ shapeNameToGuess: {id:dragShapeToRender.id,image:dragShapeToRender.image,name:dragShapeToRender.name}})
-    }    
-     
-    
-    
-    
+        this.setState({ shapeNameToGuess: { id: dragShapeToRender.id, image: dragShapeToRender.image, name: dragShapeToRender.name } })
+    }
+
+
+
+
     //*************************************************************************************** */
     //renderShapetoGuess function - Tells the user what shape to pick.  Text in page.
     //**************************************************************************************** */
     renderShapeToDrag = () => {
-                          
+
         return (
             <div>
-                <div className="pulsate">{<ShapeToDragCard key={this.state.shapeNameToGuess.id} id={this.state.shapeNameToGuess.id} image={this.state.shapeNameToGuess.image}/>}</div>
-              
+                <div className="pulsate">{<ShapeToDragCard key={this.state.shapeNameToGuess.id} id={this.state.shapeNameToGuess.id} image={this.state.shapeNameToGuess.image} draggable />}</div>
             </div>
         )
     }
+
+
+
+
+    //***************************************************************************************/
+    //onDrag event (currently empty)
+    //*************************************************************************************
+        onDragOver = (ev) => {
+            ev.preventDefault()
+            
+        }
+    
+    //***************************************************************************************/
+    //onDrop event - when dragged object is dropped to target, sets off game decision logic
+    //               if action is correct or incorrect.  This writes to the state for the scores.
+    //               Modals are opened in this module when max number of questions are reached.
+    //                  Other functions used:  pickRandomShapeTodDrag(), renderShapeToDrag(),
+    //                                         onOpenModal(), modalPlayAgain()
+    //*************************************************************************************
+        onDrop = (ev) => {
+            ev.preventDefault()
+    
+            let correctSound = new Audio("../soundFiles/yay.mp3")
+            let incorrectSound = new Audio("../soundFiles/buzz.mp3")
+            
+            this.setState({ questionNum: this.state.questionNum + 1 })
+    
+            if (this.state.shapeNameToGuess.name === ev.target.alt) {
+                correctSound.play()
+                this.setState({ correctScore: this.state.correctScore + 1 })
+            }
+            else {
+                incorrectSound.play()
+                this.setState({ incorrectScore: this.state.incorrectScore + 1 })
+            }
+    
+            this.pickRandomShapeToDrag()
+            this.renderShapeToDrag()
+    
+            if (this.state.questionNum > 3) {
+    
+                            //WRITE RESULTS TO DB HERE
+            
+                            let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+                            thud.play()
+                            { this.onOpenModal() }
+                            { this.modalPlayAgain() }
+                        }
+        }
 
 
     //*************************************************************************************** */
@@ -209,7 +250,6 @@ class ShapeGame extends Component {
         let shapeGameCorrect = `Correct: ${this.state.correctScore}`
         let shapeGameWrong = `Incorrect: ${this.state.incorrectScore}`
 
-
         return (
 
             <div>
@@ -231,6 +271,9 @@ class ShapeGame extends Component {
 
 
 
+
+
+
     render() {
         const { open } = this.state;
         return (
@@ -244,9 +287,10 @@ class ShapeGame extends Component {
                             {this.randomRender()}
                         </div>
                     </div>
+
                     <h1>{this.renderShapeToDrag()}</h1>
                     <h1>Drag to the correct shape</h1>
-                    <h1>{10 - this.state.questionNum} to go!</h1>
+                    <h1>{5 - this.state.questionNum} to go!</h1>
 
                 </div>
                 {this.modalPlayAgain()}

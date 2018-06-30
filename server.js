@@ -44,13 +44,13 @@ passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser)
 passport.deserializeUser(User.deserializeUser())
 
-
 // set up mongoose connection
 const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/timeoutDB';
 
 mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
+
 
 
 // Serve up static assets (usually on heroku)
