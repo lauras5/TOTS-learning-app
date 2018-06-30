@@ -1,6 +1,7 @@
 // Import your models
 const NumberGame = require('../models/numbergame.server.model')
 // const CardGame = require('../models/cardgame.server.model')
+const ColorGame = require('../models/colorgame.server.model')
 
 
 // If anyone has any data that they need to populate for their game, please create a new function
@@ -47,8 +48,7 @@ module.exports = {
           var newNumberGameQuestion = new NumberGame(numberGameQuestion);
           newNumberGameQuestion.save();
         }
-      
-        // seeded!
+
         console.log('Number Game Database seeded!');
     },
     
@@ -122,7 +122,38 @@ module.exports = {
           newCardGame.save();
         }
       
-        // seeded!
         console.log('Card Game Database seeded!');
     },
+
+    seedColorGame : function () {
+        const colorGameArray = [
+            {
+            index: 1,
+            name: "Red",
+            image: "https://lh3.googleusercontent.com/-pHPulqP9R1w/WxHr7TPKBFI/AAAAAAAFGuI/TOMn0BKK298nYDlbK3EF1Sywln2Dm2xTQCHMYCw/s640/smiley.gif"
+            },
+            {
+            index: 2,
+            name: "Blue",
+            image: "https://media.giphy.com/media/SovwqF8EP8RYQ/giphy.gif"
+            },
+            {
+            index: 3,
+            name: "Green",
+            image: "http://i180.photobucket.com/albums/x1/DrEnKa_bcn/flipao_grande.gif"
+            },
+            {
+            index: 4,
+            name": "Yellow",
+            image: "http://smiliesftw.com/huge/huge_eek3.gif"
+            }
+        ]
+
+        for (colorGameQuestion of colorGameArray) {
+            var newColorGame = new ColorGame(colorGameQuestion);
+            newColorGame.save();
+          }
+
+          console.log('Color Game Database seeded!');
+    }
 }
