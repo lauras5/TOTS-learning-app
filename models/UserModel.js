@@ -24,7 +24,7 @@ var UserSchema = new Schema ({
     numberGame : {
         timesPlayed: Number,
         correctCount: Number,
-        incorrectCount Number: 
+        incorrectCount: Number
     },
     memoryGame : {
         timesPlayed: Number,
