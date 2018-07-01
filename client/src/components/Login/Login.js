@@ -71,7 +71,7 @@ class Login extends Component {
         sessionStorage.setItem('username', this.state.user.username)
         API.postUsers(this.state.user)
             .then(console.log(this.state.user))
-            Red
+            // Red
     }
 
     handleLogin = event => {

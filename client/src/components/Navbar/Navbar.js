@@ -46,10 +46,10 @@ const Navbar = props => {
           {/* </div> */}
 
         </div>
-         </div>
+         {/* </div> */}
          <div className="r-triangle-top"></div>
          <div className="r-triangle-bottom"></div> 
-      </nav>
+      {/* </nav> */}
     </Fragment>
   )
 } 

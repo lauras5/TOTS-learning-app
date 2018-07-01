@@ -29,14 +29,6 @@ mongoose.Promise = Promise;
 
 mongoose.connect(MONGODB_URI);
 
-// Routes - list of all route files
-// const numberGame = require('./routes/numbergame.routes');
-// const cardGame = require('./routes/cardgame.routes');
-
-
-
-// // use number game routes
-// app.use('/', numberGame);
 // Serve up static assets (usually on heroku)
 // app.use(require('./routes'));
 app.use('/', routes);
