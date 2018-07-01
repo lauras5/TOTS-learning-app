@@ -109,7 +109,7 @@ class Cards extends Component {
                 <h1>Card Memory Game!</h1>
                 {/* <p>The time is : {new Date().toLocaleTimeString()}</p> */}
                 <div className="row">
-                    {cardList.map(card =>
+                    {this.state.cardList.map(card =>
                         <Fragment>
                             <div className='cardBorder col s3 m2' >
                                 <div className='card-small waves-effect waves-light blue' onClick={this.turnCard} value={card.name} key={card.id} flipped={false.toString()}>
