@@ -18,6 +18,7 @@ router.get('/api', UserController.login)
 // number game route
 router.get('/api/numbergame', NumberGameController.getNumberGame)
 router.get('/api/colorgame', ColorGameController.getColorGame)
+router.get('/api/cardgame', CardGameController.getCardGame)
 
 // User Routes
 router.post('/api/users', UserController.addUser)

@@ -21,7 +21,7 @@ class ColorGame extends Component {
     //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
     };
     
-    // GET number game questions from database and SET all initial values 
+    // GET number game questions from database and SET color
     loadColorGame = () => {
         API.getColorGame()
           .then ( res => {
