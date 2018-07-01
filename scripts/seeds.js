@@ -1,7 +1,8 @@
 // Import your models
 const NumberGame = require('../models/numbergame.server.model')
-// const CardGame = require('../models/cardgame.server.model')
+const CardGame = require('../models/cardGame.server.model')
 const ColorGame = require('../models/colorgame.server.model')
+const User = require('../models/UserModel')
 
 
 // If anyone has any data that they need to populate for their game, please create a new function
@@ -155,5 +156,36 @@ module.exports = {
           }
 
           console.log('Color Game Database seeded!');
+    },
+    
+    seedTestUser : function () {
+        const testUser = {    
+            username : "Test User",
+            email : "Test@gmail.com",
+            password: "asdf1234",
+            childName: "Little Test",
+            numberGame : {
+                timesPlayed: 0,
+                correctCount: 0,
+                incorrectCount: 0
+            },
+            cardGame : {
+                timesPlayed: 0,
+                times: [],
+            },
+            colorGame : {
+                timesPlayed: 0,
+                correct: 0,
+                incorrect: 0
+            },
+            shapeGame : {
+                timesPlayed: 0,
+                scores: [],
+            }
+        }
+
+        var newTestUser = new User(testUser);
+        newTestUser.save();
+        console.log('Test User seeded!');
     }
 }
