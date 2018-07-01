@@ -3,6 +3,7 @@ import './colorGame.css';
 import color from "./color.json";
 import ColorCard from "./colorCard";
 import Modal from 'react-responsive-modal';
+import API from '../../utils/API';
 
 
 class ColorGame extends Component {
@@ -16,7 +17,29 @@ class ColorGame extends Component {
         backgroundMusicPlaying: false //for Modal
     }
 
+    componentDidMount() {
+        this.loadColorGame()
+        // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
+    };
+    
+    // GET number game questions from database and SET all initial values 
+    loadColorGame = () => {
+        API.getNumberGame()
+          .then ( res => {
+              this.setState({ color: res.data })
+              this.randomRender()
+          })
+          .catch(err => console.log(err));
+    };
 
+    // WILL IMPLEMENT IN THE FUTURE
+    // loadCurrentUser = () => {
+    //     API.getUsers()
+    //       .then ( res => {
+    //           this.setState({ currentUser: res.data[0]})
+    //           console.log(this.state.currentUser)
+    //       })
+    // };
 
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
@@ -266,7 +289,7 @@ class ColorGame extends Component {
                     <h1> The Color Game!</h1>
                     <div className="container">
                         <div className="rowColors">
-                            {this.randomRender()}
+                            // {this.randomRender()}
                         </div>
                     </div>
 
