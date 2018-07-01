@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import './colorGame.css';
-import color from "./color.json";
 import ColorCard from "./colorCard";
 import Modal from 'react-responsive-modal';
 import API from '../../utils/API';
@@ -12,22 +11,22 @@ class ColorGame extends Component {
         incorrectScore: 0,
         questionNum: 0,  //tracks how many questions are asked so far
         colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
-        color, //initially an exact copy of color.json
+        color: [], //initially an exact copy of color.json
         open: false,
         backgroundMusicPlaying: false //for Modal
     }
 
     componentDidMount() {
         this.loadColorGame()
-        // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
+    //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
     };
     
     // GET number game questions from database and SET all initial values 
     loadColorGame = () => {
-        API.getNumberGame()
+        API.getColorGame()
           .then ( res => {
               this.setState({ color: res.data })
-              this.randomRender()
+            //   this.randomRender()
           })
           .catch(err => console.log(err));
     };
@@ -47,10 +46,10 @@ class ColorGame extends Component {
     //*************************************************************************************** */
     randomRender = () => {
         //this.setColorToGuess()
-
+        // this.loadColorGame()
         return (
             this.shuffle(this.state.color).map(colorFromArray =>
-                <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
+                <ColorCard key={colorFromArray.index} id={colorFromArray.index} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
             )
         )
     }
@@ -73,6 +72,7 @@ class ColorGame extends Component {
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue;
         }
+
         return array;
     }
 
@@ -289,7 +289,7 @@ class ColorGame extends Component {
                     <h1> The Color Game!</h1>
                     <div className="container">
                         <div className="rowColors">
-                            // {this.randomRender()}
+                            {this.randomRender()}
                         </div>
                     </div>
 
