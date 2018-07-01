@@ -14,10 +14,10 @@
     color: black;
 } */
 
-Link {
+/* Link {
     text-decoration: none;
     color: black;
-}
+} */
 
 #parentLink {
     background-color: #bdbaba;
@@ -29,12 +29,12 @@ Link {
 }
 
 
-.navigation li {
+/* .navigation li {
     list-style: none;
     display: block;
     float: left;
     margin: 1em;
-}
+} */
 
 .navigation li  {
 /*     text-shadow: 0 2px 1px rgba(0,0,0,0.5);
@@ -57,15 +57,15 @@ Link {
     margin-top: 2px;
 }
 
-.navigation_container {
+/* .navigation_container {
     margin: 0 auto;
     width: 960px;
     margin-bottom: 200px;
     
- }
+ } */
 
  .rectangle {
-    background: #e5592e;
+    background: #ee734d;
     height: 62px;
     position: relative;
     -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
@@ -101,7 +101,6 @@ Link {
     left: -150px;
  }
 
-
  .r-triangle-top {
     border-color: #d9542b transparent transparent;
     border-style:solid;
@@ -126,11 +125,15 @@ Link {
     right: -525px; /* 460 */
  }
 
+
+  
     .appLogo {
         color: rgb(248, 144, 9);
         text-shadow: 3px 2px red;
         padding-top: 0px;
         letter-spacing: 5px;
+       /*  margin-top: 2px; */
+       /*  margin-bottom: 0px; */
     }
 
     .slogan {
@@ -139,6 +142,8 @@ Link {
         font-family: cursive;
         letter-spacing: 2px;
         text-shadow: 3px 2px black;
+        /* margin-top: 2px; */
+        /* margin-bottom: 0px; */
 
     }
 
@@ -269,7 +274,41 @@ Link {
 
 
 
-
 .navbar {
     background-color: rgb(119, 0, 255);
+}
+@media only screen and (max-width:1024px){
+    #nav-images{
+        display: none;
+    }
+}
+
+
+@media only screen and (max-width:768px){
+   
+     .rectangle {
+           width: 100%;
+           margin-right: 0px;
+           padding-right: 0px;
+           margin-bottom: 5px;
+           padding-bottom: 5px;
+       } 
+       .nav-item .nav-link {
+           margin-left: 5px;
+       }
+       .logo {
+           margin-top: 0px;
+           padding-top: 0px;
+       }
+       .appLogo {
+           margin-bottom: 0px;
+
+       }
+       .slogan {
+           margin-top: 0px;
+
+       }
+       .nav-item {
+           font-size: 10px;
+       }
 }

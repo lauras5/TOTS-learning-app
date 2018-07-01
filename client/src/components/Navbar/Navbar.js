@@ -11,31 +11,39 @@ const Navbar = props => {
       <h3 className="slogan">Learning Made Fun.</h3>
       
       </div>
-      
-       <img className="sun" src="https://publicdomainvectors.org/tn_img/nicubunu_Weather_Symbols_Sun.png" />
-        <img className="pink-butterfly" src="https://publicdomainvectors.org/photos/jonata-Butterfly.png" />
-       <img className="grass" src="https://publicdomainvectors.org/photos/grass4.png" />
-       <img className="train" src="https://publicdomainvectors.org/photos/jean_victor_balin_locotoy.png" />
-       <img className="flower1" src="https://publicdomainvectors.org/photos/mcol_flower.png" />
-       <img className="flower2" src="https://publicdomainvectors.org/photos/mcol_flower.png" />
-       <img className="flower3" src="https://publicdomainvectors.org/photos/mcol_flower.png" />
-       <img className="baseball" src="https://publicdomainvectors.org/photos/Gerald_G_Baseball.png" />
-       <img className="duck" src="https://publicdomainvectors.org/photos/Rubber_Duck.png" />
-       <img className="crayons" src="https://publicdomainvectors.org/photos/Crayons.png" />
-       {/*  <img className="books" src="https://publicdomainvectors.org/photos/Buecher-coloured.png" /> */}
-       {/* <img className="car" src="https://publicdomainvectors.org/tn_img/vochito.png" /> */}
-       <img className="bear" src="https://publicdomainvectors.org/photos/1464255207.png" />
-       <img className="blue-butterfly" src="https://publicdomainvectors.org/photos/cartoon-butterfly-cv4.png" />
-      <nav className="navigation_container">
 
-   <div className="rectangle">
-        <div className="navigation">
-          <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
-          <ul className="right hide-on-med-and-down">
-            <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
-            <li><Link className='nav-item nav-link' to='/Login'>Logout</Link></li>
-            <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
-          </ul>
+      
+
+<div id="nav-images">
+      <img className="sun" src="../images/sun.png" />
+      <img className="pink-butterfly" src="../images/pink-butterfly.png" />
+      <img className="grass" src="../images/grass.png" />
+      <img className="train" src="../images/train.png" />
+      <img className="flower1" src="../images/flower1.png" />
+      <img className="flower2" src="../images/flower2.png" />
+      <img className="flower3" src="../images/flower3.png" />
+      <img className="baseball" src="../images/baseball.png" />
+      <img className="duck" src="../images/duck.png" />
+      <img className="crayons" src="../images/crayons.png" />
+      <img className="bear" src="../images/bear.png" />
+      <img className="blue-butterfly" src="../images/blue-butterfly.png" />
+
+      </div>
+
+
+
+        <div className="l-triangle-top"></div>
+        <div className="l-triangle-bottom"></div>
+
+        <div className="rectangle">
+          {/* <div className="navigation"> */}
+            <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
+            <ul className="right">
+              <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
+              <li><Link className='nav-item nav-link' to='/Login'>Logout</Link></li>
+              <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
+            </ul>
+          {/* </div> */}
         </div>
          </div>
       </nav>
