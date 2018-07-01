@@ -26,7 +26,7 @@ var UserSchema = new Schema ({
         correctCount: Number,
         incorrectCount: Number
     },
-    memoryGame : {
+    cardGame : {
         timesPlayed: Number,
         times: [Number],
     },
@@ -35,13 +35,15 @@ var UserSchema = new Schema ({
         correct: Number,
         incorrect: Number
     },
-    otherGame : {
+    shapeGame : {
         timesPlayed: Number,
         scores: [Number],
     },
 });
 
 UserSchema.plugin(passportLocalMongoose);
- 
-module.exports = mongoose.model('User', UserSchema);
+
+const User = mongoose.model('User', UserSchema);
+
+module.exports = User
 
