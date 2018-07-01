@@ -1,9 +1,12 @@
 body {
     background: url(./images/background.png);
+    /* background: url(./images/background2.png); */
     background-repeat: no-repeat;
     background-attachment: fixed;
    /*  background-size: cover; */
    background-size: cover;
+   /* opacity: 0.4;
+   filter:alpha(opacity=40); */
 
 }
 .homeimage1 {
