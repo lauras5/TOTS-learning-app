@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import API from '../../utils/API';
-import { Link } from 'react-router-dom';
-import { Row, Input, Card, Tabs, Tab, Modal, Button } from 'react-materialize';
+// import { Link } from 'react-router-dom';
+import { Row, Input, Card, Modal, Button } from 'react-materialize';
 import './Login.css';
-import axios from 'axios'
-import proxy from 'http-proxy-middleware'
+// import { Redirect } from 'react-router-dom'
+// import axios from 'axios'
+// import proxy from 'http-proxy-middleware'
 
 class Login extends Component {
     constructor(props) {
@@ -18,10 +19,6 @@ class Login extends Component {
                 child: ''
             }
         };
-    }
-
-    componentDidMount() {
-
     }
 
     handleUser = event => {
@@ -38,29 +35,29 @@ class Login extends Component {
     handleEmail = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: event.target.value,
                 password: this.state.user.password,
                 child: this.state.user.child
             }
         })
     }
-    
+
     handlePword = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: this.state.user.email,
                 password: event.target.value,
                 child: this.state.user.child
             }
         })
     }
-    
+
     handleChild = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: this.state.user.email,
                 password: this.state.user.password,
                 child: event.target.value
@@ -70,22 +67,19 @@ class Login extends Component {
 
     handleSignUp = event => {
         event.preventDefault()
-        console.log(this.state)
-
-        const user = {
-            user: this.state.user
-        };
-
-        API.postUsers({user})
+        // console.log(this.state)
+        sessionStorage.setItem('username', this.state.user.username)
+        API.postUsers(this.state.user)
+            .then(console.log(this.state.user))
+            Red
     }
-    
+
     handleLogin = event => {
         event.preventDefault()
-        console.log(this.state)
-        
-        const username = {
-            username: this.state.user.username
-        }
+
+        // console.log(this.state.user.username)
+        // API.authenticate(this.state.user.username)  
+        API.login(this.state.user.username)
 
     }
 
@@ -95,8 +89,8 @@ class Login extends Component {
                 <Modal id='modalBack' trigger={<Button id='loginModal'>LOGIN</Button>}>
                     <Card id='loginForm'>
                         <Row>
-                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label="Username"/>
-                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label="Username" />
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} s={12} label="Password" />
                         </Row>
                         <Button onClick={this.handleLogin}>Login</Button>
                     </Card>
@@ -104,10 +98,10 @@ class Login extends Component {
                 <Modal trigger={<Button id='signupModal'>NEW USER</Button>}>
                     <Card id='loginForm'>
                         <Row>
-                            <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email"/>
-                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label='Username'/>
-                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
-                            <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name"/>
+                            <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email" />
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label='Username' />
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} s={12} label="Password" />
+                            <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name" />
                         </Row>
                         <Button onClick={this.handleSignUp}>Sign Up</Button>
                     </Card>
