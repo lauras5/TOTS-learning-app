@@ -30,6 +30,10 @@ export default {
             })
     },
 
+    getCardGame: function () {
+        return axios.get("/api/cardgame");
+    },
+
     login: function (username) {
         return axios.get('/login')
             .then(function (response) {

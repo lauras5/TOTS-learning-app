@@ -8,11 +8,11 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel')
 
-// number game route
-router.route("/numbergame").get(NumberGameController.getNumberGame)
-
 // cardgame
 router.post('/api/games/cardgame', CardGameController.addScore)
+router.get('/api/numbergame', NumberGameController.getNumberGame)
+router.get('/api/colorgame', ColorGameController.getColorGame)
+router.get('/api/cardgame', CardGameController.getCardGame)
 
 // User Routes
 router.get('/register', UserController.getUser)
@@ -21,9 +21,6 @@ router.post('/register', UserController.addUser)
 // user Authentication
 router.post('/login', UserController.login)
 router.get('/login', UserController.authenticate)
-
-
-
 
 
 // router.get('/logout', function(req, res) {

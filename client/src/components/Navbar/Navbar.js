@@ -7,10 +7,7 @@ const Navbar = props => {
 
     <Fragment>
       <Link id='parentLink' className='nav-item nav-link' to='/Parents'>Parents Place</Link>
-
-
-
-
+      
       <div id='navContainer' className="rectangle">
         <div className='navigation'>
         <div id="nav-images">
