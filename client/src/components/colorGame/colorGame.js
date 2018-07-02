@@ -16,6 +16,7 @@ class ColorGame extends Component {
         backgroundMusicPlaying: false //for Modal
     }
 
+
     componentDidMount() {
         this.loadColorGame()
     //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
@@ -125,6 +126,18 @@ class ColorGame extends Component {
             { this.modalPlayAgain() }
         }
 
+
+                console.log(this.state.correctScore)
+                //WRITE RESULTS TO DB HERE
+                API.sendResults(this.state.correctScore)
+    
+                let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+                thud.play()
+                { this.onOpenModal() }
+                { this.modalPlayAgain() }
+            }
+            
+        
 
     }
 

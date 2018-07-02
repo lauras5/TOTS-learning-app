@@ -4,7 +4,6 @@ import './Navbar.css'
 
 const Navbar = props => {
   return (
-
      <Fragment>
        <div className='logo'>
       {/* <img id='logo' src="http://www.paperhymebd.com/workimage/22_newsimg_Little-wonderl.jpg" /> */}
@@ -13,7 +12,6 @@ const Navbar = props => {
       
       </div>
 
-      
 <div id="nav-images">
       <img className="sun" src="../images/sun.png" />
       <img className="pink-butterfly" src="../images/pink-butterfly.png" />
@@ -30,11 +28,6 @@ const Navbar = props => {
 
       </div>
 
-
-
-        <div className="l-triangle-top"></div>
-        <div className="l-triangle-bottom"></div>
-
         <div className="rectangle">
           {/* <div className="navigation"> */}
             <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
@@ -44,12 +37,11 @@ const Navbar = props => {
               <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
             </ul>
           {/* </div> */}
-
         </div>
-         {/* </div> */}
-         <div className="r-triangle-top"></div>
-         <div className="r-triangle-bottom"></div> 
-      {/* </nav> */}
+         </div>
+      </nav>
+
+
     </Fragment>
   )
 } 

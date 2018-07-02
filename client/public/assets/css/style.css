@@ -3,12 +3,12 @@
     opacity: 0;
 } */
 
-body {
+/* body { */
    /*  background-image: url("../images/city_lights.jpg"); */
  /*    background-repeat: no-repeat; */
    /*  background-attachment: fixed; */
    /*  margin: auto; */
-}
+/* } */
 /* .carousel .carousel-item {
     width: 400px;
     margin-top: 0px;
@@ -22,9 +22,6 @@ body {
     padding-bottom: 50px; 
 
 } */
-
-
-
  
 .text {
     text-align: center;

@@ -19,9 +19,15 @@
     color: black;
 } */
 
-/* .nav-extended {
-    background: url(http://garyahlskog.com/wp-content/uploads/2014/04/newhd.jpg) repeat top left;
-} */
+#parentLink {
+    background-color: #bdbaba;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    border: 4px solid white;
+    text-shadow: none;
+}
+
 
 /* .navigation li {
     list-style: none;
@@ -232,10 +238,6 @@
         position: absolute;
         top: 290px;
         right: 550px;
-       
-
-
-    
     }
 
     .flower1 {
@@ -243,9 +245,7 @@
         height: 60px;
         position: absolute;
         left: 380px;
-        top: 270px;
-
-         
+        top: 270px;  
     }
 
     .flower2 {
@@ -262,7 +262,6 @@
         position: absolute;
         top: 260px;
         left: 500px;
-     
     }
 
     .train {
@@ -272,6 +271,7 @@
         top: 240px;
         left: 710px;
     }
+
 
 
 .navbar {
