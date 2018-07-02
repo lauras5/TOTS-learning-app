@@ -35,29 +35,29 @@ class Login extends Component {
     handleEmail = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: event.target.value,
                 password: this.state.user.password,
                 child: this.state.user.child
             }
         })
     }
-    
+
     handlePword = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: this.state.user.email,
                 password: event.target.value,
                 child: this.state.user.child
             }
         })
     }
-    
+
     handleChild = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: this.state.user.email,
                 password: this.state.user.password,
                 child: event.target.value
@@ -69,16 +69,19 @@ class Login extends Component {
         event.preventDefault()
         // console.log(this.state)
 
+        sessionStorage.setItem('username', this.state.user.username)
         API.postUsers(this.state.user)
             .then(console.log(this.state.user))
+            // Red
     }
-    
+
     handleLogin = event => {
         event.preventDefault()
 
         // console.log(this.state.user.username)
         // API.authenticate(this.state.user.username)  
-        API.login(this.state.user.username)      
+
+        API.login(this.state.user.username)
 
     }
 
@@ -88,8 +91,8 @@ class Login extends Component {
                 <Modal id='modalBack' trigger={<Button id='loginModal'>LOGIN</Button>}>
                     <Card id='loginForm'>
                         <Row>
-                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label="Username"/>
-                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label="Username" />
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} s={12} label="Password" />
                         </Row>
                         <Button onClick={this.handleLogin}>Login</Button>
                     </Card>
@@ -97,10 +100,10 @@ class Login extends Component {
                 <Modal trigger={<Button id='signupModal'>NEW USER</Button>}>
                     <Card id='loginForm'>
                         <Row>
-                            <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email"/>
-                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label='Username'/>
-                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
-                            <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name"/>
+                            <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email" />
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label='Username' />
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} s={12} label="Password" />
+                            <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name" />
                         </Row>
                         <Button onClick={this.handleSignUp}>Sign Up</Button>
                     </Card>

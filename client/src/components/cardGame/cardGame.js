@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
-import cardList from '../../cards.json';
-// import cardGameController from '../../../../controllers/cardgame.server.controller'
+// import cardList from '../../cards.json';
+import API from '../../utils/API'
 import axios from 'axios';
 import './cardGame.css';
 
@@ -13,11 +13,26 @@ class Cards extends Component {
             tempArr: [],
             correct: [],
             flipped: Boolean,
-            
+            cardList: [],
             times: [],
             finalTime: 0
         }
     }
+
+    componentDidMount() {
+        this.loadCardGame()
+    //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
+    };
+    
+    // GET number game questions from database and SET cardList
+    loadCardGame = () => {
+        API.getCardGame()
+          .then ( res => {
+              this.setState({ cardList: res.data })
+          })
+          .catch(err => console.log(err));
+    };
+
 
     turnCard = (event) => {
         const state = this.state
@@ -94,7 +109,7 @@ class Cards extends Component {
                 <h1>Card Memory Game!</h1>
                 {/* <p>The time is : {new Date().toLocaleTimeString()}</p> */}
                 <div className="row">
-                    {cardList.map(card =>
+                    {this.state.cardList.map(card =>
                         <Fragment>
                             <div className='cardBorder col s3 m2' >
                                 <div className='card-small waves-effect waves-light blue' onClick={this.turnCard} value={card.name} key={card.id} flipped={false.toString()}>

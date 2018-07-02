@@ -7,6 +7,6 @@ var ColorGameSchema = new Schema({
   image: String
 });
 
-var ColorGame = mongoose.model('ColorGame', ColorGameSchema);
+const ColorGame = mongoose.model('ColorGame', ColorGameSchema);
 
 module.exports = ColorGame;

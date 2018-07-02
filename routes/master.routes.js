@@ -13,7 +13,8 @@ const User = require('../models/UserModel')
 // number game route
 
 router.get('/api/numbergame', NumberGameController.getNumberGame)
-router.get('/api/colorgame', ColorGameController.getNumberGame)
+router.get('/api/colorgame', ColorGameController.getColorGame)
+router.get('/api/cardgame', CardGameController.getCardGame)
 
 // User Routes
 router.post('/register', UserController.addUser)

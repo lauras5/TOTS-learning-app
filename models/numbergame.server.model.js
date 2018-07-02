@@ -8,6 +8,6 @@ var NumberGameSchema = new Schema({
     correctAnswerIndex: Number
 });
 
-var NumberGame = mongoose.model('NumberGame', NumberGameSchema);
+const NumberGame = mongoose.model('NumberGame', NumberGameSchema);
 
 module.exports = NumberGame;

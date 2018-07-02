@@ -12,8 +12,6 @@ const Navbar = props => {
       
       </div>
 
-      
-
 <div id="nav-images">
       <img className="sun" src="../images/sun.png" />
       <img className="pink-butterfly" src="../images/pink-butterfly.png" />
@@ -30,11 +28,6 @@ const Navbar = props => {
 
       </div>
 
-
-
-        <div className="l-triangle-top"></div>
-        <div className="l-triangle-bottom"></div>
-
         <div className="rectangle">
           {/* <div className="navigation"> */}
             <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
@@ -47,6 +40,7 @@ const Navbar = props => {
         </div>
          </div>
       </nav>
+
 
     </Fragment>
   )

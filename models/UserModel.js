@@ -7,13 +7,11 @@ const passportLocalMongoose = require('passport-local-mongoose');
 var UserSchema = new Schema ({
     username : {
         type : String,
-        default: 'Quinchilla',
         required : true,
         unique : true
     },
     email : {
         type: String, 
-        default: 'abc@gmail.com',
         required : true,
         unique : true
     },
@@ -27,9 +25,10 @@ var UserSchema = new Schema ({
     },
     numberGame : {
         timesPlayed: Number,
-        scores: [Number],
+        correctCount: Number,
+        incorrectCount: Number
     },
-    memoryGame : {
+    cardGame : {
         timesPlayed: Number,
         times: [Number],
     },
@@ -38,12 +37,15 @@ var UserSchema = new Schema ({
         correct: Number,
         incorrect: Number
     },
-    otherGame : {
+    shapeGame : {
         timesPlayed: Number,
         scores: [Number],
     },
 });
 
 UserSchema.plugin(passportLocalMongoose);
- 
-module.exports = mongoose.model('User', UserSchema);
+
+const User = mongoose.model('User', UserSchema);
+
+module.exports = User
+
