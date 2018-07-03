@@ -34,17 +34,28 @@
     background-color:black;
 }
 
+h1 {
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
 @media only screen and (max-width:1024px){
-    #nav-images{
-        display: none;
-    }
+
 }
 
 @media only screen and (max-width:768px){
 
     h1 {
-        margin-top: 1px;
+        margin-top: 30px;
         margin-bottom: 1px;
         font-size: 40px;
     }
+    .card-small {
+        width: 120px;
+        height: 150px;
+        margin-left: 1px;
+    }
+     h3 {
+         font-size: 20px;
+     }
 }

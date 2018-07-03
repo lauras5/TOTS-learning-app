@@ -1,8 +1,10 @@
 body {
-    background: url(./images/background.png);
+    background: url(./images/background7.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
-   background-size: cover;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
 }
 
 .homeimage1 {
@@ -34,7 +36,6 @@ body {
 }
 
 html, body, #container, .carousel {
-/*     height: 100%; */
     height: 200px; 
     margin: 0;
     width: 100%;
@@ -61,4 +62,17 @@ html, body, #container, .carousel {
   .slide-arrow.left {
     left: 1rem;
   }
+
+  @media only screen and (max-width:1024px){
+
+  }
+
+  @media only screen and (max-width:768px){
+
+    .logo {
+        margin-bottom: 90px;
+        margin-top: 30px;
+    }
+      
+}
   
