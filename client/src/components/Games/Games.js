@@ -26,6 +26,7 @@ class Games extends Component {
                         </Link>
                     </Carousel>
                 </div>
+                <Footer/>
             </Fragment>
         )
     }

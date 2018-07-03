@@ -3,6 +3,7 @@ import API from '../../utils/API';
 import './numberGameStyles.css';
 import Modal from 'react-responsive-modal';
 import Navbar from '../Navbar'
+import Footer from '../Footer'
 
 class NumberGame extends Component {
 
@@ -145,7 +146,7 @@ class NumberGame extends Component {
                     <h4>Correct Answers: {this.state.correctCount}</h4>
                     <h4>Incorrect Answers: {this.state.incorrectCount}</h4>
                 </div>
-
+                <Footer />
             </Fragment>
         )
     }

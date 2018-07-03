@@ -13,11 +13,12 @@ class Footer extends Component {
                        
                     </div>
                 </div>  */}
-                
-              <div className="footer-copyright">
 
+                <div className="footer-copyright">
                     <div className="container">
-                        © 2018 Team Final Project
+                    <img id="monkey" className="right" src="../images/monkey.png" />
+
+                        © Team Zulu 2018 T.O.T.S.
                     </div>
                 </div>
             </footer>

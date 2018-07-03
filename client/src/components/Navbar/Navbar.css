@@ -54,7 +54,7 @@
     color: white;
     font-family: cursive;
     font-size: 25px;
-    text-shadow: 3px 2px black;
+    /* text-shadow: 3px 2px black; */
 }
 
 .navigation li :hover {
@@ -90,16 +90,20 @@
  } */
 
  .rectangle {
-    background: #4deeee;
+    background-color: #78d0ff;
     /* height: 2px; */
     /* position: relative; */
-    -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
+    /* -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
     box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
     -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
+    -moz-border-radius: 3px; */
     /* border-radius: 3px; */
-    z-index: 500; /* the stack order: foreground */
+    /* z-index: 500; the stack order: foreground */
     /* margin: 9em 0; */
+ }
+
+ #navSection {
+     background-color:#78d0ff;
  }
 
  .l-triangle-top {
@@ -153,14 +157,11 @@
 
   
 #appLogo {
-    color: rgb(241, 49, 53);
-    text-shadow: 2px 2px 2px rgb(12, 11, 11);
+    text-shadow: 3px 3px 10px #08354a;
+    /* text-shadow: 2px 2px 2px rgb(12, 11, 11); */
     /* padding-top: 0px; */
     letter-spacing: 5px;
-    background-color: #f3cd87;
-    text-align: left;
     font-family: 'Titan One', cursive;
-
 }
 
 #parentLink {
@@ -182,7 +183,7 @@
         font-size: 30px;
         /* font-family: cursive; */
         letter-spacing: 2px;
-        text-shadow: 3px 2px black;
+        /* text-shadow: 3px 2px black; */
         /* margin-top: 2px; */
         /* margin-bottom: 0px; */
         font-family: 'Encode Sans Condensed', sans-serif;
@@ -212,11 +213,8 @@
         bottom: -4px;
     }
 
-    .sun {
-        width: 150px;
+    #sun {
         height: 150px;
-        padding-bottom: 40px;
-        margin-left: 250px;
     }
 
     .car {
@@ -224,12 +222,9 @@
         height: 100px;
     }
 
-    .bear {
-        width: 55px;
-        height: 70px;
-        position: absolute;
-        top: 260px;
-        right: 500px;
+    #monkey {
+        height: 150px;
+        
 
     }
     

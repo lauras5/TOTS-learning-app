@@ -10,6 +10,18 @@ export default {
         return axios.get("/api/cardgame");
     },
 
+    getColorGame: function() {
+        return axios.get('/api/colorgame')
+    },
+
+    getUsers : function(userData) {
+        return axios.get("/api/users", userData)
+    },
+
+    getCurrentUser : function (userData) {
+        return axios.get("/api/users/" + userData)
+    },
+    
     // user axios requests
     postUsers: function (userData) {
         return axios.post("/register", userData)
