@@ -32,6 +32,13 @@ module.exports = {
             .catch(err => res.status(422).json(err))
 
     },
+  
+    findOneUser: function (req, res) {
+        User
+            .findOne({ username: req.params.id })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
 
     // authentication for login
     authenticate: function (req, res, next) {
