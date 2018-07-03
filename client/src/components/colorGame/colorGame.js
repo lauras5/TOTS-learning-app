@@ -16,19 +16,20 @@ class ColorGame extends Component {
         backgroundMusicPlaying: false //for Modal
     }
 
+
     componentDidMount() {
         this.loadColorGame()
-    //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
+        //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
     };
-    
+
     // GET number game questions from database and SET color
     loadColorGame = () => {
         API.getColorGame()
-          .then ( res => {
-              this.setState({ color: res.data })
-            //   this.randomRender()
-          })
-          .catch(err => console.log(err));
+            .then(res => {
+                this.setState({ color: res.data })
+                //   this.randomRender()
+            })
+            .catch(err => console.log(err));
     };
 
     // WILL IMPLEMENT IN THE FUTURE
@@ -126,10 +127,15 @@ class ColorGame extends Component {
         }
 
 
+        console.log(this.state.correctScore)
+        //WRITE RESULTS TO DB HERE
+        API.sendResults(this.state.correctScore)
+
+        let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+        thud.play()
+        { this.onOpenModal() }
+        { this.modalPlayAgain() }
     }
-
-
-
 
     //*************************************************************************************** */
     //handleClickedPulsatingText function - audio file played when pulsating text is clicked
@@ -178,8 +184,8 @@ class ColorGame extends Component {
         click.play()
         alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
-        this.setState({backgroundMusicPlaying:false})
-        
+        this.setState({ backgroundMusicPlaying: false })
+
     }
 
 
@@ -265,20 +271,15 @@ class ColorGame extends Component {
         )
     }
 
-
-
-
-
-
     render() {
         const { open } = this.state;
-        let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3")
+        let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3");
 
-        if (!this.state.backgroundMusicPlaying){
-            backgroundMusic.volume=.1
+        if (!this.state.backgroundMusicPlaying) {
+            backgroundMusic.volume = .1
             backgroundMusic.controls = true
             backgroundMusic.play()
-            this.setState({backgroundMusicPlaying:true})
+            this.setState({ backgroundMusicPlaying: true })
         }
 
         return (
@@ -303,6 +304,7 @@ class ColorGame extends Component {
         )
     }
 }
+
 export default ColorGame;
 
 
