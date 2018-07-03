@@ -1,32 +1,31 @@
 body {
     background: url(./images/background.png);
-    /* background: url(./images/background2.png); */
     background-repeat: no-repeat;
     background-attachment: fixed;
-   /*  background-size: cover; */
    background-size: cover;
-   /* opacity: 0.4;
-   filter:alpha(opacity=40); */
-
 }
+
 .homeimage1 {
     width: 250px;
     height: 250px;
     padding-left: 20px;
     padding-top: 30px;
 }
+
 .homeimage2 {
     width: 250px;
     height: 250px;
     padding-left: 20px;
     padding-top: 30px;
 }
+
 .homeimage3 {
     width: 250px;
     height: 250px;
     padding-left: 20px;
     padding-top: 30px;
 }
+
 .homeimage4 {
     width: 250px;
     height: 250px;

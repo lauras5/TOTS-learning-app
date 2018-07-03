@@ -10,6 +10,8 @@
     font-weight: bold;
     border: 5px solid white;
     box-shadow: 2px 2px 2px dimgrey;
+    border-radius: 100px;
+    border-radius: 100px;
 }
 
 #signupModal {
@@ -23,6 +25,8 @@
     font-weight: bold;
     border: 5px solid white;
     box-shadow: 2px 2px 2px dimgrey;
+    border-radius: 100px;
+    font-family: 'Encode Sans Condensed', sans-serif;
 }
 
 #loginBack {
@@ -32,51 +36,6 @@
 #signupBack {
     background-color: #398fe8
 }
-
-body {
-    background-image: url('./images/background.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-#monkey{
-    padding-right: 25px;
-    padding-bottom: 75px;
-}
-
-#loginBox {
-    width: 100%;
-}
-
-.card-title {
-    text-align: center;
-    font-family: 'Luckiest Guy',cursive;
-    text-align: center;
-}
-
-#submitBtn {
-    display: block;
-    margin: auto;
-    padding: 7px;
-    margin-top: 10px;
-    width: 30%;
-    background-color: #14dc0f;
-    border: none;
-    box-shadow: 2px 2px 2px darkolivegreen;
-    color: white;
-    font-size: 20px;
-    font-family: 'Luckiest Guy',cursive;
-    text-align: center;
-}
-
-
-
-/* .tree {
-    background: url(./images/sky_grass_background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
 
 
 

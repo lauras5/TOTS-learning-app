@@ -125,7 +125,6 @@ class NumberGame extends Component {
 
     
     render() {
-
         return (
             <Fragment>
                 <h1> Number Game </h1>

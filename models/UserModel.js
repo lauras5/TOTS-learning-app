@@ -1,26 +1,32 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema
+
+// require passport auth
 const passportLocalMongoose = require('passport-local-mongoose');
 
 var UserSchema = new Schema ({
     username : {
         type : String,
-        // default: 'Quinchilla', I dont think we actually need this, right?
+<<<<<<< Updated upstream
+        required : true,
+        unique : true
+=======
         required : true
+>>>>>>> Stashed changes
     },
     email : {
         type: String, 
-        // default: 'abc@gmail.com', I dont think we actually need this, right?
         required : true,
         unique : true
     },
-    password: {
-        type: String,
-        required: true
+    password : {
+        type : String,
+        required : true
     },
-    
-    childName: String,
-
+    child : {
+        type : String,
+        required : true
+    },
     numberGame : {
         timesPlayed: Number,
         correctCount: Number,
