@@ -17,6 +17,10 @@ router.get('/api/colorgame', ColorGameController.getColorGame)
 router.get('/api/cardgame', CardGameController.getCardGame)
 
 // User Routes
+
+router.post('/api/users', UserController.addUser)
+router.get('/api/users', UserController.findUsers)
+router.get('/api/users/:id', UserController.findOneUser)
 router.get('/register', UserController.findUser)
 router.post('/register', UserController.addUser)
 
@@ -32,5 +36,6 @@ router.get('/login', UserController.authenticate)
 // });
 
 // router.post('/api/users', function(req, res) {})
+
 
 module.exports = router

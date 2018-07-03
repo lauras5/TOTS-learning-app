@@ -22,7 +22,9 @@ class NumberGame extends Component {
     // If component successfully mounts, start new game
     componentDidMount() {
         this.loadNumberGame()
-        this.loadCurrentUser()
+        const currentUserName = sessionStorage.getItem('username')
+        console.log('current user -ish : ' + currentUserName)
+        this.loadCurrentUser(currentUserName)
     };
     
     // GET number game questions from database and SET all initial values 
@@ -37,13 +39,20 @@ class NumberGame extends Component {
           .catch(err => console.log(err));
     };
 
-    loadCurrentUser = () => {
-        API.getUsers()
+    loadCurrentUser = (currentUserName) => {
+        API.getCurrentUser(currentUserName)
           .then ( res => {
-              this.setState({ currentUser: res.data[0]})
+              // if user is null, handle it: perhaps route to login page
+              this.setState({ currentUser: res.data})
               console.log(this.state.currentUser)
           })
     };
+
+
+    postUserScoreToProfile = () => {
+        
+    }
+
 
     //  Select the top Question from NumberQuestionList
     selectTopQuestionFromNumberQuestionList = () => {

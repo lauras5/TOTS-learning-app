@@ -35,12 +35,20 @@ module.exports = {
         
             sessionStorage.setItem("USER", req.body.username)
     },
+  
+    findOneUser: function (req, res) {
+        User
+            .findOne({ username: req.params.id })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
 
     // authentication for login
     authenticate: function (req, res, next) {
         console.log(req.body)
 
         const username = req.body.username
+
 
         User
             .findOne({ 'username': username })

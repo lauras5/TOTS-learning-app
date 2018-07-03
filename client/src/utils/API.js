@@ -60,17 +60,16 @@ export default {
             })
     },
 
-    authenticate: function (username) {
-        console.log(username)
-        // console.log('succesfully hit API' + username)
-        return axios.get("/login")
-            .then(function (response) {
-                console.log(response.data)
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
+
+    getUsers : function(userData) {
+        return axios.get("/api/users", userData)
     },
+
+    getCurrentUser : function (userData) {
+        return axios.get("/api/users/" + userData)
+    
+    },
+      
 
     login : function (username) {
         return axios.get('/login') 
