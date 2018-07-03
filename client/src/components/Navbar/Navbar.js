@@ -39,8 +39,8 @@ class Navbar extends Component {
               <h1 id="appLogo">T.O.T.S.</h1>
               {/* <h3 className="slogan">Learning Made Fun.</h3> */}
               <ul>
-                <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
-                <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
+                <li><Link className='nav-item nav-link' to='/home'>Home</Link></li>
+                <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
               </ul>
             </div>
           </div>

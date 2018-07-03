@@ -1,12 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
-import { Row, Input, Card, Modal, Button, Tab, Tabs } from 'react-materialize';
+import { Row, Input, Card, Modal, Button } from 'react-materialize';
 import './Login.css';
-import { Redirect } from 'react-router-dom'
 import Navbar from '../Navbar'
-// import axios from 'axios'
-// import proxy from 'http-proxy-middleware'
+import Footer from '../Footer'
+// import User from '../'
 
 class Login extends Component {
     constructor(props) {
@@ -77,13 +76,22 @@ class Login extends Component {
         this.props.history.push("/home")
     }
 
-    handleLogin = event => {
+    handleLogin = async event => {
         event.preventDefault()
 
-        // console.log(this.state.user.username)
-        // API.authenticate(this.state.user.username)  
+        // try {
+        //     await User.login(this.state.user.username, this.state.user.password);
+        //     this.props.userHasAuthenticated(true);
+        //     this.props.history.push('/home')
+        // } catch (err) {
+        //     console.log(err)
+        // }
+
+        console.log(this.state.user.username)
+        API.authenticate(this.state.user.username)
         API.findUser(this.state.user.username)
             .then(console.log(this.state.user.username))
+        sessionStorage.setItem('username', this.state.user.username)
 
         this.props.history.push("/home")
     }
@@ -91,7 +99,22 @@ class Login extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar />
+                {/* <Navbar /> */}
+                <button id='parentBtn'><Link to='/Parents'>Parents Place</Link></button>
+                <button onClick={this.logoutSession} id='logoutBtn' className='right'><Link to='/'>Logout</Link></button>
+                <div className='logo'>
+                    <div className="rectangle">
+                        <div id='navSection' className="navigation">
+                            <img id='sun' className="left" src="../images/sun.png" />
+                            <h1 id="appLogo">T.O.T.S.</h1>
+                            <img className="grass" src="../images/grass.png" />
+                            <ul>
+                                {/* <li><Link className='nav-item nav-link' to='/home'>Home</Link></li> */}
+                                <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <Modal id='loginBack' trigger={<Button id='loginModal'>LOGIN</Button>}>
                     <Card id='loginForm'>
                         <Row>
@@ -113,6 +136,7 @@ class Login extends Component {
 
                     </Card>
                 </Modal>
+                <Footer />
             </Fragment>
         )
     }

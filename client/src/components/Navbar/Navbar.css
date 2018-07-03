@@ -214,18 +214,15 @@
     }
 
     #sun {
-        height: 150px;
+        height: 175px;
+        position: relative;
+        top: 4%;
+        left: 0;
     }
 
     .car {
         width: 200px;
         height: 100px;
-    }
-
-    #monkey {
-        height: 150px;
-        
-
     }
     
     .duck {

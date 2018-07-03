@@ -38,6 +38,8 @@ app.use('/', routes);
 
 // Passport Config
 const User = require('./models/UserModel');
+
+// tells passport to authenticate user data
 passport.use(new LocalStrategy(User.authenticate()));
 
 // use static serialize and deserialize of model for passport session support

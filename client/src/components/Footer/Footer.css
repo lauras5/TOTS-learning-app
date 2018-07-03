@@ -11,14 +11,17 @@ footer {
     position:fixed;
     left:0px;
     bottom:0px;
+    margin-top:5px;
 }
 
 #monkey {
-    height: 30%;
+    height: 40%;
     position: fixed;
-    bottom: 50px;
+    bottom: 0;
     right: 0;
 }
+
+
 /* footer {
 color: #252221;
     text-align: center;
