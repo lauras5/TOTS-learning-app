@@ -4,6 +4,7 @@ const UserController = require('../controllers/userController');
 const NumberGameController = require('../controllers/numbergame.server.controller');
 // requiring card game controller
 const CardGameController = require('../controllers/cardGameController')
+const ColorGameController = require('../controllers/colorgame.server.controller')
 const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel')

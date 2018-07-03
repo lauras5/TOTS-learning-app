@@ -61,6 +61,27 @@
     margin-top: 2px;
 }
 
+#parentBtn {
+    background-color: #a9a6a6;
+    border: 2px solid white;
+    padding: 5px;
+}
+
+#parentBtn a {
+    text-decoration: none;
+    color: black;
+}
+
+#logoutBtn {
+    background-color: #ee7171;
+    border: 2px solid white;
+    padding: 5px;
+}
+
+#logoutBtn a {
+    text-decoration: none;
+    color: black;
+}
 /* .navigation_container {
     margin: 0 auto;
     width: 960px;
@@ -69,14 +90,14 @@
  } */
 
  .rectangle {
-    background: #ee734d;
-    height: 62px;
-    position: relative;
+    background: #4deeee;
+    /* height: 2px; */
+    /* position: relative; */
     -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
     box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
-    border-radius: 3px;
+    /* border-radius: 3px; */
     z-index: 500; /* the stack order: foreground */
     /* margin: 9em 0; */
  }

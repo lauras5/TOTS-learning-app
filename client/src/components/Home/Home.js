@@ -1,19 +1,12 @@
 
 import React, { Component, Fragment } from 'react';
-// import { Link } from 'react-router-dom';
-// import { Button, Icon } from 'react-materialize'
 import './Home.css';
-// import Games from 
-// import ReactDOM from 'react-dom';
-// import Carousel from '../Carousel';
-// import GameRouter from '../../gamerouter'
+import Games from '../Games'
 
 class Home extends Component {
     render() {
         return (
-            <Fragment>
-                {/* <Games /> */}
-            </Fragment >
+            <Games />
         )
     }
 }

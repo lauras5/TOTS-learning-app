@@ -3,14 +3,18 @@ import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 const Navbar = props => {
+
+  // on click event for logout button
+  // remove user from session
+
   return (
     <Fragment>
+      <button id='parentBtn'><Link to='/Parents'>Parents Place</Link></button>
+      <button id='logoutBtn' className='right'><Link to='/'>Logout</Link></button>
       <div className='logo'>
         {/* <img id='logo' src="http://www.paperhymebd.com/workimage/22_newsimg_Little-wonderl.jpg" /> */}
-        <h1 className="appLogo">Little Wonders</h1>
-        <h3 className="slogan">Learning Made Fun.</h3>
 
-   
+        {/*    
         <div id="nav-images">
           <img className="sun" src="../images/sun.png" />
           <img className="pink-butterfly" src="../images/pink-butterfly.png" />
@@ -24,18 +28,17 @@ const Navbar = props => {
           <img className="crayons" src="../images/crayons.png" />
           <img className="bear" src="../images/bear.png" />
           <img className="blue-butterfly" src="../images/blue-butterfly.png" />
-
-        </div>
+        </div> */}
 
         <div className="rectangle">
-          {/* <div className="navigation"> */}
-          <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
-          <ul className="right">
-            <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
-            <li><Link className='nav-item nav-link' to='/Login'>Logout</Link></li>
-            <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
-          </ul>
-          {/* </div> */}
+          <div className="navigation">
+            <h1 className="appLogo">Little Wonders</h1>
+            {/* <h3 className="slogan">Learning Made Fun.</h3> */}
+            <ul className="right">
+              <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
+              <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
+            </ul>
+          </div>
         </div>
       </div>
 

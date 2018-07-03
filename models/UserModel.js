@@ -7,12 +7,8 @@ const passportLocalMongoose = require('passport-local-mongoose');
 var UserSchema = new Schema ({
     username : {
         type : String,
-<<<<<<< Updated upstream
         required : true,
         unique : true
-=======
-        required : true
->>>>>>> Stashed changes
     },
     email : {
         type: String, 
