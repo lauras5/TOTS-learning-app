@@ -24,7 +24,7 @@ module.exports = {
         console.log(res)
         console.log(req)
         User
-            .findOne({username : req.username})
+            .findOne({ username: req.username })
             .then(dbModel => {
                 res.json(dbModel)
                 console.log(dbModel)
@@ -32,7 +32,7 @@ module.exports = {
             .catch(err => res.status(422).json(err))
 
     },
-  
+
     findOneUser: function (req, res) {
         User
             .findOne({ username: req.params.id })
@@ -44,33 +44,24 @@ module.exports = {
     authenticate: function (req, res, next) {
         console.log(req.body)
 
-        const username = req.body.username
-
         User
-            .findOne({ 'username': username })
+            .findOne({ 'username': req.body.username })
         if (!username) {
             req.session.success = 'You are successfully logged in ' + req.body.username + '!'
         } else (
-            console.log('horray it works: ' + username)
+            console.log('horray it works: ' + req.body.username)
         )
     },
 
     login: function (req, res) {
         console.log('user signup')
-        // req.session.username = req.body.username
-        res.send()
 
         // find users
-        // findUsers: function (req, res) {
-        //     User
-        //         .findOne({ 'username': req.body.data.username })
-        //         .then(dbModel => res.json(dbModel))
-        //         .catch(err => res.status(422).json(err))
-        // }
-
-        // updateCardGame : function (req, res) {
-        //     User
-        //         .findOne({username : req.session.username})
+        User
+            .findOne({ 'username': req.body.data.username })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
     }
 
 }
+

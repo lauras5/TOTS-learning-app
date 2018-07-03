@@ -31,9 +31,10 @@
     "webpack": "^4.13.0"
   },
   "scripts": {
-    "server": "node server.js",
+    "server": "nodemon",
     "client": "cd client && npm run start",
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
