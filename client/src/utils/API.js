@@ -33,7 +33,12 @@ export default {
     postUsers : function(userData) {
         return axios.post("/api/users", {userData})
     },
+
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
+    },
+
+    getCurrentUser : function (userData) {
+        return axios.get("/api/users/" + userData)
     }
 };

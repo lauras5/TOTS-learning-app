@@ -15,6 +15,12 @@ module.exports = {
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     },
+    findOneUser: function (req, res) {
+        User
+            .findOne({ username: req.params.id })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
     authenticate: function(req, res) {
         User
             .register(new User({ user: req.body.user }), req.body.user.password, function (err, account) {

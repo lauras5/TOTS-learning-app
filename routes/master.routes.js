@@ -23,6 +23,6 @@ router.get('/api/cardgame', CardGameController.getCardGame)
 // User Routes
 router.post('/api/users', UserController.addUser)
 router.get('/api/users', UserController.findUsers)
-
+router.get('/api/users/:id', UserController.findOneUser)
 
 module.exports = router
