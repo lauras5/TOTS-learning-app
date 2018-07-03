@@ -198,8 +198,6 @@ class ColorGame extends Component {
         const colorValues = ["Red", "Blue", "Green", "Yellow"]
         const correctAnswer = colorValues[Math.floor(Math.random() * 4)]
         this.setState({ colorNameToGuess: correctAnswer })
-
-
     }
 
     //*************************************************************************************** */
@@ -274,14 +272,20 @@ class ColorGame extends Component {
 
     render() {
         const { open } = this.state;
-        let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3");
+        // let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3");
 
-        if (!this.state.backgroundMusicPlaying) {
-            backgroundMusic.volume = .1
-            backgroundMusic.controls = true
-            backgroundMusic.play()
-            this.setState({ backgroundMusicPlaying: true })
-        }
+        // if (!this.state.backgroundMusicPlaying) {
+        //     backgroundMusic.volume = .1
+        //     backgroundMusic.controls = true
+        //     backgroundMusic.play()
+        //     this.setState({ backgroundMusicPlaying: true })
+        // }
+        // else {
+        //     backgroundMusic.pause
+        //     this.setState({ backgroundMusicPlaying: false })
+        // }
+
+        
 
         return (
 

@@ -1,0 +1,22 @@
+.soundToDragCardIndividual{
+    /* background: rgb(158, 221, 142); */
+    border-radius: 10px;
+    margin: 2%;  
+    width: 10%;
+align-content: center;
+/* align-items: center;
+align-self: center;
+text-align: center;    */
+    display:inline-block;
+  }
+  
+  .soundToDragCardIndividual > .img-container {
+    margin: 10%;
+  }
+
+  .soundToDragCardIndividual > .img-container > img {
+         width: 100%;
+   }
+
+
+  
