@@ -5,6 +5,7 @@ const NumberGameController = require('../controllers/numbergame.server.controlle
 // requiring card game controller
 const CardGameController = require('../controllers/cardGameController')
 const ColorGameController = require('../controllers/colorgame.server.controller')
+const SoundGameController = require('../controllers/soundgame.server.controller')
 const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel')
@@ -16,6 +17,7 @@ router.post('/api/games/cardgame', CardGameController.addScore)
 router.get('/api/numbergame', NumberGameController.getNumberGame)
 router.get('/api/colorgame', ColorGameController.getColorGame)
 router.get('/api/cardgame', CardGameController.getCardGame)
+router.get('/api/soundgame', CardGameController.getCardGame)
 
 // User Routes
 router.post('/api/users', UserController.addUser)

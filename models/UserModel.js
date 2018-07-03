@@ -41,6 +41,10 @@ var UserSchema = new Schema ({
         timesPlayed: Number,
         scores: [Number],
     },
+    soundGame : {
+        timesPlayed: Number,
+        scores: [Number],
+    }
 });
 
 UserSchema.plugin(passportLocalMongoose, {

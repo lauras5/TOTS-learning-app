@@ -14,6 +14,10 @@ export default {
         return axios.get('/api/colorgame')
     },
 
+    getSoundGame: function() {
+        return axios.get('/api/soundgame')
+    },
+
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
     },

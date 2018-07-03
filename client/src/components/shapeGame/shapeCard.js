@@ -5,7 +5,7 @@ const ShapeCard = props => (
 
   
   <div className="card col-s2 shapeCardIndividual">
-  <div className="card-title">{props.name}</div>
+  <div className="card-title shapecardtitle">{props.name}</div>
     <div className="img-container">
       <img
         alt={props.name}

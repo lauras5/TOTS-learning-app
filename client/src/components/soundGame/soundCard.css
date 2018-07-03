@@ -1,0 +1,21 @@
+.soundCardIndividual{
+    background: rgb(245, 221, 117);
+    border-radius: 20px;
+    margin: 1%;  
+    width: 20%;
+    
+    /* display:inline-block; */
+  }
+  
+  .soundCardIndividual > .img-container {
+    margin: 10%;
+  
+  }
+
+  .soundCardIndividual > .img-container > img {
+         width:100%;
+         align-content: center;
+   }
+
+
+  

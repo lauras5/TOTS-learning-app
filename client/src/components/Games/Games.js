@@ -16,6 +16,14 @@ class Games extends Component {
                             <img src="http://25.io/smaller/img/smaller_256x256.png" alt="card game" />
                             <span>Card Game</span>
                         </Link>
+                        <Link id='soundgame' to='/games/soundgame' >
+                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="nature" />
+                            <span>Sound Game</span>
+                        </Link>
+                        <Link id='shapegame' to='/games/shapegame' >
+                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="nature" />
+                            <span>Shape Game</span>
+                        </Link>
                         <Link id='colorgame' to='/games/colorgame'>
                             <img src="http://25.io/smaller/img/smaller_256x256.png" alt="color game" />
                             <span> Color Game</span>

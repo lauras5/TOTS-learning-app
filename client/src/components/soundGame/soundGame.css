@@ -58,10 +58,10 @@ h3{
     color: rgb(51, 49, 49);
 }
 
-#shapeGamePage{
-    /* background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat; */
+#soundGamePage{
    
-background-size:100%;
+    /* background:url("https://365psd.com/images/previews/fea/sunrise-cartoon-background-14735.jpg") no-repeat;
+background-size:100%; */
 }   
 
 #playAgainModalText{
@@ -81,6 +81,13 @@ background-size:100%;
 }
 
 
+#shapePlayAgain{
+    
+}
+
+#shapeNotPlayAgain{
+    
+}
 
 .rowShapes{
     display:inline-flex;
