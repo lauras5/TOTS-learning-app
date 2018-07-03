@@ -31,9 +31,6 @@ module.exports = {
             })
             .catch(err => res.status(422).json(err))
 
-            console.log(req.session.username)
-        
-            sessionStorage.setItem("USER", req.body.username)
     },
   
     findOneUser: function (req, res) {

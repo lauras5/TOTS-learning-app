@@ -3,6 +3,7 @@ import './colorGame.css';
 import ColorCard from "./colorCard";
 import Modal from 'react-responsive-modal';
 import API from '../../utils/API';
+import Navbar from '../Navbar'
 
 
 class ColorGame extends Component {
@@ -285,7 +286,7 @@ class ColorGame extends Component {
         return (
 
             <Fragment>
-
+                <Navbar/>
                 <div id="colorGamePage">
                     <h1> The Color Game!</h1>
                     <div className="container">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
+// import Navbar from './components/Navbar';
 import Parents from './components/Parents';
 import Login from './components/Login';
 import About from './components/About';
@@ -9,7 +9,6 @@ import ColorGame from './components/colorGame';
 import NumberGame from './components/NumberGame/numberGame';
 import Games from './components/Games'
 import ShapeGame from './components/shapeGame/shapeGame';
-// import Home from './components/Home';
 
 
 const AppRouter = () => {
@@ -19,8 +18,7 @@ const AppRouter = () => {
             <Router>
                 <div>
                     {/* edit username */}
-                   <Navbar username='User' message='welcome back!'/>
-                    <Route path='/login' component={Login} />
+                    <Route exact path='/' component={Login} />
                     <Route path='/home' component={Games} />
                     <Route path='/about' component={About} />
                     <Route path='/parents' component={Parents} />

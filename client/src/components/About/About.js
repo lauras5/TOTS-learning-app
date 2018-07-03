@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import Navbar from '../Navbar'
+import Footer from '../Footer'
 
 const About = () => {
-    return(
-        <div>I am the about page, I will have content about the developers</div>
+    return (
+        <Fragment>
+            <Navbar />
+            <div>I am the about page, I will have content about the developers</div>
+            <Footer />
+        </Fragment>
     )
 }
 
