@@ -6,6 +6,48 @@ export default {
         return axios.get("/api/numbergame");
     },
 
+    getCardGame: function () {
+        return axios.get("/api/cardgame");
+    },
+
+    // user axios requests
+    postUsers: function (userData) {
+        return axios.post("/register", userData)
+            .then(function (response) {
+                console.log('user has created a profile')
+            })
+            .catch(function (err) {
+                console.log('sign up error')
+                console.log(err)
+            })
+    },
+
+    findUser : function(userData) {
+        return axios.get("/register", {
+            params : {
+                username : userData
+            }
+        })
+        .then(function(response) {
+            console.log(response)
+        })
+        .catch(function(err) {
+            console.log(err)
+        })
+    },
+
+    authenticate: function (username) {
+        console.log(username)
+        // console.log('succesfully hit API' + username)
+        return axios.get("/login")
+            .then(function (response) {
+                console.log(response.data)
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    },
+
     // user axios requests
     postUsers: function (userData) {
         return axios.post("/register", userData)
@@ -30,18 +72,14 @@ export default {
             })
     },
 
-    getCardGame: function () {
-        return axios.get("/api/cardgame");
-    },
-
-    login: function (username) {
-        return axios.get('/login')
-            .then(function (response) {
-                console.log(response)
-            })
-            .catch(function (err) {
-                console.log(err)
-            })
+    login : function (username) {
+        return axios.get('/login') 
+        .then(function(response) {
+            console.log(response)
+        })
+        .catch(function(err) {
+            console.log(err)
+        })
     }
 
     // sendResults : function (score) {
@@ -52,6 +90,5 @@ export default {
     //     .catch(function(err) {
     //         console.log(err)
     //     })
-
     // }
 };

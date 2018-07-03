@@ -11,7 +11,6 @@ module.exports = {
             password: req.body.password,
             child: req.body.child
         }
-
         User
             .create(user)
             .then(dbModel => {
@@ -21,15 +20,20 @@ module.exports = {
             .catch(err => res.status(422).json(err))
     },
 
-    getUser: function (req, res) {
+    findUser: function (req, res) {
         console.log(res)
+        console.log(req)
         User
-            .find({})
+            .findOne({username : req.username})
             .then(dbModel => {
                 res.json(dbModel)
                 console.log(dbModel)
             })
             .catch(err => res.status(422).json(err))
+
+            console.log(req.session.username)
+        
+            sessionStorage.setItem("USER", req.body.username)
     },
 
     // authentication for login

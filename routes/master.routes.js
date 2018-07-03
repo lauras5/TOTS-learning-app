@@ -10,12 +10,14 @@ const User = require('../models/UserModel')
 
 // cardgame
 router.post('/api/games/cardgame', CardGameController.addScore)
+// number game route
+
 router.get('/api/numbergame', NumberGameController.getNumberGame)
 router.get('/api/colorgame', ColorGameController.getColorGame)
 router.get('/api/cardgame', CardGameController.getCardGame)
 
 // User Routes
-router.get('/register', UserController.getUser)
+router.get('/register', UserController.findUser)
 router.post('/register', UserController.addUser)
 
 // user Authentication
