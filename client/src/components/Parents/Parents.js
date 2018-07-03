@@ -6,24 +6,17 @@ import { Button, Icon } from 'react-materialize'
 import Navbar from '../Navbar'
 import Footer from '../Footer'
 
-
 class Parent extends Component {
-
 
     render() {
         return (
             <Fragment>
-<div className="empty"> </div>
-
-          
-
-
+                <Navbar />
+                <div className="empty"> </div>
+                <Footer />
             </Fragment>
         )
     }
 }
-
-
-
 
 export default Parent;

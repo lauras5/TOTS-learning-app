@@ -1,9 +1,8 @@
-
 #loginModal {
     display: block;
     margin: auto;
     margin-top: 7%;
-    width: 50%;
+    width: 25%;
     height: 120px;
     background-color: #80d236;
     font-size: 22px;
@@ -12,13 +11,14 @@
     box-shadow: 2px 2px 2px dimgrey;
     border-radius: 100px;
     border-radius: 100px;
+    margin-top: 20%
 }
 
 #signupModal {
     display: block;
     margin: auto;
     margin-top: 1%;
-    width: 50%;
+    width: 25%;
     height: 120px;
     background-color: #398fe8;
     font-size: 22px;
@@ -68,6 +68,12 @@ body {
     font-size: 20px;
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
+}
+
+#nav {
+    background-color: #5fc9f1;
+    color: white;
+    border: 5px solid white;
 }
 
 
