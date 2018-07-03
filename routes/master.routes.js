@@ -36,5 +36,9 @@ router.get('/login', UserController.authenticate)
 // });
 
 // router.post('/api/users', function(req, res) {})
+<<<<<<< HEAD
+=======
+
+>>>>>>> 136ca66ffd2a0037d6ce44b0e685ee7864695725
 
 module.exports = router

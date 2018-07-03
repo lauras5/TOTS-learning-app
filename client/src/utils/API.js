@@ -67,6 +67,7 @@ export default {
     getCurrentUser : function (userData) {
         return axios.get("/api/users/" + userData)
     },
+      
 
     login : function (username) {
         return axios.get('/login') 
