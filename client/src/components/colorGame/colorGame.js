@@ -137,178 +137,172 @@ class ColorGame extends Component {
         { this.modalPlayAgain() }
     }
 
-
-
-}
-
-
-
-
-//*************************************************************************************** */
-//handleClickedPulsatingText function - audio file played when pulsating text is clicked
-//                                
-//**************************************************************************************** */
-handleClickedPulsatingText = () => {
-    let colorSoundFile = ''
-    switch (this.state.colorNameToGuess) {
-        case 'Red':
-            colorSoundFile = "../soundFiles/red.wav"
-            break;
-        case 'Blue':
-            colorSoundFile = "../soundFiles/blue.wav"
-            break;
-        case 'Green':
-            colorSoundFile = "../soundFiles/green.wav"
-            break;
-        case 'Yellow':
-            colorSoundFile = "../soundFiles/yellow.wav"
-            break;
-        default:
-            colorSoundFile = ""
-    }
-    let sayColor = new Audio(colorSoundFile)
-    sayColor.play()
-}
-
-//*************************************************************************************** */
-//handleClickedPlayAgain function - handles click event to play again from Modal. 
-//                                - resets game values to 0 and restarts game
-//**************************************************************************************** */
-handleClickPlayAgain = () => {
-    let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
-    againSound.play()
-    this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, colorNameToGuess: 'Blue' })
-    this.onCloseModal()
-}
-
-
-//*************************************************************************************** */
-//handleClickedNotPlayAgain function - handles click event to NOT play again from Modal. 
-//                                   - exits colorGame and goes back to home
-//**************************************************************************************** */
-handleClickNotPlayAgain = () => {
-    let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-    click.play()
-    alert("GOES BACK TO HOME PAGE")
-    this.onCloseModal()
-    this.setState({ backgroundMusicPlaying: false })
-
-}
-
-
-//*************************************************************************************** */
-//setColorToGuess function - picks a color to be guessed.  This is passed to the state.
-//**************************************************************************************** */
-setColorToGuess = () => {
-    //Set the correct answer 
-    const colorValues = ["Red", "Blue", "Green", "Yellow"]
-    const correctAnswer = colorValues[Math.floor(Math.random() * 4)]
-    this.setState({ colorNameToGuess: correctAnswer })
-
-
-}
-
-//*************************************************************************************** */
-//renderColortoGuess function - Tells the user what color to pick.  Text in page.
-//**************************************************************************************** */
-renderColortoGuess = () => {
-    let colorSoundFile = ''
-    switch (this.state.colorNameToGuess) {
-        case 'Red':
-            colorSoundFile = "../soundFiles/red.wav"
-            break;
-        case 'Blue':
-            colorSoundFile = "../soundFiles/blue.wav"
-            break;
-        case 'Green':
-            colorSoundFile = "../soundFiles/green.wav"
-            break;
-        case 'Yellow':
-            colorSoundFile = "../soundFiles/yellow.wav"
-            break;
-        default:
-            colorSoundFile = ""
-    }
-    let sayColor = new Audio(colorSoundFile)
-    setTimeout(function () { sayColor.play() }, 1000)
-    return (
-        <div>
-            <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{ color: this.state.colorNameToGuess, fontSize: 200 }}>{this.state.colorNameToGuess}</div>
-        </div>
-    )
-}
-
-
-//*************************************************************************************** */
-//Modal open and close functions
-//**************************************************************************************** */
-onOpenModal = () => {
-    this.setState({ open: true });
-};
-
-onCloseModal = () => {
-    this.setState({ open: false });
-};
-//*************************************************************************************** */
-
-
-
-//***************************************************************************************/
-//Modal render - render the modal
-//*************************************************************************************
-modalPlayAgain = () => {
-    // {this.onOpenModal()}
-    let colorGameCorrect = `Correct: ${this.state.correctScore}`
-    let colorGameWrong = `Incorrect: ${this.state.incorrectScore}`
-
-
-    return (
-
-        <div>
-            <Modal open={this.state.open} onClose={this.onCloseModal} center>
-                <h3>Color Game Score</h3>
-                <h4 className="modalStatsCorrect">{colorGameCorrect}</h4>
-                <h4 className="modalStatsIncorrect">{colorGameWrong}</h4>
-
-                <h3 id="playAgainModalText">Play again?</h3>
-                <card col-6 id="colorPlayAgain" onClick={this.handleClickPlayAgain}><img src="https://i.pinimg.com/originals/f0/8b/99/f08b998f7548448a73134f4d21c4b5f3.gif" /></card>
-                <card col-6 id="colorNotPlayAgain" onClick={this.handleClickNotPlayAgain}><img src="https://www.smileysapp.com/gif-emoji/thumbs-down.gif" /></card>
-            </Modal>
-        </div>
-    )
-};
-
-render() {
-    const { open } = this.state;
-    let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3");
-
-    if (!this.state.backgroundMusicPlaying) {
-        backgroundMusic.volume = .1
-        backgroundMusic.controls = true
-        backgroundMusic.play()
-        this.setState({ backgroundMusicPlaying: true })
+    //*************************************************************************************** */
+    //handleClickedPulsatingText function - audio file played when pulsating text is clicked
+    //                                
+    //**************************************************************************************** */
+    handleClickedPulsatingText = () => {
+        let colorSoundFile = ''
+        switch (this.state.colorNameToGuess) {
+            case 'Red':
+                colorSoundFile = "../soundFiles/red.wav"
+                break;
+            case 'Blue':
+                colorSoundFile = "../soundFiles/blue.wav"
+                break;
+            case 'Green':
+                colorSoundFile = "../soundFiles/green.wav"
+                break;
+            case 'Yellow':
+                colorSoundFile = "../soundFiles/yellow.wav"
+                break;
+            default:
+                colorSoundFile = ""
+        }
+        let sayColor = new Audio(colorSoundFile)
+        sayColor.play()
     }
 
-    return (
+    //*************************************************************************************** */
+    //handleClickedPlayAgain function - handles click event to play again from Modal. 
+    //                                - resets game values to 0 and restarts game
+    //**************************************************************************************** */
+    handleClickPlayAgain = () => {
+        let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
+        againSound.play()
+        this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, colorNameToGuess: 'Blue' })
+        this.onCloseModal()
+    }
 
-        <Fragment>
 
-            <div id="colorGamePage">
-                <h1> The Color Game!</h1>
-                <div className="container">
-                    <div className="rowColors">
-                        {this.randomRender()}
-                    </div>
-                </div>
+    //*************************************************************************************** */
+    //handleClickedNotPlayAgain function - handles click event to NOT play again from Modal. 
+    //                                   - exits colorGame and goes back to home
+    //**************************************************************************************** */
+    handleClickNotPlayAgain = () => {
+        let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+        click.play()
+        alert("GOES BACK TO HOME PAGE")
+        this.onCloseModal()
+        this.setState({ backgroundMusicPlaying: false })
 
-                <h1> Which face is.....</h1>
-                <h1>{this.renderColortoGuess()}</h1>
-                <h1>{10 - this.state.questionNum} to go!</h1>
+    }
 
+
+    //*************************************************************************************** */
+    //setColorToGuess function - picks a color to be guessed.  This is passed to the state.
+    //**************************************************************************************** */
+    setColorToGuess = () => {
+        //Set the correct answer 
+        const colorValues = ["Red", "Blue", "Green", "Yellow"]
+        const correctAnswer = colorValues[Math.floor(Math.random() * 4)]
+        this.setState({ colorNameToGuess: correctAnswer })
+
+
+    }
+
+    //*************************************************************************************** */
+    //renderColortoGuess function - Tells the user what color to pick.  Text in page.
+    //**************************************************************************************** */
+    renderColortoGuess = () => {
+        let colorSoundFile = ''
+        switch (this.state.colorNameToGuess) {
+            case 'Red':
+                colorSoundFile = "../soundFiles/red.wav"
+                break;
+            case 'Blue':
+                colorSoundFile = "../soundFiles/blue.wav"
+                break;
+            case 'Green':
+                colorSoundFile = "../soundFiles/green.wav"
+                break;
+            case 'Yellow':
+                colorSoundFile = "../soundFiles/yellow.wav"
+                break;
+            default:
+                colorSoundFile = ""
+        }
+        let sayColor = new Audio(colorSoundFile)
+        setTimeout(function () { sayColor.play() }, 1000)
+        return (
+            <div>
+                <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{ color: this.state.colorNameToGuess, fontSize: 200 }}>{this.state.colorNameToGuess}</div>
             </div>
-            {this.modalPlayAgain()}
-        </Fragment>
-    )
+        )
+    }
+
+
+    //*************************************************************************************** */
+    //Modal open and close functions
+    //**************************************************************************************** */
+    onOpenModal = () => {
+        this.setState({ open: true });
+    };
+
+    onCloseModal = () => {
+        this.setState({ open: false });
+    };
+    //*************************************************************************************** */
+
+
+
+    //***************************************************************************************/
+    //Modal render - render the modal
+    //*************************************************************************************
+    modalPlayAgain = () => {
+        // {this.onOpenModal()}
+        let colorGameCorrect = `Correct: ${this.state.correctScore}`
+        let colorGameWrong = `Incorrect: ${this.state.incorrectScore}`
+
+
+        return (
+
+            <div>
+                <Modal open={this.state.open} onClose={this.onCloseModal} center>
+                    <h3>Color Game Score</h3>
+                    <h4 className="modalStatsCorrect">{colorGameCorrect}</h4>
+                    <h4 className="modalStatsIncorrect">{colorGameWrong}</h4>
+
+                    <h3 id="playAgainModalText">Play again?</h3>
+                    <card col-6 id="colorPlayAgain" onClick={this.handleClickPlayAgain}><img src="https://i.pinimg.com/originals/f0/8b/99/f08b998f7548448a73134f4d21c4b5f3.gif" /></card>
+                    <card col-6 id="colorNotPlayAgain" onClick={this.handleClickNotPlayAgain}><img src="https://www.smileysapp.com/gif-emoji/thumbs-down.gif" /></card>
+                </Modal>
+            </div>
+        )
+    }
+
+    render() {
+        const { open } = this.state;
+        let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3");
+
+        if (!this.state.backgroundMusicPlaying) {
+            backgroundMusic.volume = .1
+            backgroundMusic.controls = true
+            backgroundMusic.play()
+            this.setState({ backgroundMusicPlaying: true })
+        }
+
+        return (
+
+            <Fragment>
+
+                <div id="colorGamePage">
+                    <h1> The Color Game!</h1>
+                    <div className="container">
+                        <div className="rowColors">
+                            {this.randomRender()}
+                        </div>
+                    </div>
+
+                    <h1> Which face is.....</h1>
+                    <h1>{this.renderColortoGuess()}</h1>
+                    <h1>{10 - this.state.questionNum} to go!</h1>
+
+                </div>
+                {this.modalPlayAgain()}
+            </Fragment>
+        )
+    }
 }
 
 export default ColorGame;
