@@ -90,10 +90,12 @@
     }
 
     #parent-link {
+        background-color: grey;
         padding-right: 50px;
         padding-left: 50px;
         margin-right: 425px;
     }
+
     #home-link {
         padding-right: 50px;
         padding-left: 50px;
@@ -133,7 +135,6 @@
         margin-bottom: 3px;
         padding-bottom: 10px;
     }
-
     
     .crayons {
         width: 200px;
@@ -141,10 +142,8 @@
         position: relative;  
         left: 270px;
         bottom: -20px;
-        
-        
-        
     }
+    
     .grass {
         width: 400px;
         height: 140px;

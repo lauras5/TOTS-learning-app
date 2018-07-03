@@ -19,23 +19,21 @@ class Navbar extends Component {
         <div className='logo'>
           {/* <img id='logo' src="http://www.paperhymebd.com/workimage/22_newsimg_Little-wonderl.jpg" /> */}
 
-          {/*    
-        <div id="nav-images">
-          <img className="pink-butterfly" src="../images/pink-butterfly.png" />
-          <img className="grass" src="../images/grass.png" />
-          <img className="train" src="../images/train.png" />
-          <img className="flower1" src="../images/flower1.png" />
-          <img className="flower2" src="../images/flower2.png" />
-          <img className="flower3" src="../images/flower3.png" />
-          <img className="baseball" src="../images/baseball.png" />
-          <img className="duck" src="../images/duck.png" />
-          <img className="blue-butterfly" src="../images/blue-butterfly.png" />
-        </div> */}
+
+          <div id="nav-images">
+            <img className="pink-butterfly" src="../images/pink-butterfly.png" />
+            <img className="train" src="../images/train.png" />
+            <img className="flower1" src="../images/flower1.png" />
+            <img className="flower2" src="../images/flower2.png" />
+            <img className="flower3" src="../images/flower3.png" />
+            <img className="baseball" src="../images/baseball.png" />
+            <img className="duck" src="../images/duck.png" />
+            <img className="blue-butterfly" src="../images/blue-butterfly.png" />
+            <img id='sun' src="../images/sun.png" />
+          </div>
 
           <div className="rectangle">
-
             <div id='navSection' className="navigation">
-              <img id='sun' className="left" src="../images/sun.png" />
               <h1 id="appLogo">T.O.T.S.</h1>
               <ul>
                 <li><Link className='nav-item nav-link' to='/home'>Home</Link></li>
