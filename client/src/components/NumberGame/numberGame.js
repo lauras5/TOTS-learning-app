@@ -44,13 +44,19 @@ class NumberGame extends Component {
           .then ( res => {
               // if user is null, handle it: perhaps route to login page
               this.setState({ currentUser: res.data})
-              console.log(this.state.currentUser)
+            //   console.log(this.state.currentUser)
+              this.postUserScoreToProfile()
           })
     };
 
 
     postUserScoreToProfile = () => {
-        
+        const user = this.state.currentUser
+        console.log('email: ' + user.email)
+        console.log('numgame: ' + user.numberGame)
+        // console.log('' + user)
+        // console.log('' + user)
+        // console.log('' + user)
     }
 
 

@@ -4,6 +4,7 @@ const UserController = require('../controllers/userController');
 const NumberGameController = require('../controllers/numbergame.server.controller');
 // requiring card game controller
 const CardGameController = require('../controllers/cardGameController')
+const ColorGameController = require('../controllers/colorgame.server.controller')
 const express = require('express');
 const router = express.Router();
 const User = require('../models/UserModel')
@@ -17,9 +18,8 @@ router.get('/api/colorgame', ColorGameController.getColorGame)
 router.get('/api/cardgame', CardGameController.getCardGame)
 
 // User Routes
-
 router.post('/api/users', UserController.addUser)
-router.get('/api/users', UserController.findUsers)
+router.get('/api/users', UserController.findUser)
 router.get('/api/users/:id', UserController.findOneUser)
 router.get('/register', UserController.findUser)
 router.post('/register', UserController.addUser)
@@ -36,6 +36,9 @@ router.get('/login', UserController.authenticate)
 // });
 
 // router.post('/api/users', function(req, res) {})
+<<<<<<< HEAD
+=======
 
+>>>>>>> 136ca66ffd2a0037d6ce44b0e685ee7864695725
 
 module.exports = router

@@ -60,14 +60,12 @@ export default {
             })
     },
 
-
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
     },
 
     getCurrentUser : function (userData) {
         return axios.get("/api/users/" + userData)
-    
     },
       
 

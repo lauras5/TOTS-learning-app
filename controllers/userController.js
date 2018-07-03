@@ -35,7 +35,10 @@ module.exports = {
         
             sessionStorage.setItem("USER", req.body.username)
     },
+<<<<<<< HEAD
+=======
   
+>>>>>>> 136ca66ffd2a0037d6ce44b0e685ee7864695725
     findOneUser: function (req, res) {
         User
             .findOne({ username: req.params.id })
@@ -48,7 +51,6 @@ module.exports = {
         console.log(req.body)
 
         const username = req.body.username
-
 
         User
             .findOne({ 'username': username })
