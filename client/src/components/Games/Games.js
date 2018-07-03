@@ -36,9 +36,9 @@ class Games extends Component {
                             <img src="http://25.io/smaller/img/smaller_256x256.png" alt="shapes game" />
                             <span>Shape Game</span>
                         </Link>
-                        <Link id='shapegame' to='/games/shapegame'>
-                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="shapes game" />
-                            <span>Shape Game</span>
+                        <Link id='shapegame' to='/games/cardflip'>
+                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="cardflip game" />
+                            <span>Card Game</span>
                         </Link>
                     </Carousel>
                 </div>

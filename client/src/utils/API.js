@@ -10,7 +10,7 @@ export default {
         return axios.get("/api/cardgame");
     },
 
-    getColorGame: function() {
+    getColorGame: function () {
         return axios.get('/api/colorgame')
     },
 
@@ -22,10 +22,10 @@ export default {
         return axios.get("/api/users", userData)
     },
 
-    getCurrentUser : function (userData) {
+    getCurrentUser: function (userData) {
         return axios.get("/api/users/" + userData)
     },
-    
+
     // user axios requests
     postUsers: function (userData) {
         return axios.post("/register", userData)
@@ -38,26 +38,17 @@ export default {
             })
     },
 
-    findUser : function(userData) {
+    authenticate: function (userName, userPassword) {
+
+        console.log('username: ' + userName)
+
         return axios.get("/register", {
-            params : {
-                username : userData
+            params: {
+                'username': userName
             }
         })
-        .then(function(response) {
-            console.log(response)
-        })
-        .catch(function(err) {
-            console.log(err)
-        })
-    },
-
-    authenticate: function (username) {
-        console.log(username)
-        // console.log('succesfully hit API' + username)
-        return axios.get("/login")
             .then(function (response) {
-                console.log(response.data)
+                console.log(response)
             })
             .catch(function (err) {
                 console.log(err)
@@ -76,32 +67,13 @@ export default {
             })
     },
 
-    getUsers : function(userData) {
-        return axios.get("/api/users", userData)
-    },
-
-    getCurrentUser : function (userData) {
-        return axios.get("/api/users/" + userData)
-    },
-      
-
-    login : function (username) {
-        return axios.get('/login') 
-        .then(function(response) {
-            console.log(response)
-        })
-        .catch(function(err) {
-            console.log(err)
-        })
+    login: function (username, password) {
+        return axios.post('/login', username, password)
+            .then(function (response) {
+                console.log('response: ' + response)
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
     }
-
-    // sendResults : function (score) {
-    //     return axios.post('/api/games/colorgame')
-    //     .then(function(response) {
-    //         console.log('game score added')
-    //     })
-    //     .catch(function(err) {
-    //         console.log(err)
-    //     })
-    // }
 };

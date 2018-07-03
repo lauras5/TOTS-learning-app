@@ -3,7 +3,8 @@ import './colorGame.css';
 import ColorCard from "./colorCard";
 import Modal from 'react-responsive-modal';
 import API from '../../utils/API';
-import Navbar from '../Navbar'
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 
 class ColorGame extends Component {
@@ -305,6 +306,7 @@ class ColorGame extends Component {
 
                 </div>
                 {this.modalPlayAgain()}
+                <Footer/>
             </Fragment>
         )
     }

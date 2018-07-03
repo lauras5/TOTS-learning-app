@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from 'react';
-// import cardList from '../../cards.json';
-import API from '../../utils/API'
+import API from '../../utils/API';
 import axios from 'axios';
 import './cardGame.css';
+import Navbar from '../Navbar';
+import Footer from '../Footer';
 
 class Cards extends Component {
 
@@ -21,7 +22,7 @@ class Cards extends Component {
 
     componentDidMount() {
         this.loadCardGame()
-    //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
+        // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
     };
     
     // GET number game questions from database and SET cardList
@@ -106,7 +107,8 @@ class Cards extends Component {
 
         return (
             <Fragment>
-                <h1>Memory Game!</h1>
+                <Navbar/>
+                <h1>Card Memory Game!</h1>
                 {/* <p>The time is : {new Date().toLocaleTimeString()}</p> */}
                 <div className="row">
                     {this.state.cardList.map(card =>
@@ -122,6 +124,7 @@ class Cards extends Component {
                 </div>
 
                 <div><a id='shuffleBtn' className="waves-effect waves-light btn-large pink" onClick={this.newGame}>New Game!</a></div>
+                <Footer/>
             </Fragment>
         )
     }

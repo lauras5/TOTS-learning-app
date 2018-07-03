@@ -155,18 +155,11 @@
         bottom: -6px;
     }
 
- /*   #sun {
+   #sun {
         height: 175px;
         position: relative;
         top: 4%;
         left: 0;
-    } */
-
-    .sun {
-        width: 150px;
-        height: 150px;
-        padding-bottom: 40px;
-        margin-left: 250px;
     }
 
     .car {

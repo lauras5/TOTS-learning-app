@@ -79,20 +79,14 @@ class Login extends Component {
     handleLogin = async event => {
         event.preventDefault()
 
-        // try {
-        //     await User.login(this.state.user.username, this.state.user.password);
-        //     this.props.userHasAuthenticated(true);
-        //     this.props.history.push('/home')
-        // } catch (err) {
-        //     console.log(err)
-        // }
-
         console.log(this.state.user.username)
-        API.authenticate(this.state.user.username)
-        API.findUser(this.state.user.username)
-            .then(console.log(this.state.user.username))
-        sessionStorage.setItem('username', this.state.user.username)
+        API.login(this.state.user.username, this.state.user.password)
+        API.authenticate(this.state.user.username, this.state.user.password)
+            .then(sessionStorage.setItem('username', this.state.user.username))
 
+        // API.findUser(this.state.user.username)
+        //     .then(console.log(this.state.user.username))
+        
         this.props.history.push("/home")
     }
 
@@ -100,16 +94,12 @@ class Login extends Component {
         return (
             <Fragment>
                 {/* <Navbar /> */}
-                <button id='parentBtn'><Link to='/Parents'>Parents Place</Link></button>
-                <button onClick={this.logoutSession} id='logoutBtn' className='right'><Link to='/'>Logout</Link></button>
                 <div className='logo'>
                     <div className="rectangle">
                         <div id='navSection' className="navigation">
                             <img id='sun' className="left" src="../images/sun.png" />
                             <h1 id="appLogo">T.O.T.S.</h1>
-                            <img className="grass" src="../images/grass.png" />
                             <ul>
-                                {/* <li><Link className='nav-item nav-link' to='/home'>Home</Link></li> */}
                                 <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
                             </ul>
                         </div>

@@ -3,7 +3,7 @@ const User = require('../models/UserModel');
 module.exports = {
     // adds users to db // working as of 6/28 DONT TOUCH
     addUser: function (req, res) {
-        console.log(req.body)
+        // console.log(req.body)
 
         const user = {
             username: req.body.username,
@@ -21,8 +21,6 @@ module.exports = {
     },
 
     findUser: function (req, res) {
-        console.log(res)
-        console.log(req)
         User
             .findOne({ username: req.username })
             .then(dbModel => {
@@ -42,23 +40,24 @@ module.exports = {
 
     // authentication for login
     authenticate: function (req, res, next) {
-        console.log(req.body)
+        console.log('username : '+ JSON.stringify(req.body))
 
-        User
-            .findOne({ 'username': req.body.username })
-        if (!username) {
-            req.session.success = 'You are successfully logged in ' + req.body.username + '!'
-        } else (
-            console.log('horray it works: ' + req.body.username)
-        )
+        // User
+        //     .findOne({ 'username': req.body.username })
+
+        // if (!username) {
+        //     console.log('no username')
+        // } else (
+        //     console.log('horray it works: ' + req.body.username)
+        // )
     },
 
     login: function (req, res) {
-        console.log('user signup')
+        // console.log('login username: ' + JSON.stringify(req.body))
 
         // find users
         User
-            .findOne({ 'username': req.body.data.username })
+            .findOne({ username: req.body })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     }
