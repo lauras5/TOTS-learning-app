@@ -95,8 +95,8 @@ class Login extends Component {
             <Fragment>
                 {/* <Navbar /> */}
                 <div className='logo'>
-                    <div className="rectangle">
-                        <div id='navSection' className="navigation">
+                    <div id="rectangle">
+                        <div id='nav' className="navigation">
                             <img id='sun' className="left" src="../images/sun.png" />
                             <h1 id="appLogo">T.O.T.S.</h1>
                             <ul>
