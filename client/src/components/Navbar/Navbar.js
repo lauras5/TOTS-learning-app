@@ -6,6 +6,7 @@ const Navbar = props => {
   return (
 
      <Fragment>
+       <div id="main-nav">
        <div className='logo'>
       {/* <img id='logo' src="http://www.paperhymebd.com/workimage/22_newsimg_Little-wonderl.jpg" /> */}
       <h1 className="appLogo">Little Wonders</h1>
@@ -31,25 +32,32 @@ const Navbar = props => {
       </div>
 
 
-
+<nav className="navigation_container">
         <div className="l-triangle-top"></div>
         <div className="l-triangle-bottom"></div>
 
         <div className="rectangle">
           {/* <div className="navigation"> */}
-            <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link>
+            {/* <Link className='nav-item nav-link' to='/Parents'>Parents Place</Link> */}
             <ul className="right">
-              <li><Link className='nav-item nav-link' to='/Home'>Home</Link></li>
-              <li><Link className='nav-item nav-link' to='/Login'>Logout</Link></li>
-              <li><Link className='nav-item nav-link' to='/About'>About</Link></li>
+            <div className="nav-logo">
+              <li><Link className='nav-item nav-link' id="home-link" to='/Home'>Home</Link></li>
+              <li><Link className='nav-item nav-link' id="login-link" to='/Login'>Logout</Link></li>
+              <li><Link className='nav-item nav-link' id="about-link" to='/About'>About</Link></li>
+              <li><Link className='nav-item nav-link' id="parent-link" to='/Parents'>Parents</Link></li>
+              {/* <li><Link className='nav-item nav-link' id="parent-link" to='/'></Link></li>
+              <li><Link className='nav-item nav-link' id="parent-link" to='/'></Link></li>
+              <li><Link className='nav-item nav-link' id="parent-link" to='/'></Link></li>
+              <li><Link className='nav-item nav-link' id="parent-link" to='/'></Link></li> */}
+              </div>
             </ul>
           {/* </div> */}
 
         </div>
-         </div>
          <div className="r-triangle-top"></div>
          <div className="r-triangle-bottom"></div> 
       </nav>
+      </div>
     </Fragment>
   )
 } 

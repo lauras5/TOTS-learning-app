@@ -91,7 +91,7 @@ class Cards extends Component {
 
         return (
             <Fragment>
-                <h1>Card Memory Game!</h1>
+                <h1>Memory Game!</h1>
                 {/* <p>The time is : {new Date().toLocaleTimeString()}</p> */}
                 <div className="row">
                     {cardList.map(card =>
