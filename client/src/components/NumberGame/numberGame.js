@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react';
 import API from '../../utils/API';
 import './numberGameStyles.css';
 import Modal from 'react-responsive-modal';
+import Navbar from '../Navbar'
+import Footer from '../Footer'
 
 class NumberGame extends Component {
 
@@ -22,34 +24,50 @@ class NumberGame extends Component {
     // If component successfully mounts, start new game
     componentDidMount() {
         this.loadNumberGame()
-        this.loadCurrentUser()
+        const currentUserName = sessionStorage.getItem('username')
+        console.log('current user -ish : ' + currentUserName)
+        this.loadCurrentUser(currentUserName)
     };
-    
+
     // GET number game questions from database and SET all initial values 
     loadNumberGame = () => {
         API.getNumberGame()
-          .then ( res => {
-            this.shuffleArray(res.data)
-            this.setState({ correctCount: 0, incorrectCount: 0, correctAnswer: 0})
-            this.selectTopQuestionFromNumberQuestionList()
-            this.getSetChoicesFromTopQuestion()
-          })
-          .catch(err => console.log(err));
+            .then(res => {
+                this.shuffleArray(res.data)
+                this.setState({ correctCount: 0, incorrectCount: 0, correctAnswer: 0 })
+                this.selectTopQuestionFromNumberQuestionList()
+                this.getSetChoicesFromTopQuestion()
+            })
+            .catch(err => console.log(err));
     };
 
-    loadCurrentUser = () => {
-        API.getUsers()
+
+    loadCurrentUser = (currentUserName) => {
+        API.getCurrentUser(currentUserName)
           .then ( res => {
-              this.setState({ currentUser: res.data[0]})
-              console.log(this.state.currentUser)
+              // if user is null, handle it: perhaps route to login page
+              this.setState({ currentUser: res.data})
+            //   console.log(this.state.currentUser)
+              this.postUserScoreToProfile()
           })
     };
+
+
+    postUserScoreToProfile = () => {
+        const user = this.state.currentUser
+        console.log('email: ' + user.email)
+        console.log('numgame: ' + user.numberGame)
+        // console.log('' + user)
+        // console.log('' + user)
+        // console.log('' + user)
+    }
+
 
     //  Select the top Question from NumberQuestionList
     selectTopQuestionFromNumberQuestionList = () => {
         this.setState({ topQuestion: this.state.numberQuestionList[0] })
     };
-    
+
     //   Get and set choices from the Top Question 
     getSetChoicesFromTopQuestion = () => {
         this.setState({ topQuestionChoices: this.state.numberQuestionList[0].choices })
@@ -63,13 +81,13 @@ class NumberGame extends Component {
             array[i] = array[j];
             array[j] = temp;
         }
-        this.setState({ numberQuestionList: array})
+        this.setState({ numberQuestionList: array })
         console.log('Array has been successfully shuffled')
     };
 
     // Updates scores/stats on page
     updateScore = answerChoice => {
-        if(parseInt(answerChoice) === parseInt(this.state.topQuestionChoices[this.state.topQuestion.correctAnswerIndex])) {
+        if (parseInt(answerChoice) === parseInt(this.state.topQuestionChoices[this.state.topQuestion.correctAnswerIndex])) {
             this.state.correctCount++
         } else {
             this.state.incorrectCount++
@@ -81,10 +99,10 @@ class NumberGame extends Component {
         this.updateScore(answerChoice)
 
         // Pop first question from numberQuestionList
-        this.state.numberQuestionList.splice(0,1)
+        this.state.numberQuestionList.splice(0, 1)
         // console.log('popped: ' + JSON.stringify(this.state.numberQuestionList))
-        
-        if (this.state.numberQuestionList.length === 0){
+
+        if (this.state.numberQuestionList.length === 0) {
             // create this method with POST?
             this.onOpenModal()
 
@@ -96,7 +114,7 @@ class NumberGame extends Component {
         }
 
     };
-    
+
     // Handles game reset / post / 
     handlePlayAgain = () => {
         // HANDLE POST HERE
@@ -114,37 +132,37 @@ class NumberGame extends Component {
         this.setState({ openModal: false });
     };
 
-    
-    render() {
 
+    render() {
         return (
             <Fragment>
+                <Navbar />
                 <h1> Number Game </h1>
                 <div className="container">
 
                     <div>
-                        <Modal open = {this.state.openModal} onClose={this.onCloseModal} center>
-                        <h3>Number Game Score</h3>
-                        <h4 className= "modalStatsCorrect">Correct Answers: {this.state.correctCount}</h4>  
-                        <h4 className = "modalStatsIncorrect">Incorrect Answers: {this.state.incorrectCount}</h4> 
-                        
-                        <button id="numberGamePlayAgain" onClick={this.handlePlayAgain}>Play Again?</button>
-                        <img src="https://images.twinkl.co.uk/tw1n/image/private/t_630_eco/image_repo/59/93/T-T-12951-Multicoloured-Polka-Dot-Display-Numbers.jpg" />
+                        <Modal open={this.state.openModal} onClose={this.onCloseModal} center>
+                            <h3>Number Game Score</h3>
+                            <h4 className="modalStatsCorrect">Correct Answers: {this.state.correctCount}</h4>
+                            <h4 className="modalStatsIncorrect">Incorrect Answers: {this.state.incorrectCount}</h4>
+
+                            <button id="numberGamePlayAgain" onClick={this.handlePlayAgain}>Play Again?</button>
+                            <img src="https://images.twinkl.co.uk/tw1n/image/private/t_630_eco/image_repo/59/93/T-T-12951-Multicoloured-Polka-Dot-Display-Numbers.jpg" />
                         </Modal>
                     </div>
 
-                    <img src='http://placehold.it/150' className="numberGameImage"/>
+                    <img src='http://placehold.it/150' className="numberGameImage" />
                     <br></br>
                     <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-1" data-answerchoice={this.state.topQuestionChoices[0]} onClick={() => this.handleClick(this.state.topQuestionChoices[0])}>{this.state.topQuestionChoices[0]}</button>
                     <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-2" data-answerchoice={this.state.topQuestionChoices[1]} onClick={() => this.handleClick(this.state.topQuestionChoices[1])}>{this.state.topQuestionChoices[1]}</button>
                     <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-3" data-answerchoice={this.state.topQuestionChoices[2]} onClick={() => this.handleClick(this.state.topQuestionChoices[2])}>{this.state.topQuestionChoices[2]}</button>
                     <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-4" data-answerchoice={this.state.topQuestionChoices[3]} onClick={() => this.handleClick(this.state.topQuestionChoices[3])}>{this.state.topQuestionChoices[3]}</button>
-                    
+
                     <h3>Statistics</h3>
                     <h4>Correct Answers: {this.state.correctCount}</h4>
                     <h4>Incorrect Answers: {this.state.incorrectCount}</h4>
                 </div>
-
+                <Footer />
             </Fragment>
         )
     }

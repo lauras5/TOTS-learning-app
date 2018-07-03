@@ -113,7 +113,6 @@
         margin-bottom: 10px;
     }
 
-  
     .appLogo {
         color: rgb(248, 144, 9);
         text-shadow: 3px 2px red;
@@ -133,10 +132,9 @@
         margin-top: 2px;
         margin-bottom: 3px;
         padding-bottom: 10px;
-        
-
     }
 
+    
     .crayons {
         width: 200px;
         height: 140px;
@@ -156,6 +154,13 @@
         right: 40px;
         bottom: -6px;
     }
+
+ /*   #sun {
+        height: 175px;
+        position: relative;
+        top: 4%;
+        left: 0;
+    } */
 
     .sun {
         width: 150px;
@@ -177,7 +182,7 @@
         right: 500px;
 
     }
-    
+
     .duck {
         width: 80px;
         height: 60px;
@@ -219,7 +224,6 @@
         position: absolute;
         top: 155px;
         right: 550px;
-       
     }
 
     .flower1 {
@@ -228,8 +232,6 @@
         position: absolute;
         left: 380px;
         top: 135px;
-
-         
     }
 
     .flower2 {
@@ -246,7 +248,6 @@
         position: absolute;
         top: 120px;
         left: 500px;
-     
     }
 
     .train {
@@ -257,6 +258,7 @@
         left: 710px;
         padding-top: 10px;
     }
+
 
     @media only screen and (max-width:1024px){
         #nav-images{
@@ -274,7 +276,6 @@
         .r-triangle-bottom {
             display: none;
         }
-    
     }
 
 

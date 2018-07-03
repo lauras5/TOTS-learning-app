@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react';
 import './colorGame.css';
-import color from "./color.json";
 import ColorCard from "./colorCard";
 import Modal from 'react-responsive-modal';
 import API from '../../utils/API';
+import Navbar from '../Navbar'
 
 
 class ColorGame extends Component {
@@ -12,24 +12,25 @@ class ColorGame extends Component {
         incorrectScore: 0,
         questionNum: 0,  //tracks how many questions are asked so far
         colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
-        color, //initially an exact copy of color.json
+        color: [], //initially an exact copy of color.json
         open: false,
         backgroundMusicPlaying: false //for Modal
     }
 
+
     componentDidMount() {
         this.loadColorGame()
-        // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
+        //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
     };
-    
-    // GET number game questions from database and SET all initial values 
+
+    // GET number game questions from database and SET color
     loadColorGame = () => {
-        API.getNumberGame()
-          .then ( res => {
-              this.setState({ color: res.data })
-              this.randomRender()
-          })
-          .catch(err => console.log(err));
+        API.getColorGame()
+            .then(res => {
+                this.setState({ color: res.data })
+                //   this.randomRender()
+            })
+            .catch(err => console.log(err));
     };
 
     // WILL IMPLEMENT IN THE FUTURE
@@ -47,10 +48,10 @@ class ColorGame extends Component {
     //*************************************************************************************** */
     randomRender = () => {
         //this.setColorToGuess()
-
+        // this.loadColorGame()
         return (
             this.shuffle(this.state.color).map(colorFromArray =>
-                <ColorCard key={colorFromArray.id} id={colorFromArray.id} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
+                <ColorCard key={colorFromArray.index} id={colorFromArray.index} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
             )
         )
     }
@@ -73,6 +74,7 @@ class ColorGame extends Component {
             array[currentIndex] = array[randomIndex];
             array[randomIndex] = temporaryValue;
         }
+
         return array;
     }
 
@@ -126,10 +128,15 @@ class ColorGame extends Component {
         }
 
 
+        console.log(this.state.correctScore)
+        //WRITE RESULTS TO DB HERE
+        API.sendResults(this.state.correctScore)
+
+        let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+        thud.play()
+        { this.onOpenModal() }
+        { this.modalPlayAgain() }
     }
-
-
-
 
     //*************************************************************************************** */
     //handleClickedPulsatingText function - audio file played when pulsating text is clicked
@@ -178,8 +185,8 @@ class ColorGame extends Component {
         click.play()
         alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
-        this.setState({backgroundMusicPlaying:false})
-        
+        this.setState({ backgroundMusicPlaying: false })
+
     }
 
 
@@ -265,31 +272,26 @@ class ColorGame extends Component {
         )
     }
 
-
-
-
-
-
     render() {
         const { open } = this.state;
-        let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3")
+        let backgroundMusic = new Audio("../soundFiles/background/jazzy.mp3");
 
-        if (!this.state.backgroundMusicPlaying){
-            backgroundMusic.volume=.1
+        if (!this.state.backgroundMusicPlaying) {
+            backgroundMusic.volume = .1
             backgroundMusic.controls = true
             backgroundMusic.play()
-            this.setState({backgroundMusicPlaying:true})
+            this.setState({ backgroundMusicPlaying: true })
         }
 
         return (
 
             <Fragment>
-
+                <Navbar/>
                 <div id="colorGamePage">
                     <h1> The Color Game!</h1>
                     <div className="container">
                         <div className="rowColors">
-                            // {this.randomRender()}
+                            {this.randomRender()}
                         </div>
                     </div>
 
@@ -303,6 +305,7 @@ class ColorGame extends Component {
         )
     }
 }
+
 export default ColorGame;
 
 

@@ -7,6 +7,6 @@ const CardGameSchema = new Schema ({
     sound : String
 })
 
-const CardGame = mongoose.model('NumberGame', CardGameSchema);
+const CardGame = mongoose.model('CardGame', CardGameSchema);
 
 module.exports = CardGame;

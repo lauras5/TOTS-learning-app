@@ -11,6 +11,7 @@
     "axios": "^0.18.0",
     "babel-cli": "^6.26.0",
     "body-parser": "^1.18.3",
+    "crypto": "^1.0.1",
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "http-proxy-middleware": "^0.18.0",
@@ -30,9 +31,10 @@
     "webpack": "^4.13.0"
   },
   "scripts": {
-    "server": "node server.js",
+    "server": "nodemon",
     "client": "cd client && npm run start",
-    "start": "react-scripts start",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"

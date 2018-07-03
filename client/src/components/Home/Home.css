@@ -5,26 +5,29 @@ body {
     background-size: cover;
     width: 100%;
     height: 100%;
-
 }
+
 .homeimage1 {
     width: 250px;
     height: 250px;
     padding-left: 20px;
     padding-top: 30px;
 }
+
 .homeimage2 {
     width: 250px;
     height: 250px;
     padding-left: 20px;
     padding-top: 30px;
 }
+
 .homeimage3 {
     width: 250px;
     height: 250px;
     padding-left: 20px;
     padding-top: 30px;
 }
+
 .homeimage4 {
     width: 250px;
     height: 250px;

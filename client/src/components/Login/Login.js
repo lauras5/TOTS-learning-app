@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from 'react';
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
-import { Row, Input, Card, Tabs, Tab, Modal, Button } from 'react-materialize';
+import { Row, Input, Card, Modal, Button } from 'react-materialize';
 import './Login.css';
-import axios from 'axios'
-import proxy from 'http-proxy-middleware'
+import Navbar from '../Navbar'
+import Footer from '../Footer'
+// import User from '../'
 
 class Login extends Component {
     constructor(props) {
@@ -18,10 +19,6 @@ class Login extends Component {
                 child: ''
             }
         };
-    }
-
-    componentDidMount() {
-
     }
 
     handleUser = event => {
@@ -38,29 +35,29 @@ class Login extends Component {
     handleEmail = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: event.target.value,
                 password: this.state.user.password,
                 child: this.state.user.child
             }
         })
     }
-    
+
     handlePword = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: this.state.user.email,
                 password: event.target.value,
                 child: this.state.user.child
             }
         })
     }
-    
+
     handleChild = event => {
         this.setState({
             user: {
-                username : this.state.user.username,
+                username: this.state.user.username,
                 email: this.state.user.email,
                 password: this.state.user.password,
                 child: event.target.value
@@ -70,48 +67,76 @@ class Login extends Component {
 
     handleSignUp = event => {
         event.preventDefault()
-        console.log(this.state)
+        // console.log(this.state)
 
-        const user = {
-            user: this.state.user
-        };
+        sessionStorage.setItem('username', this.state.user.username)
+        API.postUsers(this.state.user)
+            .then(console.log(this.state.user))
 
-        API.postUsers({user})
+        this.props.history.push("/home")
     }
-    
-    handleLogin = event => {
-        event.preventDefault()
-        console.log(this.state)
-        
-        const username = {
-            username: this.state.user.username
-        }
 
+    handleLogin = async event => {
+        event.preventDefault()
+
+        // try {
+        //     await User.login(this.state.user.username, this.state.user.password);
+        //     this.props.userHasAuthenticated(true);
+        //     this.props.history.push('/home')
+        // } catch (err) {
+        //     console.log(err)
+        // }
+
+        console.log(this.state.user.username)
+        API.authenticate(this.state.user.username)
+        API.findUser(this.state.user.username)
+            .then(console.log(this.state.user.username))
+        sessionStorage.setItem('username', this.state.user.username)
+
+        this.props.history.push("/home")
     }
 
     render() {
         return (
             <Fragment>
-                <Modal id='modalBack' trigger={<Button id='loginModal'>LOGIN</Button>}>
+                {/* <Navbar /> */}
+                <button id='parentBtn'><Link to='/Parents'>Parents Place</Link></button>
+                <button onClick={this.logoutSession} id='logoutBtn' className='right'><Link to='/'>Logout</Link></button>
+                <div className='logo'>
+                    <div className="rectangle">
+                        <div id='navSection' className="navigation">
+                            <img id='sun' className="left" src="../images/sun.png" />
+                            <h1 id="appLogo">T.O.T.S.</h1>
+                            <img className="grass" src="../images/grass.png" />
+                            <ul>
+                                {/* <li><Link className='nav-item nav-link' to='/home'>Home</Link></li> */}
+                                <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <Modal id='loginBack' trigger={<Button id='loginModal'>LOGIN</Button>}>
                     <Card id='loginForm'>
                         <Row>
-                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label="Username"/>
-                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label="Username" />
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} s={12} label="Password" />
                         </Row>
-                        <Button onClick={this.handleLogin}>Login</Button>
+                        <Button className='btn waves-effect waves-light modal-close' onClick={this.handleLogin}>Login</Button>
                     </Card>
                 </Modal>
-                <Modal trigger={<Button id='signupModal'>NEW USER</Button>}>
-                    <Card id='loginForm'>
+                <Modal id='signupBack' trigger={<Button id='signupModal'>REGISTER</Button>}>
+                    <Card id='signupForm'>
                         <Row>
-                            <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email"/>
-                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label='Username'/>
-                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} type="password" s={12} label="Password"/>
-                            <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name"/>
+                            <Input type='email' name='email' value={this.state.user.email} onChange={this.handleEmail} s={12} label="Email" />
+                            <Input type='text' name='username' value={this.state.user.username} onChange={this.handleUser} s={12} label='Username' />
+                            <Input type="password" name='password' value={this.state.user.password} onChange={this.handlePword} s={12} label="Password" />
+                            <Input type="text" name='child' value={this.state.user.child} onChange={this.handleChild} type="text" s={12} label="Child's Name" />
                         </Row>
-                        <Button onClick={this.handleSignUp}>Sign Up</Button>
+                        <Button className='btn waves-effect waves-light modal-close' onClick={this.handleSignUp}>Sign Up</Button>
+
                     </Card>
                 </Modal>
+                <Footer />
             </Fragment>
         )
     }
