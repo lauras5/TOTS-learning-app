@@ -15,7 +15,8 @@ class Parent extends Component {
         super(props)
         this.state = {
             currentUser: {},
-            numberGamePieData: {}
+            numberGamePieData: {},
+            colorGamePieData: {}
         }
     };
 
@@ -39,8 +40,6 @@ class Parent extends Component {
 
     setNumberGamePieData = () => {
         const user = this.state.currentUser
-        console.log(this.state.currentUser)
-
         this.setState(
             {
                 numberGamePieData: {
@@ -62,9 +61,32 @@ class Parent extends Component {
                 }
             }
         )
-        
-        
-    }
+    };
+
+    setColorGamePieData = () => {
+        const user = this.state.currentUser
+        this.setState(
+            {
+                numberGamePieData: {
+                    labels: [
+                        'NumberOfCorrectAnswers',
+                        'NumberOfIncorrectAnswers',
+                    ],
+                    datasets: [{
+                        data: [user.numberGame.correctCount, user.numberGame.incorrectCount],
+                        backgroundColor: [
+                        '#36A2EB',
+                        '#FF6384'
+                        ],
+                        hoverBackgroundColor: [
+                        '#36A2EB',
+                        '#FF6384'
+                        ]
+                    }]
+                }
+            }
+        )
+    };
 
 
 
@@ -77,14 +99,24 @@ class Parent extends Component {
                         <h3>Number Game Statistics</h3>
                         <Pie 
                             data={this.state.numberGamePieData} 
-                            width={300}
-                            height={150}
+                            width={200}
+                            height={100}
                             options={{
                                 maintainAspectRatio: false
                             }}
                         />
                     </div>
-
+                    <div className="colorGameChart">
+                        <h3>Color Game Statistics</h3>
+                            <Pie 
+                                data={this.state.colorGamePieData} 
+                                width={200}
+                                height={100}
+                                options={{
+                                    maintainAspectRatio: false
+                                }}
+                            />
+                    </div>
                 </div>
                 <Footer />
             </Fragment>

@@ -21,7 +21,8 @@ class ColorGame extends Component {
 
     componentDidMount() {
         this.loadColorGame()
-        //     // this.loadCurrentUser() WILL IMPLEMENT IN FUTURE
+        const currentUserName = sessionStorage.getItem('username')
+        this.loadCurrentUser(currentUserName)
     };
 
     // GET number game questions from database and SET color
@@ -34,14 +35,13 @@ class ColorGame extends Component {
             .catch(err => console.log(err));
     };
 
-    // WILL IMPLEMENT IN THE FUTURE
-    // loadCurrentUser = () => {
-    //     API.getUsers()
-    //       .then ( res => {
-    //           this.setState({ currentUser: res.data[0]})
-    //           console.log(this.state.currentUser)
-    //       })
-    // };
+    loadCurrentUser = (currentUserName) => {
+        API.getCurrentUser(currentUserName)
+          .then ( res => {
+              // if user is null, handle it: perhaps route to login page
+              this.setState({ currentUser: res.data})
+          })
+    };
 
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
