@@ -25,7 +25,6 @@ class NumberGame extends Component {
     componentDidMount() {
         this.loadNumberGame()
         const currentUserName = sessionStorage.getItem('username')
-        console.log('current user -ish : ' + currentUserName)
         this.loadCurrentUser(currentUserName)
     };
 
@@ -41,26 +40,34 @@ class NumberGame extends Component {
             .catch(err => console.log(err));
     };
 
-
+    // GET current user based off of user stored in session data
     loadCurrentUser = (currentUserName) => {
         API.getCurrentUser(currentUserName)
           .then ( res => {
               // if user is null, handle it: perhaps route to login page
               this.setState({ currentUser: res.data})
-            //   console.log(this.state.currentUser)
-              this.postUserScoreToProfile()
           })
     };
 
-
-    postUserScoreToProfile = () => {
+    // PUT method to update number game score to user in DB
+    postUserScoreToProfile = (currentUserName) => {
         const user = this.state.currentUser
-        console.log('email: ' + user.email)
-        console.log('numgame: ' + user.numberGame)
-        // console.log('' + user)
-        // console.log('' + user)
-        // console.log('' + user)
-    }
+        const numberGame = user.numberGame
+
+        const numberGameObj = {
+            timesPlayed: numberGame.timesPlayed,
+            correctCount: numberGame.correctCount,
+            incorrectCount: numberGame.incorrectCount
+        }
+        
+        // Add scores and times played
+        numberGameObj.timesPlayed++
+        numberGameObj.correctCount += this.state.correctCount
+        numberGameObj.incorrectCount += this.state.incorrectCount
+        
+        // Update Number Game User with 
+        API.updateNumberGameUser(currentUserName, numberGameObj) 
+    };
 
 
     //  Select the top Question from NumberQuestionList
@@ -115,9 +122,10 @@ class NumberGame extends Component {
 
     };
 
-    // Handles game reset / post / 
+    // Handles game reset / post 
     handlePlayAgain = () => {
-        // HANDLE POST HERE
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName)
         this.loadNumberGame()
         this.onCloseModal()
     }

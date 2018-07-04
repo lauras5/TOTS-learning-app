@@ -75,5 +75,11 @@ export default {
             .catch(function (err) {
                 console.log(err)
             })
-    }
+    },
+    
+
+    updateNumberGameUser : function (id, userData) {
+        return axios.put("/api/numbergame/user/" + id, userData)
+    },
+
 };
