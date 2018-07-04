@@ -45,14 +45,37 @@ body {
     background-attachment: fixed;
 }
 
+li {
+    text-align: right;
+}
+
 #loginBox {
     width: 100%;
+}
+
+#appName {
+    text-shadow: 5px 5px 5px #183d4c;
+    color: white;
+    font-size: 65px;
+    text-align: left;
+    margin-left: 41%;
+}
+
+#appS {
+    margin-left: 39%;
 }
 
 .card-title {
     text-align: center;
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
+}
+
+#loginSun {
+    height: 210px;
+    position: relative;
+    top: 4%;
+    left: 0;
 }
 
 #submitBtn {

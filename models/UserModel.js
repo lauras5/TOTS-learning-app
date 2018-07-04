@@ -47,11 +47,7 @@ var UserSchema = new Schema ({
     }
 });
 
-UserSchema.plugin(passportLocalMongoose, {
-    findByUsername : function(query) {
-        return model.findOne(query)
-    }
-});
+UserSchema.plugin(passportLocalMongoose);
 
 const User = mongoose.model('User', UserSchema);
 
