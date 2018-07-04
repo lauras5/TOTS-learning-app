@@ -26,6 +26,7 @@ class NumberGame extends Component {
         this.loadNumberGame()
         const currentUserName = sessionStorage.getItem('username')
         console.log('current user -ish : ' + currentUserName)
+        // this.setState({currentUser: currentUserName})
         this.loadCurrentUser(currentUserName)
     };
 
@@ -53,13 +54,28 @@ class NumberGame extends Component {
     };
 
 
-    postUserScoreToProfile = () => {
+    postUserScoreToProfile = (currentUserName) => {
         const user = this.state.currentUser
+        const numberGame = user.numberGame
         console.log('email: ' + user.email)
-        console.log('numgame: ' + user.numberGame)
-        // console.log('' + user)
-        // console.log('' + user)
-        // console.log('' + user)
+        console.log('numgame: ' + numberGame)
+
+        const numberGameObj = {
+            timesPlayed: numberGame.timesPlayed,
+            correctCount: numberGame.correctCount,
+            incorrectCount: numberGame.incorrectCount
+        }
+
+        console.log('numbergameobj BEFORE: ' + JSON.stringify(numberGameObj))
+        
+        numberGameObj.timesPlayed++
+        numberGameObj.correctCount += this.state.correctCount
+        numberGameObj.incorrectCount += this.state.incorrectCount
+        
+        
+        console.log('numbergameobj AFTER: ' + JSON.stringify(numberGameObj))
+
+        API.updateNumberGameUser(currentUserName, numberGameObj) 
     }
 
 
@@ -118,6 +134,8 @@ class NumberGame extends Component {
     // Handles game reset / post / 
     handlePlayAgain = () => {
         // HANDLE POST HERE
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName)
         this.loadNumberGame()
         this.onCloseModal()
     }

@@ -38,6 +38,20 @@ module.exports = {
             .catch(err => res.status(422).json(err))
     },
 
+
+    updateNumberGameUser: function (req, res) {
+        User
+            .findOneAndUpdate({ username: req.params.id }, 
+                { $set : { numberGame : {
+                    timesPlayed: req.body.timesPlayed,
+                    correctCount: req.body.correctCount,
+                    incorrectCount: req.body.incorrectCount
+                    } }
+                })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
     // authentication for login
     authenticate: function (req, res, next) {
         console.log('username : '+ JSON.stringify(req.body))

@@ -25,6 +25,7 @@ router.get('/api/users', UserController.findUser)
 router.get('/api/users/:id', UserController.findOneUser)
 router.get('/register', UserController.findUser)
 router.post('/register', UserController.addUser)
+router.put('/api/numbergame/user/:id', UserController.updateNumberGameUser)
 
 // user Authentication
 router.post('/login', UserController.login)

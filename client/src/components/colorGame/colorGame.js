@@ -131,7 +131,7 @@ class ColorGame extends Component {
 
         console.log(this.state.correctScore)
         //WRITE RESULTS TO DB HERE
-        API.sendResults(this.state.correctScore)
+        // API.sendResults(this.state.correctScore)
 
         let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
         thud.play()
