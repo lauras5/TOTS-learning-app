@@ -8,7 +8,7 @@
     font-size: 22px;
     font-weight: bold;
     border: 5px solid white;
-    box-shadow: 2px 2px 2px dimgrey;
+    box-shadow: 5px 5px 5px black;
     border-radius: 100px;
     border-radius: 100px;
     margin-top: 20%
@@ -24,7 +24,7 @@
     font-size: 22px;
     font-weight: bold;
     border: 5px solid white;
-    box-shadow: 2px 2px 2px dimgrey;
+    box-shadow: 5px 5px 5px black;
     border-radius: 100px;
     font-family: 'Encode Sans Condensed', sans-serif;
     margin-bottom: 5%;
@@ -62,7 +62,10 @@ li {
 }
 
 #appS {
-    margin-left: 39%;
+    margin-left: 31%;
+    color: black;
+    font-weight: bold;
+    font-size: 20px;
 }
 
 .card-title {
@@ -86,7 +89,7 @@ li {
     width: 30%;
     background-color: #14dc0f;
     border: none;
-    box-shadow: 2px 2px 2px darkolivegreen;
+    box-shadow: 5px 5px 5px black;
     color: white;
     font-size: 20px;
     font-family: 'Luckiest Guy',cursive;

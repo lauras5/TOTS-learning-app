@@ -86,15 +86,14 @@ class Login extends Component {
 
         // API.findUser(this.state.user.username)
         //     .then(console.log(this.state.user.username))
-        
+
         this.props.history.push("/home")
     }
 
     render() {
         return (
             <Fragment>
-                {/* <Navbar /> */}
-                            <img id='loginSun' className="left" src="../images/sun.png" />
+                <img id='loginSun' className="left" src="../images/sun.png" />
                 <div className='logo'>
                     <div id="rectangle">
                         <div id='nav' className="navigation">
