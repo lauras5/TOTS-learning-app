@@ -19,6 +19,34 @@ class ShapeGame extends Component {
         open: false //for Modal
     }
 
+    componentDidMount() {
+        this.loadShapeGame()
+        const currentUserName = sessionStorage.getItem('username')
+        this.loadCurrentUser(currentUserName)
+    };
+
+    // GET number game questions from database and SET color
+    loadShapeGame = () => {
+        API.getShapeGame()
+            .then(res => {
+                this.setState({ color: res.data })
+                //   this.randomRender()
+            })
+            .catch(err => console.log(err));
+    };
+
+    loadCurrentUser = (currentUserName) => {
+        API.getCurrentUser(currentUserName)
+          .then ( res => {
+              // if user is null, handle it: perhaps route to login page
+              this.setState({ currentUser: res.data})
+          })
+    };
+    
+    
+    
+    
+    
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
     //      Other functions used:  shuffle()
@@ -116,6 +144,10 @@ class ShapeGame extends Component {
     handleClickPlayAgain = () => {
         let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
         againSound.play()
+
+
+
+
         this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, shapeNameToGuess: 'Blue' })
         this.pickRandomShapeToDrag()
         this.renderShapeToDrag()

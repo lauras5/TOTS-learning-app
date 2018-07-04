@@ -2,11 +2,11 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var ShapesSchema = new Schema ({
-    shape : {
-        type: String,
+    index : {
+        type: Number,
         required: true
     },
-    color : {
+    name : {
         type: String,
         required: true
     },

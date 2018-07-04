@@ -17,6 +17,10 @@ export default {
     getSoundGame: function() {
         return axios.get('/api/soundgame')
     },
+    
+    getShapeGame: function() {
+        return axios.get('/api/shapegame')
+    },
 
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
