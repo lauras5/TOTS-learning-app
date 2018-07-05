@@ -1,11 +1,13 @@
 .soundCardIndividual{
-    background: rgb(245, 221, 117);
-    border-radius: 20px;
+  background-color: rgb(214, 231, 208);
+    border-radius: 20%;
     margin: 1%;  
     width: 20%;
+    border: solid 1rem rgba(253, 251, 251, 0.842);
     
     /* display:inline-block; */
   }
+  
   
   .soundCardIndividual > .img-container {
     margin: 10%;

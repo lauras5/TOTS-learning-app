@@ -25,12 +25,12 @@ class SoundGame extends Component {
 
     loadCurrentUser = (currentUserName) => {
         API.getCurrentUser(currentUserName)
-          .then ( res => {
-              // if user is null, handle it: perhaps route to login page
-              this.setState({ currentUser: res.data})
-          })
+            .then(res => {
+                // if user is null, handle it: perhaps route to login page
+                this.setState({ currentUser: res.data })
+            })
     };
-    
+
     postUserScoreToProfile = (currentUserName) => {
         const user = this.state.currentUser
         const soundGame = user.soundGame
@@ -40,14 +40,14 @@ class SoundGame extends Component {
             correctCount: soundGame.correctCount,
             incorrectCount: soundGame.incorrectCount
         }
-        
+
         // Add scores and times played
         soundGameObj.timesPlayed++
         soundGameObj.correctCount += this.state.correctScore
         soundGameObj.incorrectCount += this.state.incorrectScore
-        
+
         // Update Number Game User with 
-        API.updateSoundGameUser(currentUserName, soundGameObj) 
+        API.updateSoundGameUser(currentUserName, soundGameObj)
     };
 
 
@@ -115,28 +115,28 @@ class SoundGame extends Component {
         this.setState({ questionNum: this.state.questionNum + 1 })
 
         let animalSound = ''
-        switch (e.target.alt){
-        case "Dog":
-            animalSound = 'Bark!'
-            break
+        switch (e.target.alt) {
+            case "Dog":
+                animalSound = 'Bark!'
+                break
             case "Cat":
-            animalSound = 'Meow!'
-            break
+                animalSound = 'Meow!'
+                break
             case "Cow":
-            animalSound = 'Moooo!'
-            break
+                animalSound = 'Moooo!'
+                break
             case "Bear":
-            animalSound = 'Growl!'
-            break
+                animalSound = 'Growl!'
+                break
             case "Duck":
-            animalSound = 'Quack!'
-            break
+                animalSound = 'Quack!'
+                break
             default:
-            animalSound = ""
+                animalSound = ""
         }
 
-console.log("Name: ", e.target.alt)
-console.log("AnimalSound", animalSound)
+        console.log("Name: ", e.target.alt)
+        console.log("AnimalSound", animalSound)
         if (animalSound === this.state.soundNameToGuess) {
 
             correctSound.play()
@@ -184,7 +184,7 @@ console.log("AnimalSound", animalSound)
         this.loadCurrentUser(currentUserName)
         this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, soundNameToGuess: 'Bark' })
         this.setSoundToGuess()
-        this.renderSoundToGuess()
+        // this.renderSoundToGuess()
         this.onCloseModal()
     }
 
@@ -240,7 +240,7 @@ console.log("AnimalSound", animalSound)
                 soundSoundFile = ""
         }
         let saySound = new Audio(soundSoundFile)
-        setTimeout(function () { saySound.play() }, 1000)
+        setTimeout(function () { saySound.play() }, 1500)
         return (
             <div>
                 <div className="pulsate" onClick={this.handleClickedPulsatingSound} style={{ fontSize: 150 }}>{this.state.soundNameToGuess}</div>
@@ -324,15 +324,15 @@ console.log("AnimalSound", animalSound)
         return (
 
             <Fragment>
-            <Navbar/>
+                <Navbar />
                 <div id="soundGamePage">
                     <h1> The Sound Game!</h1>
-                    <h1>{this.renderSoundToGuess()}</h1>
-                    
-                    <div className="container">
+
+                    <div className="container" id="sound-container">
                         <div className="rowShapes">
                             {this.randomRender()}
                         </div>
+                        <h1>{this.renderSoundToGuess()}</h1>
                     </div>
 
                     <h1>{10 - this.state.questionNum} to go!</h1>
