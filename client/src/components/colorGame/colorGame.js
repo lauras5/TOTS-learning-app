@@ -67,8 +67,7 @@ class ColorGame extends Component {
     //      Other functions used:  shuffle()
     //*************************************************************************************** */
     randomRender = () => {
-        //this.setColorToGuess()
-        // this.loadColorGame()
+       
         return (
             this.shuffle(this.state.color).map(colorFromArray =>
                 <ColorCard key={colorFromArray.index} id={colorFromArray.index} image={colorFromArray.image} name={colorFromArray.name} handleClicked={this.handleClicked} />
@@ -116,13 +115,11 @@ class ColorGame extends Component {
     //      Other functions used:  setColorToGuess(), randomRender()
     //**************************************************************************************** */
     handleClicked = (name) => {
-
-        // let correctSound = new Audio("./soundFiles/success.wav")
         let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
         let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
         this.setState({ questionNum: this.state.questionNum + 1 })
-
-
+        
+        
         if (name === this.state.colorNameToGuess) {
             correctSound.play()
             this.setState({ correctScore: this.state.correctScore + 1 })
@@ -135,9 +132,10 @@ class ColorGame extends Component {
             this.setColorToGuess()
             this.randomRender()
         }
-
+        
         //exit condition in bottom
         if (this.state.questionNum > 8) {
+            alert(`QuestionNumber is ${this.state.questionNum}`)
 
             //WRITE RESULTS TO DB HERE
 
@@ -152,10 +150,6 @@ class ColorGame extends Component {
         //WRITE RESULTS TO DB HERE
         // API.sendResults(this.state.correctScore)
 
-        let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-        thud.play()
-        { this.onOpenModal() }
-        { this.modalPlayAgain() }
     }
 
     //*************************************************************************************** */
@@ -250,7 +244,7 @@ class ColorGame extends Component {
                 colorSoundFile = ""
         }
         let sayColor = new Audio(colorSoundFile)
-        setTimeout(function () { sayColor.play() }, 1000)
+        setTimeout(function () { sayColor.play() }, 1500)
         return (
             <div>
                 <div className="pulsate" onClick={this.handleClickedPulsatingText} style={{ color: this.state.colorNameToGuess, fontSize: 200 }}>{this.state.colorNameToGuess}</div>
@@ -321,14 +315,14 @@ class ColorGame extends Component {
                 <Navbar/>
                 <div id="colorGamePage">
                     <h1> The Color Game!</h1>
-                    <div className="container">
+                    <div className="container" id="color-container">
                         <div className="rowColors">
                             {this.randomRender()}
-                        </div>
-                    </div>
-
-                    <h1> Which face is.....</h1>
-                    <h1>{this.renderColortoGuess()}</h1>
+                            </div>
+                            </div>
+                            
+                            <h1> Which face is.....</h1>
+                            <h1>{this.renderColortoGuess()}</h1>
                     <h1>{10 - this.state.questionNum} to go!</h1>
 
                 </div>

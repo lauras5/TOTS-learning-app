@@ -49,7 +49,7 @@
 h1{
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
-    color: rgb(245, 243, 243);
+    color: rgb(109, 104, 104);
 }
 
 h3{
@@ -58,11 +58,7 @@ h3{
     color: rgb(51, 49, 49);
 }
 
-#soundGamePage{
-   
-    /* background:url("https://365psd.com/images/previews/fea/sunrise-cartoon-background-14735.jpg") no-repeat;
-background-size:100%; */
-}   
+
 
 #playAgainModalText{
     color: blue;
@@ -91,9 +87,17 @@ background-size:100%; */
 
 .rowShapes{
     display:inline-flex;
-    justify-content: center;
-     
-    
+    justify-content: center;  
 }
+
+#sound-container{
+    color:rgb(104, 104, 98);
+    border:solid 1rem rgb(248, 245, 245);
+    background-color: rgb(205, 223, 126);
+    border-radius: 5%;
+    padding: 5rem;
+}
+
+
 
 
