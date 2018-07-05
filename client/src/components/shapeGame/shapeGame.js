@@ -17,7 +17,8 @@ class ShapeGame extends Component {
         shapeNameToGuess: { id: 1, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEGYOD5kQcdYHI6n0KpCiZ_-UmVHsIhOK0OTCc3-pTUQhNIT52", name: "Circle" },  //set to 'Red' initially.....i can't get a randomized initial value here!!!
         shape, //hold shapes to drag to - an exact copy of shape.json
         shapeToDrag, //hold shapes to drag - an exact copy of shapeToDrag.json
-        open: false //for Modal
+        open: false, //for Modal
+        currentUser: {}
     }
 
     componentDidMount() {
