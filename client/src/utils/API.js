@@ -17,6 +17,10 @@ export default {
     getSoundGame: function() {
         return axios.get('/api/soundgame')
     },
+    
+    getShapeGame: function() {
+        return axios.get('/api/shapegame')
+    },
 
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
@@ -80,6 +84,10 @@ export default {
 
     updateNumberGameUser : function (id, userData) {
         return axios.put("/api/numbergame/user/" + id, userData)
+    },
+
+    updateShapeGameUser : function (id, userData) {
+        return axios.put("/api/shapegame/user/" + id, userData)
     },
 
 };

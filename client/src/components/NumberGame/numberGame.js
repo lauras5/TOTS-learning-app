@@ -127,6 +127,7 @@ class NumberGame extends Component {
         const currentUserName = sessionStorage.getItem('username')
         this.postUserScoreToProfile(currentUserName)
         this.loadNumberGame()
+        this.loadCurrentUser(currentUserName)
         this.onCloseModal()
     }
 
