@@ -21,8 +21,8 @@ module.exports = {
             },
             colorGame : {
                 timesPlayed: 0,
-                correct: 0,
-                incorrect: 0
+                correctCount: 0,
+                incorrectCount: 0
             },
             shapeGame : {
                 timesPlayed: 0,
@@ -31,7 +31,8 @@ module.exports = {
             },
             soundGame : {
                 timesPlayed: 0,
-                scores: [],
+                correctCount: 0,
+                incorrectCount: 0
             }
         }
         User
@@ -80,6 +81,34 @@ module.exports = {
         User
             .findOneAndUpdate({ username: req.params.id }, 
                 { $set : { shapeGame : {
+                    timesPlayed: req.body.timesPlayed,
+                    correctCount: req.body.correctCount,
+                    incorrectCount: req.body.incorrectCount
+                    } }
+                })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
+
+    updateSoundGameUser: function (req, res) {
+        User
+            .findOneAndUpdate({ username: req.params.id }, 
+                { $set : { soundGame : {
+                    timesPlayed: req.body.timesPlayed,
+                    correctCount: req.body.correctCount,
+                    incorrectCount: req.body.incorrectCount
+                    } }
+                })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
+
+    updateColorGameUser: function (req, res) {
+        User
+            .findOneAndUpdate({ username: req.params.id }, 
+                { $set : { colorGame : {
                     timesPlayed: req.body.timesPlayed,
                     correctCount: req.body.correctCount,
                     incorrectCount: req.body.incorrectCount

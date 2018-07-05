@@ -43,6 +43,25 @@ class ColorGame extends Component {
           })
     };
 
+    postUserScoreToProfile = (currentUserName) => {
+        const user = this.state.currentUser
+        const colorGame = user.colorGame
+
+        const colorGameObj = {
+            timesPlayed: colorGame.timesPlayed,
+            correctCount: colorGame.correctCount,
+            incorrectCount: colorGame.incorrectCount
+        }
+        
+        // Add scores and times played
+        colorGameObj.timesPlayed++
+        colorGameObj.correctCount += this.state.correctScore
+        colorGameObj.incorrectCount += this.state.incorrectScore
+        
+        // Update Number Game User with 
+        API.updateColorGameUser(currentUserName, colorGameObj) 
+    };
+
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
     //      Other functions used:  shuffle()
@@ -172,6 +191,10 @@ class ColorGame extends Component {
     handleClickPlayAgain = () => {
         let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
         againSound.play()
+
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName)
+        this.loadCurrentUser(currentUserName)
         this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, colorNameToGuess: 'Blue' })
         this.onCloseModal()
     }
@@ -184,6 +207,10 @@ class ColorGame extends Component {
     handleClickNotPlayAgain = () => {
         let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
         click.play()
+
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName)
+        this.loadCurrentUser(currentUserName)
         alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
         this.setState({ backgroundMusicPlaying: false })

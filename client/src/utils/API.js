@@ -14,14 +14,6 @@ export default {
         return axios.get('/api/colorgame')
     },
 
-    getSoundGame: function() {
-        return axios.get('/api/soundgame')
-    },
-    
-    getShapeGame: function() {
-        return axios.get('/api/shapegame')
-    },
-
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
     },
@@ -88,6 +80,14 @@ export default {
 
     updateShapeGameUser : function (id, userData) {
         return axios.put("/api/shapegame/user/" + id, userData)
+    },
+
+    updateSoundGameUser : function (id, userData) {
+        return axios.put("/api/soundgame/user/" + id, userData)
+    },
+    
+    updateColorGameUser : function (id, userData) {
+        return axios.put("/api/colorgame/user/" + id, userData)
     },
 
 };

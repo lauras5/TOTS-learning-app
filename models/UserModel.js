@@ -34,8 +34,8 @@ var UserSchema = new Schema ({
     },
     colorGame : {
         timesPlayed: Number,
-        correct: Number,
-        incorrect: Number
+        correctCount: Number,
+        incorrectCount: Number
     },
     shapeGame : {
         timesPlayed: Number,
@@ -44,7 +44,8 @@ var UserSchema = new Schema ({
     },
     soundGame : {
         timesPlayed: Number,
-        scores: [Number],
+        correctCount: Number,
+        incorrectCount: Number
     }
 });
 
