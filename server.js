@@ -57,7 +57,6 @@ mongoose.connect(MONGODB_URI);
 // const numberGameSeeds = require('./scripts/seeds').seedNumberGame()
 // const colorGameSeeds = require('./scripts/seeds').seedColorGame()
 // const cardGameSeeds = require('./scripts/seeds').seedCardGame()
-// const shapeGameSeeds = require('./scripts/seeds').seedShapeGame()
 // const testUserSeeds = require('./scripts/seeds').seedTestUser()
 
 

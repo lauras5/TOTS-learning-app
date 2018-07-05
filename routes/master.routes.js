@@ -18,7 +18,6 @@ router.get('/api/numbergame', NumberGameController.getNumberGame)
 router.get('/api/colorgame', ColorGameController.getColorGame)
 router.get('/api/cardgame', CardGameController.getCardGame)
 router.get('/api/soundgame', CardGameController.getCardGame)
-router.get('/api/shapegame', ShapeGameController.getCardGame)
 
 // User Routes
 router.post('/api/users', UserController.addUser)
@@ -27,6 +26,7 @@ router.get('/api/users/:id', UserController.findOneUser)
 router.get('/register', UserController.findUser)
 router.post('/register', UserController.addUser)
 router.put('/api/numbergame/user/:id', UserController.updateNumberGameUser)
+router.put('/api/shapegame/user/:id', UserController.updateShapeGameUser)
 
 // user Authentication
 router.post('/login', UserController.login)

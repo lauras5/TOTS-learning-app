@@ -3,6 +3,7 @@ import './shapeGame.css';
 import shape from "./shape.json";
 import shapeToDrag from "./shapeToDrag.json";
 import ShapeCard from "./shapeCard";
+import API from '../../utils/API';
 import ShapeToDragCard from "./shapeToDragCard";
 import Modal from 'react-responsive-modal';
 import Navbar from '../Navbar';
@@ -20,19 +21,8 @@ class ShapeGame extends Component {
     }
 
     componentDidMount() {
-        this.loadShapeGame()
         const currentUserName = sessionStorage.getItem('username')
         this.loadCurrentUser(currentUserName)
-    };
-
-    // GET number game questions from database and SET color
-    loadShapeGame = () => {
-        API.getShapeGame()
-            .then(res => {
-                this.setState({ color: res.data })
-                //   this.randomRender()
-            })
-            .catch(err => console.log(err));
     };
 
     loadCurrentUser = (currentUserName) => {
@@ -42,11 +32,8 @@ class ShapeGame extends Component {
               this.setState({ currentUser: res.data})
           })
     };
-    
-    
-    
-    
-    
+
+
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
     //      Other functions used:  shuffle()
@@ -56,7 +43,7 @@ class ShapeGame extends Component {
 
         return (
             this.shuffle(this.state.shape).map(shapeFromShapeArray =>
-                <div className="card col-s2 shapeCardIndividual" onDragOver={(e) => this.onDragOver(e)} onDrop={(e) => this.onDrop(e)}>
+                <div className="card col-s2 shapeCardIndividual" key={shapeFromShapeArray.id} onDragOver={(e) => this.onDragOver(e)} onDrop={(e) => this.onDrop(e)}>
                     <div className="card-title">{shapeFromShapeArray.name}</div>
                     <div className="img-container">
                         <img
@@ -100,6 +87,24 @@ class ShapeGame extends Component {
         this.randomRender()
     }
 
+    postUserScoreToProfile = (currentUserName) => {
+        const user = this.state.currentUser
+        const shapeGame = user.shapeGame
+
+        const shapeGameObj = {
+            timesPlayed: shapeGame.timesPlayed,
+            correctCount: shapeGame.correctCount,
+            incorrectCount: shapeGame.incorrectCount
+        }
+        
+        // Add scores and times played
+        shapeGameObj.timesPlayed++
+        shapeGameObj.correctCount += this.state.correctScore
+        shapeGameObj.incorrectCount += this.state.incorrectScore
+        
+        // Update Number Game User with 
+        API.updateShapeGameUser(currentUserName, shapeGameObj) 
+    };
 
     //handleClicked Function = determines if correct card is clicked.  Updates state's correct
     //and incorrect scores as needed.  Also sets the shapeToGuess in the state.  Also rerenders tiles.
@@ -145,12 +150,12 @@ class ShapeGame extends Component {
         let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
         againSound.play()
 
-
-
-
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName)
         this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, shapeNameToGuess: 'Blue' })
         this.pickRandomShapeToDrag()
         this.renderShapeToDrag()
+        this.loadCurrentUser(currentUserName) // hacky way to get user information again
         this.onCloseModal()
     }
 
@@ -159,6 +164,10 @@ class ShapeGame extends Component {
     handleClickNotPlayAgain = () => {
         let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
         click.play()
+        
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName) // hacky way to get user information again
+        this.loadCurrentUser(currentUserName)
         alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
     }

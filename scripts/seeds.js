@@ -2,7 +2,6 @@
 const NumberGame = require('../models/numbergame.server.model')
 const CardGame = require('../models/cardGame.server.model')
 const ColorGame = require('../models/colorgame.server.model')
-const ShapeGame = require('../models/shapegame.server.model')
 const User = require('../models/UserModel')
 
 
@@ -158,47 +157,10 @@ module.exports = {
 
           console.log('Color Game Database seeded!');
     },
-
-    seedShapeGame : function () {
-        const shapeGameArray = [        
-            {
-            "index": 1,
-            "name": "Circle",
-            "image": "https://images.emojiterra.com/mozilla/512px/26ab.png"
-            },
-            {
-            "index": 2,
-            "name": "Triangle",
-            "image": "http://pluspng.com/img-png/triangle-png-black-triangle-icon-512.png"
-            },
-            {
-            "index": 3,
-            "name": "Square",
-            "image": "https://images.vexels.com/media/users/3/139343/isolated/preview/8d7e22bfe4da9ba08eb4b469ea8c532f-square-rounded-square-by-vexels.png"
-            },
-            {
-            "index": 4,
-            "name": "Star",
-            "image": "https://cdn.icon-icons.com/icons2/37/PNG/512/star_4388.png"
-            },
-            {
-            "index": 5,
-            "name": "Heart",
-            "image": "https://www.shareicon.net/data/512x512/2015/12/05/682629_heart_512x512.png"
-            }
-        ]
-
-        for (shapeGameQuestion of shapeGameArray) {
-            var newShapeGame = new ShapeGame(shapeGameQuestion);
-            newShapeGame.save();
-          }
-
-          console.log('Shape Game Database seeded!');
-    },
     
     seedTestUser : function () {
         const testUser = {    
-            username : "Test User",
+            username : "TestUser",
             email : "Test@gmail.com",
             password: "asdf1234",
             childName: "Little Test",
@@ -217,6 +179,11 @@ module.exports = {
                 incorrect: 0
             },
             shapeGame : {
+                timesPlayed: 0,
+                correctCount: 0,
+                incorrectCount: 0
+            },
+            soundGame : {
                 timesPlayed: 0,
                 scores: [],
             }

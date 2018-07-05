@@ -86,4 +86,8 @@ export default {
         return axios.put("/api/numbergame/user/" + id, userData)
     },
 
+    updateShapeGameUser : function (id, userData) {
+        return axios.put("/api/shapegame/user/" + id, userData)
+    },
+
 };
