@@ -45,10 +45,10 @@ class NumberGame extends Component {
     // GET current user based off of user stored in session data
     loadCurrentUser = (currentUserName) => {
         API.getCurrentUser(currentUserName)
-          .then ( res => {
-              // if user is null, handle it: perhaps route to login page
-              this.setState({ currentUser: res.data})
-          })
+            .then(res => {
+                // if user is null, handle it: perhaps route to login page
+                this.setState({ currentUser: res.data })
+            })
     };
 
     // PUT method to update number game score to user in DB
@@ -61,14 +61,14 @@ class NumberGame extends Component {
             correctCount: numberGame.correctCount,
             incorrectCount: numberGame.incorrectCount
         }
-        
+
         // Add scores and times played
         numberGameObj.timesPlayed++
         numberGameObj.correctCount += this.state.correctCount
         numberGameObj.incorrectCount += this.state.incorrectCount
-        
+
         // Update Number Game User with 
-        API.updateNumberGameUser(currentUserName, numberGameObj) 
+        API.updateNumberGameUser(currentUserName, numberGameObj)
     };
 
 
@@ -160,7 +160,7 @@ class NumberGame extends Component {
         return (
             <Fragment>
                 <Navbar />
-                <h1> Number Game </h1>
+                <h1 id='numGameName'> Number Game </h1>
                 <div className="container">
 
                     <div>
@@ -177,14 +177,15 @@ class NumberGame extends Component {
 
                     <img src='http://placehold.it/150' className="numberGameImage" />
                     <br></br>
-                    <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-1" data-answerchoice={this.state.topQuestionChoices[0]} onClick={() => this.handleClick(this.state.topQuestionChoices[0])}>{this.state.topQuestionChoices[0]}</button>
-                    <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-2" data-answerchoice={this.state.topQuestionChoices[1]} onClick={() => this.handleClick(this.state.topQuestionChoices[1])}>{this.state.topQuestionChoices[1]}</button>
-                    <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-3" data-answerchoice={this.state.topQuestionChoices[2]} onClick={() => this.handleClick(this.state.topQuestionChoices[2])}>{this.state.topQuestionChoices[2]}</button>
-                    <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-4" data-answerchoice={this.state.topQuestionChoices[3]} onClick={() => this.handleClick(this.state.topQuestionChoices[3])}>{this.state.topQuestionChoices[3]}</button>
+                    <div id='choiceBtns'>
+                        <button id='buttonOne' className="waves-effect waves-light btn numberGameBtn" buttonid="btn-1" data-answerchoice={this.state.topQuestionChoices[0]} onClick={() => this.handleClick(this.state.topQuestionChoices[0])}>{this.state.topQuestionChoices[0]}</button>
+                        <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-2" data-answerchoice={this.state.topQuestionChoices[1]} onClick={() => this.handleClick(this.state.topQuestionChoices[1])}>{this.state.topQuestionChoices[1]}</button>
+                        <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-3" data-answerchoice={this.state.topQuestionChoices[2]} onClick={() => this.handleClick(this.state.topQuestionChoices[2])}>{this.state.topQuestionChoices[2]}</button>
+                        <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-4" data-answerchoice={this.state.topQuestionChoices[3]} onClick={() => this.handleClick(this.state.topQuestionChoices[3])}>{this.state.topQuestionChoices[3]}</button>
+                    </div>
 
-                    <h3>Statistics</h3>
-                    <h4>Correct Answers: {this.state.correctCount}</h4>
-                    <h4>Incorrect Answers: {this.state.incorrectCount}</h4>
+                    <h4>Right: {this.state.correctCount}</h4>
+                    <h4>Wrong: {this.state.incorrectCount}</h4>
                 </div>
                 <Footer />
             </Fragment>
