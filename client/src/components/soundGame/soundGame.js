@@ -327,7 +327,7 @@ class SoundGame extends Component {
                 <Navbar />
                 <div id="soundGamePage">
                     <h1 id='soundGameName'> The Sound Game!</h1>
-                    <h1>{this.renderSoundToGuess()}</h1>
+                    {/* <h1>{this.renderSoundToGuess()}</h1> */}
                     
                     <div className="container" id='sound-container'>
                         <div className="rowShapes">

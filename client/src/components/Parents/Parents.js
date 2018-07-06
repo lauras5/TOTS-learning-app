@@ -8,7 +8,6 @@ import Footer from '../Footer'
 import {Pie, Radar} from 'react-chartjs-2'
 import API from '../../utils/API';
 
-
 class Parent extends Component {
 
     constructor(props) {
@@ -183,7 +182,7 @@ class Parent extends Component {
         return (
             <Fragment>
                 <Navbar />
-                <div>
+                <div id='parentsPage'>
                     <div className="numberGameChart"> 
                         <h3>Number Game Statistics</h3>
                         <Pie 
