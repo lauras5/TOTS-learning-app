@@ -230,17 +230,19 @@ class ShapeGame extends Component {
             <Fragment>
                 <Navbar />
                 <div id="shapeGamePage">
-                    <h1> The Shape Game!</h1>
+                    <h2 id='shapeGameName'> The Shape Game!</h2>
+                    <h2 id='instructions'>Drag the piece to the correct shape!</h2>
+                    
+                    <div className="container" id='shape-container'>
 
-                    <div className="container" id="shape-container">
                         <div className="rowShapes">
                             {this.randomRender()}
                         </div>
                         <h1>{this.renderShapeToDrag()}</h1>
                     </div>
 
-                    <h1>Drag to the correct shape</h1>
-                    <h1>{5 - this.state.questionNum} to go!</h1>
+                    <h2>{this.renderShapeToDrag()}</h2>
+                    <h2 id='lefttogo'>{5 - this.state.questionNum} to go!</h2>
 
                 </div>
                 {this.modalPlayAgain()}

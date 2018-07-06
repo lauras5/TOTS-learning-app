@@ -326,16 +326,17 @@ class SoundGame extends Component {
             <Fragment>
                 <Navbar />
                 <div id="soundGamePage">
-                    <h1> The Sound Game!</h1>
-
-                    <div className="container" id="sound-container">
+                    <h1 id='soundGameName'> The Sound Game!</h1>
+                    <h1>{this.renderSoundToGuess()}</h1>
+                    
+                    <div className="container" id='sound-container'>
                         <div className="rowShapes">
                             {this.randomRender()}
                         </div>
                         <h1>{this.renderSoundToGuess()}</h1>
                     </div>
 
-                    <h1>{10 - this.state.questionNum} to go!</h1>
+                    <h2 id='lefttogo'>{10 - this.state.questionNum} to go!</h2>
 
                 </div>
                 {this.modalPlayAgain()}

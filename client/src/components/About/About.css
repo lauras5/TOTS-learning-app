@@ -1,69 +1,60 @@
+#theTeam {
+    margin-top: 15%
+}
+
+#indexGallery {
+    display: block;
+    margin-left: 20%;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
 
 .team-image{
     text-align:center;
-    display:block;
-    background-color: transparent;
-    border: 1px solid transparent;
-    margin-right: 10px;
-    margin-bottom: 1px;
-    float:left;
-    margin-bottom: 200px;
-    font-size: 20px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+    display:inline-block;
+    border-radius: 100px;
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+}
 
-  .about-us {
-      font-size: 30px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-     
-      margin-left: 200px;
-      margin-top: 30px;
-      padding-left: 100px;
-      letter-spacing: 1px;
-  }
-  
-  #index-gallery{
-    margin-left: 275px;
-    margin-top: 100px;
-  }
+#aboutUs {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
 
-  .lauraImg {
-      width: 200px;
-      height: 200px;
-      padding-left:20px;
-      padding-bottom: 7px;
-      letter-spacing: 1px;
-  }
-
-  .lanceImg {
-    width: 200px;
-    height: 200px;
-    padding-bottom: 7px;
-    letter-spacing: 1px;
+.lauraImg {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    border-radius: 100%;
+}
     
+.lanceImg {
+    width: 150px;
+    height: 150px;
+    margin: 5px;
+    margin: 5px;
+    border-radius: 100%;    
 }
-
-.michaelImg {
-    width: 200px;
-    height: 200px;
-    padding-left:20px;
-    padding-bottom: 7px;
-    letter-spacing: 1px;
-}
-
-.shazImg {
-    width: 200px;
-    height: 200px;
-    padding-left:20px;
-    padding-bottom: 7px;
-    letter-spacing: 1px;
-}
-
-.alvinImg {
-    width: 200px;
-    height: 200px;
-    padding-left:20px;
-    padding-bottom: 7px;
-    letter-spacing: 1px;
+    
+    .michaelImg {
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+    }
+    
+    .shazImg {
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+    }
+    
+    .alvinImg {
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
 }
 
