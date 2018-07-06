@@ -1,14 +1,25 @@
 .pulsate-shape {
-    -webkit-animation: pulsate 1s ease-out;
+    -webkit-animation: pulsate 2s ease-out;
     -webkit-animation-iteration-count: infinite; 
-    opacity: 0.5;
+    opacity: .3;
 }
 
 .pulsate-shape:hover {
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  /* animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both; */
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+}
+
+#instructions {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#shapeGameName {
+    margin-top: 15%;
+    text-align: center;
+    font-family: 'Luckiest Guy',cursive;
 }
 
 @keyframes shake {
@@ -42,8 +53,6 @@
     }
 }
 
-
-
 @import url('https://fonts.googleapis.com/css?family=Luckiest+Guy');
 
 h1{
@@ -58,10 +67,8 @@ h3{
     color: rgb(51, 49, 49);
 }
 
-#shapeGamePage{
-    /* background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat; */
-   
-background-size:100%;
+#shapeGamePage{ 
+    background-size:100%;
 }   
 
 #playAgainModalText{
@@ -80,13 +87,9 @@ background-size:100%;
     text-align: center;
 }
 
-
-
 .rowShapes{
     display:inline-flex;
     justify-content: center;
-     
-    
 }
 
 

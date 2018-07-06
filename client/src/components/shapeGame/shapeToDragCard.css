@@ -1,13 +1,9 @@
 .shapeToDragCardIndividual{
-    /* background: rgb(158, 221, 142); */
-    border-radius: 10px;
-    margin: 2%;  
+    border-radius: 15px;
     width: 10%;
-align-content: center;
-/* align-items: center;
-align-self: center;
-text-align: center;    */
-    display:inline-block;
+    display: block;
+    margin: auto;
+    padding: 10px;
   }
   
   .shapeToDragCardIndividual > .img-container {
