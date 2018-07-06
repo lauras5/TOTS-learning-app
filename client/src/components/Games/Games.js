@@ -12,25 +12,26 @@ class Games extends Component {
                 <Navbar/>
                 <div id='carouselDiv'>
                     <Carousel id='thisdiv'>
-                        <Link id='cardgame' to='/games/cardgame' >
-                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="card game" />
-                            <span>Card Game</span>
-                        </Link>
+                        
                         <Link id='soundgame' to='/games/soundgame' >
-                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="nature" />
-                            <span>Sound Game</span>
+                            <img className='gameImg' src="./images/sound.PNG" alt="soundGame" />
+                            <span className='gameName'>Sound Game</span>
                         </Link>
                         <Link id='shapegame' to='/games/shapegame' >
-                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="nature" />
-                            <span>Shape Game</span>
+                            <img className='gameImg' src="./images/shapes.PNG" alt="nature" />
+                            <span className='gameName'>Shape Game</span>
                         </Link>
                         <Link id='colorgame' to='/games/colorgame'>
-                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="color game" />
-                            <span> Color Game</span>
+                            <img className='gameImg' src="http://25.io/smaller/img/smaller_256x256.png" alt="color game" />
+                            <span className='gameName'> Color Game</span>
+                        </Link>
+                        <Link id='cardgame' to='/games/cardgame'>
+                            <img className='gameImg' src="http://25.io/smaller/img/smaller_256x256.png" alt="color game" />
+                            <span className='gameName'> Memory Game</span>
                         </Link>
                         <Link id='numbergame' to='/games/numbergame'>
-                            <img src="http://25.io/smaller/img/smaller_256x256.png" alt="number game" />
-                            <span>Number Game</span>
+                            <img className='gameImg' src="./images/number.PNG" alt="number game" />
+                            <span className='gameName'>Number Game</span>
                         </Link>
                     </Carousel>
                 </div>

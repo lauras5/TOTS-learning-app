@@ -20,8 +20,8 @@ var UserSchema = new Schema ({
         required : true
     },
     child : {
-        type : String,
-        required : true
+        type : String
+        // required : true
     },
     numberGame : {
         timesPlayed: Number,
