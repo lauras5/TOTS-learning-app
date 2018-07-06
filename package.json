@@ -37,10 +37,11 @@
   "scripts": {
     "server": "nodemon",
     "client": "cd client && npm run start",
-    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "description": "Group Project #3",
   "repository": {
@@ -52,5 +53,8 @@
   "bugs": {
     "url": "https://github.com/lauras5/Time-Out-App/issues"
   },
-  "homepage": "https://github.com/lauras5/Time-Out-App#readme"
+  "homepage": "https://github.com/lauras5/Time-Out-App#readme",
+  "engines": {
+    "node": "8.9.1"
+}
 }
