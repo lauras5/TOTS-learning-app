@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import API from '../../utils/API';
 import './numberGameStyles.css';
 import Modal from 'react-responsive-modal';
+import { Redirect } from 'react-router'
 import Navbar from '../Navbar'
 import Footer from '../Footer'
 
@@ -17,7 +18,8 @@ class NumberGame extends Component {
             topQuestion: "",
             topQuestionChoices: [],
             openModal: false,
-            currentUser: {}
+            currentUser: {},
+            toHome: false
         }
     };
 
@@ -123,12 +125,20 @@ class NumberGame extends Component {
     };
 
     // Handles game reset / post 
-    handlePlayAgain = () => {
+    handleClickPlayAgain = () => {
         const currentUserName = sessionStorage.getItem('username')
         this.postUserScoreToProfile(currentUserName)
         this.loadNumberGame()
         this.loadCurrentUser(currentUserName)
         this.onCloseModal()
+    }
+
+    // Handles game save and redirect to Hom
+    handleClickNotPlayAgain = () => {
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName)
+        this.onCloseModal()
+        this.setState({ toHome: true })
     }
 
     // Open modal
@@ -143,6 +153,10 @@ class NumberGame extends Component {
 
 
     render() {
+        if (this.state.toHome === true) {
+            return <Redirect to='/home' />
+        }
+
         return (
             <Fragment>
                 <Navbar />
@@ -155,8 +169,9 @@ class NumberGame extends Component {
                             <h4 className="modalStatsCorrect">Correct Answers: {this.state.correctCount}</h4>
                             <h4 className="modalStatsIncorrect">Incorrect Answers: {this.state.incorrectCount}</h4>
 
-                            <button id="numberGamePlayAgain" onClick={this.handlePlayAgain}>Play Again?</button>
-                            <img src="https://images.twinkl.co.uk/tw1n/image/private/t_630_eco/image_repo/59/93/T-T-12951-Multicoloured-Polka-Dot-Display-Numbers.jpg" />
+                            <h3 id="playAgainModalText">Play again?</h3>
+                            <card col-6 id="shapePlayAgain" onClick={this.handleClickPlayAgain}><img src="https://i.pinimg.com/originals/f0/8b/99/f08b998f7548448a73134f4d21c4b5f3.gif" /></card>
+                            <card col-6 id="shapeNotPlayAgain" onClick={this.handleClickNotPlayAgain}><img src="https://www.smileysapp.com/gif-emoji/thumbs-down.gif" /></card>
                         </Modal>
                     </div>
 
