@@ -100,7 +100,7 @@ class Login extends Component {
                             <h1 id="appName">T.O.T.S.</h1>
                             <p id='appS'>an app for your toddlers growing mind</p>
                             <ul>
-                                <li><Link className='nav-item nav-link' to='/about'>About</Link></li>
+                                <li><Link id='aboutLink' className='nav-item nav-link' to='/about'>About</Link></li>
                             </ul>
                         </div>
                     </div>
