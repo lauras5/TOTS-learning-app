@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import './colorGame.css';
 import ColorCard from "./colorCard";
 import Modal from 'react-responsive-modal';
+import { Redirect } from 'react-router'
 import API from '../../utils/API';
 import Navbar from '../Navbar';
 import Footer from '../Footer';
@@ -15,7 +16,8 @@ class ColorGame extends Component {
         colorNameToGuess: 'Red',  //set to 'Red' initially.....i can't get a randomized initial value here!!!
         color: [], //initially an exact copy of color.json
         open: false,
-        backgroundMusicPlaying: false //for Modal
+        backgroundMusicPlaying: false, //for Modal
+        toHome: false
     }
 
 
@@ -205,10 +207,9 @@ class ColorGame extends Component {
         const currentUserName = sessionStorage.getItem('username')
         this.postUserScoreToProfile(currentUserName)
         this.loadCurrentUser(currentUserName)
-        alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
         this.setState({ backgroundMusicPlaying: false })
-
+        this.setState({ toHome: true })
     }
 
 
@@ -307,7 +308,9 @@ class ColorGame extends Component {
         //     this.setState({ backgroundMusicPlaying: false })
         // }
 
-        
+        if (this.state.toHome === true) {
+            return <Redirect to='/home' />
+        }
 
         return (
 

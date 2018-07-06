@@ -6,6 +6,7 @@ import ShapeCard from "./shapeCard";
 import API from '../../utils/API';
 import ShapeToDragCard from "./shapeToDragCard";
 import Modal from 'react-responsive-modal';
+import { Redirect } from 'react-router'
 import Navbar from '../Navbar';
 import Footer from '../Footer';
 
@@ -18,7 +19,8 @@ class ShapeGame extends Component {
         shape, //hold shapes to drag to - an exact copy of shape.json
         shapeToDrag, //hold shapes to drag - an exact copy of shapeToDrag.json
         open: false, //for Modal
-        currentUser: {}
+        currentUser: {},
+        toHome: false
     }
 
     componentDidMount() {
@@ -129,8 +131,8 @@ class ShapeGame extends Component {
         const currentUserName = sessionStorage.getItem('username')
         this.postUserScoreToProfile(currentUserName) // hacky way to get user information again
         this.loadCurrentUser(currentUserName)
-        alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
+        this.setState({ toHome: true })
     }
 
     //pickRandomShapeToDrag function - Gets random shape to drag.  Assigns this so state property shapeNameToGuess
@@ -226,6 +228,9 @@ class ShapeGame extends Component {
 
     render() {
         const { open } = this.state;
+        if (this.state.toHome === true) {
+            return <Redirect to='/home' />
+        }
         return (
             <Fragment>
                 <Navbar />

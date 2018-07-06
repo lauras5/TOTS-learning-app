@@ -4,6 +4,7 @@ import sound from "./sound.json";
 import SoundCard from "./soundCard";
 import API from '../../utils/API';
 import Modal from 'react-responsive-modal';
+import { Redirect } from 'react-router'
 import Navbar from '../Navbar'
 
 
@@ -15,7 +16,8 @@ class SoundGame extends Component {
         soundNameToGuess: "Moooo!",//set to 'Dog' initially.....i can't get a randomized initial value here!!!
         sound, //hold shapes to drag to - an exact copy of shape.json
         open: false, //for Modal
-        currentUser: {}
+        currentUser: {},
+        toHome: false
     }
 
     componentDidMount() {
@@ -200,8 +202,8 @@ class SoundGame extends Component {
         const currentUserName = sessionStorage.getItem('username')
         this.postUserScoreToProfile(currentUserName)
         this.loadCurrentUser(currentUserName)
-        alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
+        this.setState({ toHome: true })
     }
 
 
@@ -321,6 +323,10 @@ class SoundGame extends Component {
 
     render() {
         const { open } = this.state;
+        if (this.state.toHome === true) {
+            return <Redirect to='/home' />
+        }
+
         return (
 
             <Fragment>
