@@ -4,7 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const routes = require('./routes/master.routes');
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 8080;
 
 // passport dependencies
 const passport = require('passport');
@@ -32,7 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //public is starting point for static files
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'client', 'build')))
 
 app.use('/', routes);
 
@@ -64,6 +64,10 @@ mongoose.connect(MONGODB_URI);
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+app.get("*", (req, res) => {  
+  res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 
 app.listen(PORT, () => {
   console.log(`🌎 ==> Server now on port ${PORT}!`);
