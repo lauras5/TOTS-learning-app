@@ -1,15 +1,30 @@
 #carouselDiv {
-    margin-top: 5%;
+    margin-top: 6%;
     text-align: center;
     height: 100%;
+
+}
+
+.gameImg {
+    border : 8px dotted white;
+    border-radius: 100px;
 }
 
 .carousel {
     height: 300px;
     margin-top: 5%;
+    width: 100%;
 }
 
-#gameName {
-    color: black;
+.gameName {
+    color: #e2662b;
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    font-size: 24px;
+    background-color: white;
+    border: 2px dotted black;
+    padding: 5px;
+    border-radius: 50px;
 }
+

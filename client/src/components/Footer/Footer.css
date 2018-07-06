@@ -1,51 +1,25 @@
 footer {
-    margin-top: 3%;
+    border: 4px solid white;
     background-color: #32ad07;
     color: white;
     text-align: center;
     padding: 5px;
-    height:30px;
-    width:100%;
-    font-size: 18px; 
+    height: 37px;
+    width: 100%;
+    font-size: 18px;
     line-height: 25px;
-    position:fixed;
-    left:0px;
-    bottom:0px;
-    margin-top:5px;
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    margin-top: 5px;
 }
 
 #monkey {
-    height: 45%;
+    height: 40%;
     position: fixed;
     bottom: 0;
     right: 0;
 }
-
-
-/* footer {
-color: #252221;
-    text-align: center;
-    margin-top: 3%;
-    width: 100%;
-    height: 30px;
-    background-color: #e5592e;
-    color: white;
-    text-align: center;
-    font-size: 12px; 
-    position:fixed;
-   left:0px;
-   bottom:0px;
-   height:30px;
-   width:100%;
-} */
-/* p {
-    padding-top: 15px;
-    
-} */
-
-/* .container {
-    padding-top: 12px;
-} */
 
 .footer-copyright {
     padding-bottom: 2px;

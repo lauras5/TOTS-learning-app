@@ -43,7 +43,7 @@ const User = require('./models/UserModel');
 passport.use(new LocalStrategy(User.authenticate()));
 
 // use static serialize and deserialize of model for passport session support
-passport.serializeUser(User.serializeUser)
+passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 // set up mongoose connection

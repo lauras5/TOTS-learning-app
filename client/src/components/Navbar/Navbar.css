@@ -4,87 +4,36 @@
         text-align: center;
     }
 
-    .main-nav {
-        height: 200px;
-    } 
-
-    .navigation li  {
-
-        display: block;
-        color: #f0f0f0;
-        font-size: 1.6em;
-        margin: 0 .5em;
+    #homeLink {
+        padding: 12px;
+        position: relative;
+        top: -100px;
+        right: 100px;
+        font-family: 'Montserrat', sans-serif;
+        background-color: white;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        border: 2px dotted black;
+    }
+    
+    #aboutLink {
+        padding: 10px;
+        position: relative;
+        top: -50px;
+        right: 100px;
+        font-family: 'Montserrat', sans-serif;
+        background-color: white;
+        border-radius: 50px;
+        font-size: 20px;
+        font-weight: bold;
+        color: black;
+        border: 2px dotted black;
     }
 
-    .nav-item {
-        color: white;
-        font-family: cursive;
-        font-size: 25px;
-        text-shadow: 3px 2px black;
-    }
-
-    .navigation li :hover {
+    #nav {
         margin-top: 2px;
-    }
-
-    .rectangle {
-        background: #ee734d;
-        height: 62px;
-        position: relative;
-        -moz-box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-        box-shadow: 0px 0px 4px rgba(0,0,0,0.55);
-        -webkit-border-radius: 3px;
-        -moz-border-radius: 3px;
-        border-radius: 3px;
-        z-index: 500; 
-    }
-
-    .l-triangle-top {
-        border-color: #d9542b transparent transparent;
-        border-style:solid;
-        border-width:50px;
-        height:0px;
-        width:0px;
-        position: relative;
-        float: left;
-        top: 1px;
-        left: -50px;
-    }
-  
-    .l-triangle-bottom {
-        border-color: transparent transparent #d9542b;
-        border-style:solid;
-        border-width:50px;
-        height:0px;
-        width:0px;
-        position: relative;
-        float: left;
-        top: -40px;
-        left: -150px;
-    }
-
-    .r-triangle-top {
-        border-color: #d9542b transparent transparent;
-        border-style:solid;
-        border-width:50px;
-        height:0px;
-        width:0px;
-        position: relative;
-        float: right;
-        right: -425px;
-        top: -60px;  
-    }
-  
-    .r-triangle-bottom {
-        border-color: transparent transparent #d9542b;
-        border-style:solid;
-        border-width:50px;
-        height:0px;
-        width:0px;
-        position: relative;
-        float: right;
-        top: -100px;  
-        right: -525px;
     }
 
     #parent-link {
@@ -94,63 +43,18 @@
         margin-right: 425px;
     }
 
-    #home-link {
-        padding-right: 50px;
-        padding-left: 50px;
-        
-    }
-    #about-link {
-        padding-right: 50px;
-        padding-left: 50px;
-    }
-    #login-link {
-        padding-right: 50px;
-        padding-left: 50px;
-    }
-
     .logo {
         height: 30px;
         margin-bottom: 10px;
     }
 
     #appLogo {
-        color: rgb(248, 144, 9);
-        text-shadow: 3px 2px red;
-        padding-top: 0px;
-        letter-spacing: 5px;
-        margin-top: 3px;
-        margin-bottom: 3px;
-    }
-
-    .slogan {
+        background-color: #5fc9f1;
+        text-shadow: 5px 5px 5px #183d4c;
         color: white;
-        font-size: 30px;
-        font-family: cursive;
-        letter-spacing: 2px;
-        text-shadow: 3px 2px black;
-        margin-top: 2px;
-        margin-bottom: 3px;
-        padding-bottom: 10px;
+        font-size: 65px;
     }
     
-    .crayons {
-        width: 200px;
-        height: 140px;
-        position: relative;  
-        left: 270px;
-        bottom: -20px;
-    }
-
-    .grass {
-        width: 400px;
-        height: 140px;
-        padding-left: 0px;
-        margin-left: 0px;
-        position: relative;
-        right: 40px;
-        bottom: -6px;
-    }
-
    #sun {
         height: 175px;
         position: relative;
@@ -158,178 +62,53 @@
         left: 0;
     }
 
-    .car {
-        width: 200px;
-        height: 100px;
+    #parentBtn {
+        background-color:rgb(19, 212, 19);
+        border: 2px solid white;
+        padding: 10px;
     }
 
-    .bear {
-        width: 55px;
-        height: 70px;
-        position: absolute;
-        top: 128px;
-        right: 500px;
-
+    #parentBtn a {
+        color:white;
+        text-decoration: none;
+        font-weight: bold;
+    }
+    
+    #logoutBtn {
+        background-color:red;
+        border: 2px solid white;
+        padding: 10px;
+    }
+    
+    #logoutBtn a {
+        color:white;
+        text-decoration: none;
+        font-weight: bold;
     }
 
-    .duck {
-        width: 80px;
-        height: 60px;
-        position: absolute;
-        left: 910px;
-        top: 137px;
-    }
-
-    .pink-butterfly {
-        width: 60px;
-        height: 120px;
-        padding-bottom: 60px;
-        padding-left: 20px;
-        padding-right: 0px;
-        margin-right: 0px;
-        position: absolute;
-        right: 1000px;
-        top: 70px;
-    }
-
-    .blue-butterfly {
-        width: 60px;
-        height: 120px;
-        padding-bottom: 60px;
-        position: absolute;
-        right: 245px;
-        top: 30px;
-    }
-
-    .books {
-        width: 80px;
-        height: 60px;
-        position: absolute;
-    }
-
-    .baseball {
-        width: 40px;
-        height: 40px;
-        position: absolute;
-        top: 155px;
-        right: 550px;
-    }
-
-    .flower1 {
-        width: 30px;
-        height: 60px;
-        position: absolute;
-        left: 380px;
-        top: 135px;
-    }
-
-    .flower2 {
-        width: 20px;
-        height: 40px;
-        position: absolute;
-        top: 140px;
-        left: 600px;
-    }
-
-    .flower3 {
-        width: 15px;
-        height: 60px;
-        position: absolute;
-        top: 120px;
-        left: 500px;
-    }
-
-    .train {
-        width: 190px;
-        height: 90px;
-        position: absolute;
-        top: 107px;
-        left: 710px;
-        padding-top: 10px;
-    }
-
-
+    /* media queries for smaller screens/ipad */
     @media only screen and (max-width:1024px){
-        #nav-images{
-                display: none;
-        }
-        .l-triangle-top {
-            display: none;
-        }
-        .l-triangle-bottom {
-            display: none;
-        }
-        .r-triangle-top {
-            display: none;
-        }
-        .r-triangle-bottom {
-            display: none;
+        #monkey {
+            height:25%;
         }
     }
 
 
     @media only screen and (max-width:768px){
 
-        #nav-images{
-            display: none;
-        }
-   
         .rectangle {
-           margin-bottom: 5px;
-           padding-bottom: 5px;
-           margin-left: 5px;
-           margin-right: 5px;
-           padding-right: 5px;
-           padding-left: 5px;
+           background-color: #5fc9f1;
+            border-radius: 0;
            font-size: 20px;
            text-align: center;
         }
 
-        li {
-           text-align: center;
-        }
-
-        .logo {
-           margin-top: 0px;
-           padding-top: 0px;
-        }
-
        #appLogo {
-           margin-bottom: 0px;
+            background-color: #5fc9f1;
+            text-shadow: 5px 5px 5px #183d4c;
+            color: white;
+            font-size: 65px;
+            text-align: left;
+            margin-left: 41%;
         }
-
-        .slogan {
-           margin-top: 10px;
-        }
-       
-        .l-triangle-top {
-           display: none;
-        }
-
-        .l-triangle-bottom {
-            display: none;
-        }
-
-        .r-triangle-top {
-            display: none;
-        }
-
-        .r-triangle-bottom {
-            display: none;
-        }
-
-        #parent-link {
-            padding-right: 10px;
-            margin-right: 10px;
-            width: 165px;
-            height: 64px;
-        }
-
-        #home-link {
-            padding-left: 5px;
-            margin-left: 5px;
-            width: 165px;
-            height: 64px;
-        }
-        
 }

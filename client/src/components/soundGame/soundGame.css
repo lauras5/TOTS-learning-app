@@ -11,6 +11,17 @@
   perspective: 1000px;
 }
 
+#soundGameName {
+    margin-top: 15%;
+}
+
+#lefttogo {
+    color:black;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+}
+
 @keyframes shake {
     10%, 90% {
       transform: translate3d(-1px, 0, 0);
