@@ -25,36 +25,26 @@ p {
     font-family: 'Montserrat', sans-serif;
 }
 
-.lauraImg {
+.lauraImg, .lanceImg, .michaelImg, .shazImg, .alvinImg {
     width: 150px;
     height: 150px;
     margin: 5px;
     border-radius: 100%;
 }
-    
-.lanceImg {
-    width: 150px;
-    height: 150px;
-    margin: 5px;
-    margin: 5px;
-    border-radius: 100%;    
-}
-    
-    .michaelImg {
-        width: 150px;
-        height: 150px;
-        border-radius: 100%;
+
+@media only screen and (max-width:1024px){
+    #theTeam {
+        margin-top: 20%;
     }
-    
-    .shazImg {
-        width: 150px;
-        height: 150px;
-        border-radius: 100%;
+
+    #indexGallery {
+        margin-left: 10%;
     }
-    
-    .alvinImg {
-        width: 150px;
-        height: 150px;
-        border-radius: 100%;
 }
 
+
+@media only screen and (max-width:768px){
+    #theTeam {
+        margin-top: 95%;
+    }
+}

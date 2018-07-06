@@ -109,6 +109,11 @@ h3{
     padding: 5rem;
 }
 
+@media only screen and (max-width:1024px){
+    #soundGameName {
+        margin-top: 20%;
+    }
+}
 
 
 
