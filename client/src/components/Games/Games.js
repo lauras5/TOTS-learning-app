@@ -22,11 +22,11 @@ class Games extends Component {
                             <span className='gameName'>Shape Game</span>
                         </Link>
                         <Link id='colorgame' to='/games/colorgame'>
-                            <img className='gameImg' src="http://25.io/smaller/img/smaller_256x256.png" alt="color game" />
+                            <img className='gameImg' src="./images/color.PNG" alt="color game" />
                             <span className='gameName'> Color Game</span>
                         </Link>
                         <Link id='cardgame' to='/games/cardgame'>
-                            <img className='gameImg' src="http://25.io/smaller/img/smaller_256x256.png" alt="color game" />
+                            <img className='gameImg' src="./images/memory.PNG" alt="color game" />
                             <span className='gameName'> Memory Game</span>
                         </Link>
                         <Link id='numbergame' to='/games/numbergame'>
