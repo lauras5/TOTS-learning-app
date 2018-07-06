@@ -98,9 +98,15 @@ class NumberGame extends Component {
 
     // Updates scores/stats on page
     updateScore = answerChoice => {
+
+        let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
+        let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
+        
         if (parseInt(answerChoice) === parseInt(this.state.topQuestionChoices[this.state.topQuestion.correctAnswerIndex])) {
+            correctSound.play()
             this.state.correctCount++
         } else {
+            wrongSound.play()
             this.state.incorrectCount++
         };
     };
@@ -108,13 +114,16 @@ class NumberGame extends Component {
     // handles answer selection from user
     handleClick = answerChoice => {
         this.updateScore(answerChoice)
-
+        
         // Pop first question from numberQuestionList
         this.state.numberQuestionList.splice(0, 1)
         // console.log('popped: ' + JSON.stringify(this.state.numberQuestionList))
-
+        
         if (this.state.numberQuestionList.length === 0) {
             // create this method with POST?
+
+            let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+            thud.play()
             this.onOpenModal()
 
             // Replay?
@@ -133,6 +142,9 @@ class NumberGame extends Component {
         this.loadNumberGame()
         this.loadCurrentUser(currentUserName)
         this.onCloseModal()
+
+        let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
+        againSound.play()
     }
 
     // Handles game save and redirect to Hom
@@ -141,6 +153,8 @@ class NumberGame extends Component {
         this.postUserScoreToProfile(currentUserName)
         this.onCloseModal()
         this.setState({ toHome: true })
+        let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
+        click.play()
     }
 
     // Open modal
