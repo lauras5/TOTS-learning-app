@@ -16,6 +16,7 @@ class NumberGame extends Component {
             correctAnswer: 0,
             numberQuestionList: [],
             topQuestion: "",
+            topQuestionImage: "",
             topQuestionChoices: [],
             openModal: false,
             currentUser: {},
@@ -75,6 +76,7 @@ class NumberGame extends Component {
     //  Select the top Question from NumberQuestionList
     selectTopQuestionFromNumberQuestionList = () => {
         this.setState({ topQuestion: this.state.numberQuestionList[0] })
+        this.setState({ topQuestionImage: this.state.numberQuestionList[0].questionImage })
     };
 
     //   Get and set choices from the Top Question 
@@ -158,6 +160,7 @@ class NumberGame extends Component {
         }
 
         return (
+            // <img src='http://placehold.it/150' className="numberGameImage" />
             <Fragment>
                 <Navbar />
                 <h1 id='numGameName'> Number Game </h1>
@@ -175,7 +178,7 @@ class NumberGame extends Component {
                         </Modal>
                     </div>
 
-                    <img src='http://placehold.it/150' className="numberGameImage" />
+                    <img src={this.state.topQuestionImage} className="numberGameImage" />
                     <br></br>
                     <div id='choiceBtns'>
                         <button id='buttonOne' className="waves-effect waves-light btn numberGameBtn" buttonid="btn-1" data-answerchoice={this.state.topQuestionChoices[0]} onClick={() => this.handleClick(this.state.topQuestionChoices[0])}>{this.state.topQuestionChoices[0]}</button>
