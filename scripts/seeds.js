@@ -160,7 +160,7 @@ module.exports = {
     
     seedTestUser : function () {
         const testUser = {    
-            username : "Test User",
+            username : "TestUser",
             email : "Test@gmail.com",
             password: "asdf1234",
             childName: "Little Test",
@@ -179,6 +179,11 @@ module.exports = {
                 incorrect: 0
             },
             shapeGame : {
+                timesPlayed: 0,
+                correctCount: 0,
+                incorrectCount: 0
+            },
+            soundGame : {
                 timesPlayed: 0,
                 scores: [],
             }

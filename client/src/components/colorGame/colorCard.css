@@ -1,8 +1,9 @@
 .colorCardIndividual{
-    background: rgb(202, 191, 191);
-    border-radius: 10px;
+    background: rgb(255, 254, 254);
+    border-radius: 20%;
     margin: 1%;  
     width: 20%;
+    border:solid 1rem rgb(175, 175, 175)
     
     /* display:inline-block; */
   }

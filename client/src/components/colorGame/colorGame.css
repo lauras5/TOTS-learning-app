@@ -58,11 +58,7 @@ h3{
     color: rgb(51, 49, 49);
 }
 
-#colorGamePage{
-    /* background:url("https://78.media.tumblr.com/61a276a51ad2549f59d87b78215a7cae/tumblr_oen7lrqzzm1vsjcxvo1_640.gif") no-repeat; */
-    background:url("https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/0kjHIH6/animated-cartoon-of-a-starry-night-with-a-moon_ejmx5lyyx__F0000.png") no-repeat;
-background-size:100%;
-}   
+  
 
 #playAgainModalText{
     color: blue;
@@ -92,7 +88,15 @@ background-size:100%;
 .rowColors{
     display:inline-flex;
     justify-content: center;
-    
-    
+ 
+}
+
+#color-container{
+    background-color: rgb(177, 215, 218);
+    border: solid 1rem rgb(241, 243, 241);
+    border-radius:2%;
+    padding:5rem;
+
+
 }
 

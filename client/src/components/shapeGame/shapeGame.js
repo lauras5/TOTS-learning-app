@@ -3,6 +3,7 @@ import './shapeGame.css';
 import shape from "./shape.json";
 import shapeToDrag from "./shapeToDrag.json";
 import ShapeCard from "./shapeCard";
+import API from '../../utils/API';
 import ShapeToDragCard from "./shapeToDragCard";
 import Modal from 'react-responsive-modal';
 import Navbar from '../Navbar';
@@ -13,22 +14,37 @@ class ShapeGame extends Component {
         correctScore: 0,
         incorrectScore: 0,
         questionNum: 0,  //tracks how many questions are asked so far
-        shapeNameToGuess: { id: 1, image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEGYOD5kQcdYHI6n0KpCiZ_-UmVHsIhOK0OTCc3-pTUQhNIT52", name: "Circle" },  //set to 'Red' initially.....i can't get a randomized initial value here!!!
+        shapeNameToGuess: { id: 1, image: "../images/baseball.png", name: "Circle" },  //set to 'Red' initially.....i can't get a randomized initial value here!!!
         shape, //hold shapes to drag to - an exact copy of shape.json
         shapeToDrag, //hold shapes to drag - an exact copy of shapeToDrag.json
-        open: false //for Modal
+        open: false, //for Modal
+        currentUser: {}
     }
+
+    componentDidMount() {
+        const currentUserName = sessionStorage.getItem('username')
+        this.loadCurrentUser(currentUserName)
+    };
+
+    loadCurrentUser = (currentUserName) => {
+        API.getCurrentUser(currentUserName)
+            .then(res => {
+                // if user is null, handle it: perhaps route to login page
+                this.setState({ currentUser: res.data })
+            })
+    };
+
 
     //************************************************************************************* */
     //randomRender Function = renders tiles to the page.  Renders in randomized fashion.
     //      Other functions used:  shuffle()
     //*************************************************************************************** */
     randomRender = () => {
-        //this.setShapeToGuess()
+
 
         return (
             this.shuffle(this.state.shape).map(shapeFromShapeArray =>
-                <div className="card col-s2 shapeCardIndividual" onDragOver={(e) => this.onDragOver(e)} onDrop={(e) => this.onDrop(e)}>
+                <div className="card col-s2 shapeCardIndividual" key={shapeFromShapeArray.id} onDragOver={(e) => this.onDragOver(e)} onDrop={(e) => this.onDrop(e)}>
                     <div className="card-title">{shapeFromShapeArray.name}</div>
                     <div className="img-container">
                         <img
@@ -37,10 +53,6 @@ class ShapeGame extends Component {
                         />
                     </div>
                 </div>)
-
-            // <ShapeCard key={shapeFromShapeArray.id} id={shapeFromShapeArray.id} image={shapeFromShapeArray.image} name={shapeFromShapeArray.name}
-            //     onDragOver={(e) => this.onDragOver(e)}
-            //     onDrop={(e) => this.onDrop(e)} />
         )
     }
 
@@ -72,53 +84,39 @@ class ShapeGame extends Component {
         this.randomRender()
     }
 
+    postUserScoreToProfile = (currentUserName) => {
+        const user = this.state.currentUser
+        const shapeGame = user.shapeGame
 
-    //handleClicked Function = determines if correct card is clicked.  Updates state's correct
-    //and incorrect scores as needed.  Also sets the shapeToGuess in the state.  Also rerenders tiles.
-    //      Other functions used:  setShapeToGuess(), randomRender()
-    // handleClicked = (name) => {
+        const shapeGameObj = {
+            timesPlayed: shapeGame.timesPlayed,
+            correctCount: shapeGame.correctCount,
+            incorrectCount: shapeGame.incorrectCount
+        }
 
-    //     // let correctSound = new Audio("./soundFiles/success.wav")
-    //     let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
-    //     let wrongSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
-    //     this.setState({ questionNum: this.state.questionNum + 1 })
+        // Add scores and times played
+        shapeGameObj.timesPlayed++
+        shapeGameObj.correctCount += this.state.correctScore
+        shapeGameObj.incorrectCount += this.state.incorrectScore
 
-
-    //         if (name === this.state.shapeNameToGuess) {
-    //             correctSound.play()
-    //             this.setState({ correctScore: this.state.correctScore + 1 })
-    //             this.pickRandomShapeToDrag()
-    //         this.renderShapeToDrag()
-    //         }
-    //         else {
-    //             wrongSound.play()
-    //             this.setState({ incorrectScore: this.state.incorrectScore + 1 })
-    //             this.pickRandomShapeToDrag()
-    //         this.renderShapeToDrag()
-    //         }
-
-    //         //exit condition in bottom
-    //         if (this.state.questionNum > 8) {
-
-    //             //WRITE RESULTS TO DB HERE
-
-    //             let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
-    //             thud.play()
-    //             { this.onOpenModal() }
-    //             { this.modalPlayAgain() }
-    //         }
+        // Update Number Game User with 
+        API.updateShapeGameUser(currentUserName, shapeGameObj)
+    };
 
 
-    // }
 
     //handleClickedPlayAgain function - handles click event to play again from Modal. 
     //                                - resets game values to 0 and restarts game
     handleClickPlayAgain = () => {
         let againSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/laugh-12.wav")
         againSound.play()
+
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName)
         this.setState({ correctScore: 0, incorrectScore: 0, questionNum: 0, shapeNameToGuess: 'Blue' })
         this.pickRandomShapeToDrag()
         this.renderShapeToDrag()
+        this.loadCurrentUser(currentUserName) // hacky way to get user information again
         this.onCloseModal()
     }
 
@@ -127,6 +125,10 @@ class ShapeGame extends Component {
     handleClickNotPlayAgain = () => {
         let click = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
         click.play()
+
+        const currentUserName = sessionStorage.getItem('username')
+        this.postUserScoreToProfile(currentUserName) // hacky way to get user information again
+        this.loadCurrentUser(currentUserName)
         alert("GOES BACK TO HOME PAGE")
         this.onCloseModal()
     }
@@ -163,8 +165,8 @@ class ShapeGame extends Component {
     onDrop = (ev) => {
         ev.preventDefault()
 
-        let correctSound = new Audio("../soundFiles/yay.mp3")
-        let incorrectSound = new Audio("../soundFiles/buzz.mp3")
+        let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
+        let incorrectSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
 
         this.setState({ questionNum: this.state.questionNum + 1 })
 
@@ -231,10 +233,12 @@ class ShapeGame extends Component {
                     <h2 id='shapeGameName'> The Shape Game!</h2>
                     <h2 id='instructions'>Drag the piece to the correct shape!</h2>
                     
-                    <div className="container">
+                    <div className="container" id='shape-container'>
+
                         <div className="rowShapes">
                             {this.randomRender()}
                         </div>
+                        <h1>{this.renderShapeToDrag()}</h1>
                     </div>
 
                     <h2>{this.renderShapeToDrag()}</h2>

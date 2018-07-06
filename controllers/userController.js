@@ -9,7 +9,31 @@ module.exports = {
             username: req.body.username,
             email: req.body.email,
             password: req.body.password,
-            child: req.body.child
+            child: req.body.child,
+            numberGame : {
+                timesPlayed: 0,
+                correctCount: 0,
+                incorrectCount: 0
+            },
+            cardGame : {
+                timesPlayed: 0,
+                times: [],
+            },
+            colorGame : {
+                timesPlayed: 0,
+                correctCount: 0,
+                incorrectCount: 0
+            },
+            shapeGame : {
+                timesPlayed: 0,
+                correctCount: 0,
+                incorrectCount: 0
+            },
+            soundGame : {
+                timesPlayed: 0,
+                correctCount: 0,
+                incorrectCount: 0
+            }
         }
         User
             .create(user)
@@ -34,6 +58,62 @@ module.exports = {
     findOneUser: function (req, res) {
         User
             .findOne({ username: req.params.id })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
+
+    updateNumberGameUser: function (req, res) {
+        User
+            .findOneAndUpdate({ username: req.params.id }, 
+                { $set : { numberGame : {
+                    timesPlayed: req.body.timesPlayed,
+                    correctCount: req.body.correctCount,
+                    incorrectCount: req.body.incorrectCount
+                    } }
+                })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
+
+    updateShapeGameUser: function (req, res) {
+        User
+            .findOneAndUpdate({ username: req.params.id }, 
+                { $set : { shapeGame : {
+                    timesPlayed: req.body.timesPlayed,
+                    correctCount: req.body.correctCount,
+                    incorrectCount: req.body.incorrectCount
+                    } }
+                })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
+
+    updateSoundGameUser: function (req, res) {
+        User
+            .findOneAndUpdate({ username: req.params.id }, 
+                { $set : { soundGame : {
+                    timesPlayed: req.body.timesPlayed,
+                    correctCount: req.body.correctCount,
+                    incorrectCount: req.body.incorrectCount
+                    } }
+                })
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err))
+    },
+
+
+    updateColorGameUser: function (req, res) {
+        User
+            .findOneAndUpdate({ username: req.params.id }, 
+                { $set : { colorGame : {
+                    timesPlayed: req.body.timesPlayed,
+                    correctCount: req.body.correctCount,
+                    incorrectCount: req.body.incorrectCount
+                    } }
+                })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err))
     },

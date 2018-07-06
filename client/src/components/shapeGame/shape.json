@@ -3,26 +3,26 @@
   {
     "id": 1,
     "name": "Circle",
-    "image": "https://images.emojiterra.com/mozilla/512px/26ab.png"
+    "image": "../images/blue-circle.png"
   },
   {
     "id": 2,
     "name": "Triangle",
-    "image": "http://pluspng.com/img-png/triangle-png-black-triangle-icon-512.png"
+    "image": "../images/triangle-green.png"
   },
   {
     "id": 3,
     "name": "Square",
-    "image": "https://images.vexels.com/media/users/3/139343/isolated/preview/8d7e22bfe4da9ba08eb4b469ea8c532f-square-rounded-square-by-vexels.png"
+    "image": "../images/square.png"
   },
   {
     "id": 4,
     "name": "Star",
-    "image": "https://cdn.icon-icons.com/icons2/37/PNG/512/star_4388.png"
+    "image": "../images/star.png"
   },
   {
     "id": 5,
     "name": "Heart",
-    "image": "https://www.shareicon.net/data/512x512/2015/12/05/682629_heart_512x512.png"
+    "image": "../images/heart.png"
   }
 ]

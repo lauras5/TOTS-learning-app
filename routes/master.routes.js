@@ -25,6 +25,10 @@ router.get('/api/users', UserController.findUser)
 router.get('/api/users/:id', UserController.findOneUser)
 router.get('/register', UserController.findUser)
 router.post('/register', UserController.addUser)
+router.put('/api/numbergame/user/:id', UserController.updateNumberGameUser)
+router.put('/api/shapegame/user/:id', UserController.updateShapeGameUser)
+router.put('/api/soundgame/user/:id', UserController.updateSoundGameUser)
+router.put('/api/colorgame/user/:id', UserController.updateColorGameUser)
 
 // user Authentication
 router.post('/login', UserController.login)

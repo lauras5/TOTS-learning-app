@@ -14,10 +14,6 @@ export default {
         return axios.get('/api/colorgame')
     },
 
-    getSoundGame: function() {
-        return axios.get('/api/soundgame')
-    },
-
     getUsers : function(userData) {
         return axios.get("/api/users", userData)
     },
@@ -75,5 +71,23 @@ export default {
             .catch(function (err) {
                 console.log(err)
             })
-    }
+    },
+    
+
+    updateNumberGameUser : function (id, userData) {
+        return axios.put("/api/numbergame/user/" + id, userData)
+    },
+
+    updateShapeGameUser : function (id, userData) {
+        return axios.put("/api/shapegame/user/" + id, userData)
+    },
+
+    updateSoundGameUser : function (id, userData) {
+        return axios.put("/api/soundgame/user/" + id, userData)
+    },
+    
+    updateColorGameUser : function (id, userData) {
+        return axios.put("/api/colorgame/user/" + id, userData)
+    },
+
 };

@@ -92,4 +92,12 @@ h3{
     justify-content: center;
 }
 
+#shape-container {
+    background-color: azure;
+    border:solid 1rem rgb(172, 216, 230);
+    border-radius: 5%;
+    padding: 3rem;
+
+  }
+
 

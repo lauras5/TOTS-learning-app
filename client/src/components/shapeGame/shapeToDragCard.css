@@ -4,15 +4,17 @@
     display: block;
     margin: auto;
     padding: 10px;
-  }
+}
   
-  .shapeToDragCardIndividual > .img-container {
+.shapeToDragCardIndividual > .img-container {
     margin: 10%;
-  }
+}
 
   .shapeToDragCardIndividual > .img-container > img {
          width: 100%;
    }
+
+   
 
 
   

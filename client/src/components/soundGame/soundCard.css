@@ -3,13 +3,12 @@
     border-radius: 20px;
     margin: 1%;  
     width: 20%;
-    
-    /* display:inline-block; */
+    border: solid 1rem rgba(253, 251, 251, 0.842);
   }
+  
   
   .soundCardIndividual > .img-container {
     margin: 10%;
-  
   }
 
   .soundCardIndividual > .img-container > img {
