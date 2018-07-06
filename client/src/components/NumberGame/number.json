@@ -7,7 +7,7 @@
     },
     {
         "question": "How Many Oranges Are There?",
-        "questionImage": "../img/Orages.jpg",
+        "questionImage": "../img/oranges.jpg",
         "choices":[6, 4, 9, 5], 
         "correctAnswerIndex": 0
     },
