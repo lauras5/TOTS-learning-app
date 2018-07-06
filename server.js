@@ -54,8 +54,8 @@ mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
 
 // Seeds - comment out if you dont want to spam your db lol - To do: move to scripts folder
-// const numberGameSeeds = require('./scripts/seeds').seedNumberGame()
-// const colorGameSeeds = require('./scripts/seeds').seedColorGame()
+const numberGameSeeds = require('./scripts/seeds').seedNumberGame()
+const colorGameSeeds = require('./scripts/seeds').seedColorGame()
 // const cardGameSeeds = require('./scripts/seeds').seedCardGame()
 // const testUserSeeds = require('./scripts/seeds').seedTestUser()
 
