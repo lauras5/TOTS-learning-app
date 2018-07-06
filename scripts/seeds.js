@@ -22,7 +22,7 @@ module.exports = {
                 question: "How Many Oranges Are There?",
                 questionImage: "../images/oranges.jpg",
                 choices:[6, 4, 9, 5], 
-                correctAnswerIndex: 0
+                correctAnswerIndex: 1
             },
             {
                 question: "How Many Strawberries Are There?",
