@@ -138,45 +138,49 @@ class ShapeGame extends Component {
     //pickRandomShapeToDrag function - Gets random shape to drag.  Assigns this so state property shapeNameToGuess
     pickRandomShapeToDrag = () => {
 
-        let dragShapeToRender = this.state.shapeToDrag[Math.floor(Math.random() * 5)]
+        let dragShapeToRender = this.state.shapeToDrag[Math.floor(Math.random() * 4)]
         this.setState({ shapeNameToGuess: { id: dragShapeToRender.id, image: dragShapeToRender.image, name: dragShapeToRender.name } })
     }
-
+    
     //renderShapetoGuess function - Tells the user what shape to pick.  Text in page.
     renderShapeToDrag = () => {
-
+        
         return (
             <div>
-                <div className="pulsate">{<ShapeToDragCard key={this.state.shapeNameToGuess.id} id={this.state.shapeNameToGuess.id} image={this.state.shapeNameToGuess.image} draggable />}</div>
+            <div className="pulsate">{<ShapeToDragCard key={this.state.shapeNameToGuess.id} id={this.state.shapeNameToGuess.id} image={this.state.shapeNameToGuess.image} draggable />}</div>
             </div>
         )
     }
-
-
+    
+    
     //onDrag event (currently empty)
     onDragOver = (ev) => {
         ev.preventDefault()
     }
-
+    
     //onDrop event - when dragged object is dropped to target, sets off game decision logic
     //               if action is correct or incorrect.  This writes to the state for the scores.
     //               Modals are opened in this module when max number of questions are reached.
     //                  Other functions used:  pickRandomShapeTodDrag(), renderShapeToDrag(),
     //                                         onOpenModal(), modalPlayAgain()
-
+    
     onDrop = (ev) => {
         ev.preventDefault()
-
+        
         let correctSound = new Audio("http://www.pacdv.com/sounds/people_sound_effects/yes_1.wav")
         let incorrectSound = new Audio("http://www.pacdv.com/sounds/fart-sounds/fart-wav-4.wav")
-
+        
         this.setState({ questionNum: this.state.questionNum + 1 })
-
+        
         if (this.state.shapeNameToGuess.name === ev.target.alt) {
+            console.log(`Source is ${this.state.shapeNameToGuess.name}` )
+            console.log(`Target is ${ev.target.alt}` )
             correctSound.play()
             this.setState({ correctScore: this.state.correctScore + 1 })
         }
         else {
+            console.log(`Source is ${this.state.shapeNameToGuess}` )
+            console.log(`Target is ${ev.target.alt}` )
             incorrectSound.play()
             this.setState({ incorrectScore: this.state.incorrectScore + 1 })
         }
@@ -243,7 +247,6 @@ class ShapeGame extends Component {
                         <div className="rowShapes">
                             {this.randomRender()}
                         </div>
-                        <h1>{this.renderShapeToDrag()}</h1>
                     </div>
 
                     <h2>{this.renderShapeToDrag()}</h2>

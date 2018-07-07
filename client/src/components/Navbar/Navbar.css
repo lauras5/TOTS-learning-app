@@ -5,7 +5,7 @@
     }
 
     #homeLink {
-        padding: 12px;
+        padding: 10px;
         position: relative;
         top: -100px;
         right: 100px;
@@ -91,16 +91,49 @@
         #monkey {
             height:25%;
         }
+
+        #appName {
+            margin-left: 39%;
+        }
+
+        #appS {
+            margin-left: 30%;
+        }
     }
 
 
     @media only screen and (max-width:768px){
 
+        #loginSun {
+            height: 125px;
+        }
+
+        #appName {
+            margin-left: 35%;
+        }
+
+        #appS {
+            margin-left: 0;
+            text-align: center;
+        }
+
+        #aboutLink {
+            position: relative;
+            top: 28px;
+            right: 207px;
+        }
+
+        #homeLink {
+            position: relative;
+            top: 28px;
+            right: 207px;
+        }
+
         .rectangle {
-           background-color: #5fc9f1;
+            background-color: #5fc9f1;
             border-radius: 0;
-           font-size: 20px;
-           text-align: center;
+            font-size: 20px;
+            text-align: center;
         }
 
        #appLogo {

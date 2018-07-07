@@ -137,8 +137,7 @@ class ColorGame extends Component {
         
         //exit condition in bottom
         if (this.state.questionNum > 8) {
-            alert(`QuestionNumber is ${this.state.questionNum}`)
-
+           
             //WRITE RESULTS TO DB HERE
 
             let thud = new Audio("http://www.pacdv.com/sounds/domestic_sound_effects/door-close-1.wav")
