@@ -201,8 +201,9 @@ class NumberGame extends Component {
                         <button className="waves-effect waves-light btn numberGameBtn" buttonid="btn-4" data-answerchoice={this.state.topQuestionChoices[3]} onClick={() => this.handleClick(this.state.topQuestionChoices[3])}>{this.state.topQuestionChoices[3]}</button>
                     </div>
 
-                    <h4>Right: {this.state.correctCount}</h4>
-                    <h4>Wrong: {this.state.incorrectCount}</h4>
+                    <h4 id='rightPage'>Right: {this.state.correctCount}</h4>
+                    
+                    <h4 id='bottomPage'>Wrong: {this.state.incorrectCount}</h4>
                 </div>
                 <Footer />
             </Fragment>

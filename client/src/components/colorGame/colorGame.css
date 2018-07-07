@@ -4,6 +4,24 @@
     opacity: 0.5;
 }
 
+#gameName {
+    text-align: center;
+    font-family: 'Luckiest Guy',cursive;
+}
+
+#lefttogo {
+    text-align: center;
+    margin-bottom: 10%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#colorToGuess {
+    text-align: center;
+    font-family: 'Luckiest Guy',cursive;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
 .pulsate:hover {
   animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
@@ -14,6 +32,7 @@
 #colorGamePage {
     margin-top: 15%
 }
+
 @keyframes shake {
     10%, 90% {
       transform: translate3d(-1px, 0, 0);

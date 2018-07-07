@@ -98,10 +98,15 @@ h3{
     padding: 3rem;
 }
 
+
+
 @media only screen and (max-width:1024px){
     #shapeGameName {
         margin-top: 20%;
     }
 }
 
+#lefttogo {
+    margin-bottom: 10%;
+}
 

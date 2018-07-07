@@ -31,9 +31,9 @@ class Games extends Component {
                             <img className='gameImg' src="./images/color.PNG" alt="color game" />
                             <span className='gameName'> Color Game</span>
                         </Link>
-                        <Link id='cardgame' to='/games/cardgame' onMouseDownCapture = {this.scrollGameSound}>
+                        <Link id='cardgame' to='#'>
                             <img className='gameImg' src="./images/memory.PNG" alt="color game" />
-                            <span className='gameName'> Memory Game</span>
+                            <span className='gameName'>(coming soon)</span>
                         </Link>
                         <Link id='numbergame' to='/games/numbergame' onMouseDownCapture = {this.scrollGameSound}>
                             <img className='gameImg' src="./images/number.PNG" alt="number game" />

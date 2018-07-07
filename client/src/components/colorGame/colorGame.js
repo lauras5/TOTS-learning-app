@@ -316,16 +316,16 @@ class ColorGame extends Component {
             <Fragment>
                 <Navbar/>
                 <div id="colorGamePage">
-                    <h1> The Color Game!</h1>
+                    <h2 id='gameName'> The Color Game!</h2>
                     <div className="container" id="color-container">
                         <div className="rowColors">
                             {this.randomRender()}
                             </div>
                             </div>
                             
-                            <h1> Which face is.....</h1>
-                            <h1>{this.renderColortoGuess()}</h1>
-                    <h1>{10 - this.state.questionNum} to go!</h1>
+                            {/* <h2> Which face is...</h2> */}
+                            <h2 id='colorToGuess'>{this.renderColortoGuess()}</h2>
+                    <h2 id='lefttogo'>{10 - this.state.questionNum} to go!</h2>
 
                 </div>
                 {this.modalPlayAgain()}

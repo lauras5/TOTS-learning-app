@@ -69,8 +69,6 @@ h3{
     color: rgb(51, 49, 49);
 }
 
-
-
 #playAgainModalText{
     color: blue;
 }
@@ -85,15 +83,6 @@ h3{
     color: red;
     font-family: 'Luckiest Guy',cursive;
     text-align: center;
-}
-
-
-#shapePlayAgain{
-    
-}
-
-#shapeNotPlayAgain{
-    
 }
 
 .rowShapes{
