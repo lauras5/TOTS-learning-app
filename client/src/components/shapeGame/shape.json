@@ -3,12 +3,12 @@
   {
     "id": 1,
     "name": "Circle",
-    "image": "../images/blue-circle.png"
+    "image": "../images/blue-circle.PNG"
   },
   {
     "id": 2,
     "name": "Triangle",
-    "image": "../images/triangle-green.png"
+    "image": "../images/triangle-green.PNG"
   },
   {
     "id": 3,
@@ -18,11 +18,11 @@
   {
     "id": 4,
     "name": "Star",
-    "image": "../images/star.png"
+    "image": "../images/star.PNG"
   },
   {
     "id": 5,
     "name": "Heart",
-    "image": "../images/heart.png"
+    "image": "../images/heart.PNG"
   }
 ]
