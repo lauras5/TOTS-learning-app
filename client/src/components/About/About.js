@@ -14,26 +14,31 @@ const About = () => {
           <div className="team-image">
             <img className="lanceImg" src="../images/lance.png" alt="lance" />
             <p>Lance Lee</p>
+            <p>Back End Development</p>
           </div>
 
           <div className="team-image">
             <img className="lauraImg" src="../images/laura.jpg" alt="laura" />
             <p>Laura Salcido</p>
+            <p>Back End Development</p>
           </div>
 
           <div className="team-image">
             <img className="michaelImg" src="../images/michael.png" alt="michael" />
             <p>Michael Gamatero</p>
+            <p>Front & Back End Development</p>
           </div>
 
           <div className="team-image">
             <img className="shazImg" src="../images/shaz.jpg" alt="shaz" />
             <p>Shaz Ifthikar</p>
+            <p>Front End Development</p>
           </div>
 
           <div className="team-image">
             <img className="alvinImg" src="../images/alvin.png" alt="alvin" />
             <p>Alvin Ayusa</p>
+            <p>Front End Development</p>
           </div>
 
         </div>

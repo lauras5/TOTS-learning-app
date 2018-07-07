@@ -45,6 +45,11 @@ p {
 
 @media only screen and (max-width:768px){
     #theTeam {
-        margin-top: 95%;
+        margin-top: 30%;
+    }
+
+    #indexGallery {
+        margin-bottom: 10%;
+        
     }
 }
