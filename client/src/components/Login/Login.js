@@ -3,9 +3,7 @@ import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import { Row, Input, Card, Modal, Button } from 'react-materialize';
 import './Login.css';
-import Navbar from '../Navbar'
 import Footer from '../Footer'
-// import User from '../'
 
 class Login extends Component {
     constructor(props) {

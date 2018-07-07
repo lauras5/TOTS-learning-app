@@ -14,31 +14,31 @@ module.exports = {
         const numberGameQuestionArray = [
             {
                 question: "How Many Apples Are There?",
-                questionImage: "./components/NumberGame/img/apples.jpg",
+                questionImage: "../images/apples.jpg",
                 choices:[1, 3, 4, 6], 
                 correctAnswerIndex: 2
             },
             {
                 question: "How Many Oranges Are There?",
-                questionImage: "./components/NumberGame/img/oranges.jpg",
+                questionImage: "../images/oranges.jpg",
                 choices:[6, 4, 9, 5], 
-                correctAnswerIndex: 0
+                correctAnswerIndex: 1
             },
             {
                 question: "How Many Strawberries Are There?",
-                questionImage: "./components/NumberGame/img/strawberries.jpg",
+                questionImage: "../images/strawberries.jpg",
                 choices:[1, 2, 3, 4], 
                 correctAnswerIndex: 2
             },
             {
                 question: "How Many Cherries Are There?",
-                questionImage: "./components/NumberGame/img/cherries.jpg",
+                questionImage: "../images/cherries.jpg",
                 choices:[1, 2, 5, 10], 
                 correctAnswerIndex: 1
             },
             {
                 question: "How Many Cookies Are There?",
-                questionImage: "./components/NumberGame/img/cookies.jpg",
+                questionImage: "../images/cookies.jpg",
                 choices:[2, 3, 4, 5], 
                 correctAnswerIndex: 3
             }

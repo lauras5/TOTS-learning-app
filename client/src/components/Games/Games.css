@@ -11,7 +11,7 @@
 }
 
 .carousel {
-    height: 300px;
+    height: 350px;
     margin-top: 5%;
     width: 100%;
 }
@@ -27,4 +27,5 @@
     padding: 5px;
     border-radius: 50px;
 }
+
 

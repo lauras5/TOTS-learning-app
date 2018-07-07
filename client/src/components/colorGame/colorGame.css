@@ -11,6 +11,9 @@
   perspective: 1000px;
 }
 
+#colorGamePage {
+    margin-top: 15%
+}
 @keyframes shake {
     10%, 90% {
       transform: translate3d(-1px, 0, 0);
@@ -39,6 +42,12 @@
     }
     100% { 
         opacity: 0.5;
+    }
+}
+
+@media only screen and (max-width:1024px){
+    #colorGamePage {
+        margin-top: 20%;
     }
 }
 

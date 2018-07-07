@@ -5,7 +5,6 @@
 }
 
 .pulsate-shape:hover {
-  /* animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both; */
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
@@ -97,7 +96,12 @@ h3{
     border:solid 1rem rgb(172, 216, 230);
     border-radius: 5%;
     padding: 3rem;
+}
 
-  }
+@media only screen and (max-width:1024px){
+    #shapeGameName {
+        margin-top: 20%;
+    }
+}
 
 

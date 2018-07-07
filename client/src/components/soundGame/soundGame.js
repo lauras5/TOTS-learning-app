@@ -60,8 +60,8 @@ class SoundGame extends Component {
     randomRender = () => {
         return (
             this.shuffle(this.state.sound).map(shapeFromSoundArray =>
-                <div className="card col-s2 soundCardIndividual" onClick={this.handleClicked}>
-                    <div className="card-title">{shapeFromSoundArray.name}</div>
+                <div className="card col-s2 soundCardIndividual" onClick={this.handleClicked} key={shapeFromSoundArray.name}>
+                    <div className="card-title">{shapeFromSoundArray.name} </div>
                     <div className="img-container">
                         <img
                             alt={shapeFromSoundArray.name}
@@ -151,8 +151,9 @@ class SoundGame extends Component {
             wrongSound.play()
             this.setState({ incorrectScore: this.state.incorrectScore + 1 })
             this.setSoundToGuess()
-
+            
         }
+        
 
         //exit condition in bottom
         if (this.state.questionNum > 8) {
@@ -334,7 +335,7 @@ class SoundGame extends Component {
                 <div id="soundGamePage">
                     <h1 id='soundGameName'> The Sound Game!</h1>
                     {/* <h1>{this.renderSoundToGuess()}</h1> */}
-                    
+
                     <div className="container" id='sound-container'>
                         <div className="rowShapes">
                             {this.randomRender()}

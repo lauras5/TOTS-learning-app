@@ -1,8 +1,23 @@
 .numberGameImage {
+    display:block;
     margin: auto;
     width: 50%;
+    border: 2px solid black;
+}
+
+#choiceBtns {
+    display: block;
+    margin: auto;
 }
 
 .numberGameBtn {
     margin: 10px;
+}
+
+#numGameName {
+    margin-top: 15%;
+}
+
+#buttonOne {
+    margin-left: 33%;
 }
