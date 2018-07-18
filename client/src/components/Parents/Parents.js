@@ -188,6 +188,9 @@ class Parent extends Component {
         return (
             <Fragment>
                 <Navbar />
+
+                <h2> Statistics for {this.state.currentUser.child} </h2>
+
                 <div id='parentsPage'>
                     <Row>
                         <Col s={6} className="numberGameChart">
