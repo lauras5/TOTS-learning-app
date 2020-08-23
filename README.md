@@ -11,7 +11,6 @@
   <li>Materialize NPM</li>
   <li>Mongo</li>
   <li>Mongoose</li> 
-  <li></li>
 </ul>
 
 <ul> <h3>Future Development</h3>
@@ -20,5 +19,3 @@
 
 <h3>Contributions</h3>
 <p>Laura Salcido, Lance Lee, Michael </p>
-
-![DEMO]()
